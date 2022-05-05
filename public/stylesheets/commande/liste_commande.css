@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/* line 2, ../../sass/commande/liste_commande.scss */
+.contenu {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  opacity: 1;
+  width: 1160px;
+  height: 400px;
+  margin-top: 27px;
+}
+
+/* line 15, ../../sass/commande/liste_commande.scss */
+.partie1 {
+  width: 100%;
+  margin: 0px auto 0px auto;
+  background-color: white;
+  color: black;
+  position: sticky;
+  top: 0px;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+/* line 26, ../../sass/commande/liste_commande.scss */
+.partie1 ul {
+  list-style-type: none;
+}
+
+/* line 30, ../../sass/commande/liste_commande.scss */
+.partie1 li {
+  float: left;
+  width: 11%;
+  /*100% divisé par le nombre d'éléments de menu*/
+  text-align: center;
+  /*Centre le texte dans les éléments de menu*/
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+/* line 37, ../../sass/commande/liste_commande.scss */
+.partie1 ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 43, ../../sass/commande/liste_commande.scss */
+.partie1 a {
+  display: block;
+  /*Toute la surface sera cliquable*/
+  text-decoration: none;
+  color: black;
+  padding: 7px 0px;
+  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+/* line 50, ../../sass/commande/liste_commande.scss */
+.partie1 a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+}
+
+/* line 55, ../../sass/commande/liste_commande.scss */
+.partie2 {
+  display: flex;
+  background-color: white;
+  height: 67px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+/* line 63, ../../sass/commande/liste_commande.scss */
+.span {
+  padding: 21px;
+  color: #ACACAC;
+  font-size: 14px;
+}
+
+/* line 70, ../../sass/commande/liste_commande.scss */
+.span p {
+  padding-left: 16px;
+}
+
+/* line 75, ../../sass/commande/liste_commande.scss */
+.table {
+  background-color: white;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+/* line 80, ../../sass/commande/liste_commande.scss */
+.titre {
+  margin: 2px;
+}
+
+/* line 83, ../../sass/commande/liste_commande.scss */
+.titre1 {
+  text-align: center;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 45px;
+  margin-left: -36px;
+}
+
+/* line 97, ../../sass/commande/liste_commande.scss */
+.titre2 {
+  text-align: center;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 45px;
+}
+
+/* line 110, ../../sass/commande/liste_commande.scss */
+.partie2 .row {
+  width: 100%;
+}
+
+/* line 114, ../../sass/commande/liste_commande.scss */
+.titre2 button {
+  background-color: #197DFF;
+  color: white;
+  width: 200px;
+  height: 35px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* line 126, ../../sass/commande/liste_commande.scss */
+.table-hover tbody tr:hover {
+  background-color: rgba(236, 236, 236, 0.075);
+  border: 2px  solid #FF9D19;
+}

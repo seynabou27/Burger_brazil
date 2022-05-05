@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+
+{% block body %}
+    {{ parent() }}
+    <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+
+        <div class="row">
+            <div class=" col-6 titre">
+            
+                <div class="prod">
+                    <h4><b>Produits</b></h4>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 produit">
+                <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
+                    NOUVEAU PRODUIT                      
+                </button>
+
+            </div>
+
+        </div>
+        <div class="contenu3 container" style="background: #FFFFFF 0% 0% no-repeat padding-box; width: 908px;">
+            <div class="menu_produit">
+                <ul>
+                    <li><a href="#">Tout</a></li>
+                    <li><a href="#">Menus</a></li>
+                    <li><a href="#">Burgers</a></li>
+                    <li><a href="#">Complements</a></li>
+    
+                </ul>
+
+            </div>
+            
+                <div class="">
+                    <span class="span">
+                        <p>20 Produits</p>
+                    </span>
+                </div>
+                
+                <div class=" select">
+
+                    <select name="" id="">
+                        <option value="">Type de produit</option>
+                    </select>
+
+                    <select name="" id="">
+                        <option value="">Date d'ajout</option>
+                    </select>
+
+
+                </div>
+
+            
+
+        </div>
+        <div class="container contenu2 mx-auto mt-4">
+            <div class="row cards" style=" margin-right: 105px; margin-left: 90px;">
+              <div class="col-md-4">
+                <div class="card" style="width: 300px;">
+            <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Cheese Burgers</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
+              {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+              <a href="#" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+            </div>
+            </div>
+              </div>    
+                 <div class="col-md-4">
+          <div class="card" style="width: 300px;">
+            <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Cheese Burgers</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
+                  <a href="#" class="btn details "  style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+                </div>
+            </div>
+            </div>    
+            <div class="col-md-4">
+                <div class="card" style="width:300px;">
+                    <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheese Burgers</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Menu  .  15 000 Fcfa</h6>
+                        {# <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a> #}
+                        <a href="#" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <div class="card" style="width:300px;">
+                    <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheese Burgers</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Menu  .  15 000 Fcfa</h6>
+                        {# <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a> #}
+                        <a href="#" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+
+
+    </body>
+
+{% endblock %}

@@ -1,0 +1,448 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/menu/menu.scss */
+.menu {
+  background-color: #1A1A1A;
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 56px;
+}
+
+/* line 13, ../sass/menu/menu.scss */
+.custom-navbar {
+  box-shadow: 10px 10px 10px #eee;
+  background-color: #1A1A1A;
+}
+
+/* line 18, ../sass/menu/menu.scss */
+.nav-link {
+  color: #ffffff !important;
+}
+
+/* line 21, ../sass/menu/menu.scss */
+.nav-item:hover {
+  border-bottom: 3px solid #FF9D19;
+}
+
+/* line 27, ../sass/menu/menu.scss */
+.custom-toggler.navbar-toggler {
+  border-color: #f7204e;
+}
+
+/* line 30, ../sass/menu/menu.scss */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* line 33, ../sass/menu/menu.scss */
+.custom-toggler .navbar-toggler-icon {
+  width: 18px !important;
+}
+
+/* line 36, ../sass/menu/menu.scss */
+.custom-toggler:hover {
+  border-color: white;
+  background-color: #f76a88;
+}
+
+/* line 39, ../sass/menu/menu.scss */
+.navbar-toggler-icon:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* line 42, ../sass/menu/menu.scss */
+#logo_custom {
+  margin-top: -6px;
+}
+
+/* line 49, ../sass/menu/menu.scss */
+.notification {
+  padding: 4px;
+  margin-right: 11px;
+}
+
+@media only screen and (max-width: 760px) {
+  /* line 64, ../sass/menu/menu.scss */
+  #logo_custom {
+    width: 40%;
+  }
+}
+/* line 2, ../sass/commande/liste_commande.scss */
+.contenu {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  opacity: 1;
+  width: 1160px;
+  height: 400px;
+  margin-top: 27px;
+}
+
+/* line 15, ../sass/commande/liste_commande.scss */
+.partie1 {
+  width: 100%;
+  margin: 0px auto 0px auto;
+  background-color: white;
+  color: black;
+  position: sticky;
+  top: 0px;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+/* line 26, ../sass/commande/liste_commande.scss */
+.partie1 ul {
+  list-style-type: none;
+}
+
+/* line 30, ../sass/commande/liste_commande.scss */
+.partie1 li {
+  float: left;
+  width: 11%;
+  /*100% divisé par le nombre d'éléments de menu*/
+  text-align: center;
+  /*Centre le texte dans les éléments de menu*/
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+/* line 37, ../sass/commande/liste_commande.scss */
+.partie1 ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 43, ../sass/commande/liste_commande.scss */
+.partie1 a {
+  display: block;
+  /*Toute la surface sera cliquable*/
+  text-decoration: none;
+  color: black;
+  padding: 7px 0px;
+  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+/* line 50, ../sass/commande/liste_commande.scss */
+.partie1 a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+}
+
+/* line 55, ../sass/commande/liste_commande.scss */
+.partie2 {
+  display: flex;
+  background-color: white;
+  height: 67px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+/* line 63, ../sass/commande/liste_commande.scss */
+.span {
+  padding: 21px;
+  color: #ACACAC;
+  font-size: 14px;
+}
+
+/* line 70, ../sass/commande/liste_commande.scss */
+.span p {
+  padding-left: 16px;
+}
+
+/* line 75, ../sass/commande/liste_commande.scss */
+.table {
+  background-color: white;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+/* line 80, ../sass/commande/liste_commande.scss */
+.titre {
+  margin: 2px;
+}
+
+/* line 83, ../sass/commande/liste_commande.scss */
+.titre1 {
+  text-align: center;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 45px;
+  margin-left: -36px;
+}
+
+/* line 97, ../sass/commande/liste_commande.scss */
+.titre2 {
+  text-align: center;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 45px;
+}
+
+/* line 110, ../sass/commande/liste_commande.scss */
+.partie2 .row {
+  width: 100%;
+}
+
+/* line 114, ../sass/commande/liste_commande.scss */
+.titre2 button {
+  background-color: #197DFF;
+  color: white;
+  width: 200px;
+  height: 35px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* line 126, ../sass/commande/liste_commande.scss */
+.table-hover tbody tr:hover {
+  background-color: rgba(236, 236, 236, 0.075);
+  border: 2px  solid #FF9D19;
+}
+
+/* line 1, ../sass/commande/produit.scss */
+.contenu1 {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  opacity: 1;
+  height: 150px;
+  margin-top: 32px;
+}
+
+/* line 14, ../sass/commande/produit.scss */
+.menu_produit {
+  width: 100%;
+  margin: 0px auto 0px auto;
+  background-color: white;
+  color: black;
+  position: sticky;
+  top: 0px;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+/* line 27, ../sass/commande/produit.scss */
+.menu_produit ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+/* line 32, ../sass/commande/produit.scss */
+.menu_produit li {
+  float: left;
+  width: 8%;
+  /*100% divisé par le nombre d'éléments de menu*/
+  text-align: center;
+  /*Centre le texte dans les éléments de menu*/
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+/* line 39, ../sass/commande/produit.scss */
+.menu_produit ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 45, ../sass/commande/produit.scss */
+.menu_produit a {
+  display: block;
+  /*Toute la surface sera cliquable*/
+  text-decoration: none;
+  color: black;
+  padding: 7px 0px;
+  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+/* line 52, ../sass/commande/produit.scss */
+.menu_produit a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+  border-radius: 2px;
+}
+
+/* line 60, ../sass/commande/produit.scss */
+.prod {
+  text-align: left;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 40px;
+  margin-left: 179px;
+}
+
+/* line 72, ../sass/commande/produit.scss */
+.select {
+  float: right;
+  padding-right: 50px;
+  margin-top: -60px;
+}
+
+/* line 77, ../sass/commande/produit.scss */
+.select select {
+  padding: 6px;
+  outline: none;
+  border-radius: 3px;
+  background: white;
+}
+
+/* line 87, ../sass/commande/produit.scss */
+.contenu3 {
+  width: 100%;
+  padding-right: 100px;
+  padding-left: 125px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 35px;
+}
+
+/* line 98, ../sass/commande/produit.scss */
+.col-md-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 25px;
+  padding-left: 69px;
+}
+
+/* line 105, ../sass/commande/produit.scss */
+.details .btn {
+  margin-left: 147px;
+}
+
+/* line 109, ../sass/commande/produit.scss */
+.produit button {
+  margin-top: 38px;
+  background-color: #197DFF;
+  color: white;
+  width: 174px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 215px;
+}
+
+@media (min-width: 1200px) {
+  /* line 133, ../sass/commande/produit.scss */
+  .container {
+    max-width: 1140px;
+  }
+}
+/* line 1, ../sass/commande/tableau_bord.scss */
+.taleau {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 30px;
+}
+
+/* line 7, ../sass/commande/tableau_bord.scss */
+.right {
+  background-color: brown;
+}
+
+/* line 11, ../sass/commande/tableau_bord.scss */
+.left {
+  background-color: burlywood;
+}
+
+/* line 14, ../sass/commande/tableau_bord.scss */
+.title h5 {
+  text-align: left;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 40px;
+  margin-left: 179px;
+}
+
+/* line 26, ../sass/commande/tableau_bord.scss */
+.part1 {
+  background-color: #EDEDED;
+  height: 142px;
+}
+
+/* line 32, ../sass/commande/tableau_bord.scss */
+.part2 {
+  background-color: white;
+  height: 200px;
+}

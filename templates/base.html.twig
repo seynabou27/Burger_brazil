@@ -6,14 +6,71 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="/stylesheets/screen.css"> 
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            {# {{ encore_entry_script_tags('app') }} #}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% block nav  %}
+
+        <nav class="navbar  navbar-expand-md custom-navbar navbar-dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="140" height="25" viewBox="0 0 140 25">
+              <g id="Groupe_151589" data-name="Groupe 151589" transform="translate(-452 -331)">
+                <g id="Groupe_151256" data-name="Groupe 151256" transform="translate(0 1)">
+                  <path id="Rectangle_137222" data-name="Rectangle 137222" d="M7,0H18.955A6.045,6.045,0,0,1,25,6.045V7a0,0,0,0,1,0,0H0A0,0,0,0,1,0,7V7A7,7,0,0,1,7,0Z" transform="translate(454 331)" fill="#ff9d19"/>
+                  <path id="Rectangle_137223" data-name="Rectangle 137223" d="M0,0H25a0,0,0,0,1,0,0V.955A6.045,6.045,0,0,1,18.955,7H7A7,7,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(454 348)" fill="#ff9d19"/>
+                  <rect id="Rectangle_137224" data-name="Rectangle 137224" width="29" height="6" rx="3" transform="translate(452 340)" fill="#ff9d19"/>
+                </g>
+                <text id="BurgerFood" transform="translate(490 349)" fill="#fff" font-size="18" font-family="Avenir-Black, Avenir" font-weight="800"><tspan x="0" y="0">BrazilBurger</tspan></text>
+              </g>
+            </svg>
+          {# <img class="navbar-brand" src="http://acmsocc.github.io/2016/assets/img/googlelogo_color_324x112dp.png" id="logo_custom" width="10%"  alt="logo"> #}
+             <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                 <span class="navbar-toggler-icon "></span>
+             </button>
+               <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                   <ul class="navbar-nav m-auto ">
+                     <li class="nav-item">
+                       <a class="nav-link" href="{{path('tableau_bord')}}"><b>Tableau de bord</b></a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{{path('liste_commande')}}"><b>Commandes</b></a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="{{path('produit')}}"><b>Produits</b></a>
+                     </li>  
+                   </ul>
+                  <form class="form-inline ml-auto">
+      
+                     {# <input  class="form-control mr-sm-4 form" type="text" placeholder="Search"> #}
+      
+                     
+                          <div class="notification">
+                              <svg id="icon-social-notifications_24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                  <rect id="Boundary" width="24" height="24" fill="none"/>
+                                  <path id="_Color" data-name=" ↳Color" d="M8,19.5a2,2,0,0,1-2-2h4A2,2,0,0,1,8,19.5Zm8-3H0v-1l2-2v-5A7.1,7.1,0,0,1,3.174,4.44,5.522,5.522,0,0,1,6.5,2.18V1.5a1.5,1.5,0,0,1,3,0v.68a5.529,5.529,0,0,1,3.322,2.264A7.085,7.085,0,0,1,14,8.5v5l2,2v1Z" transform="translate(4 2)" fill="rgba(255,255,255,0.74)"/>
+                              </svg> 
+                          </div>
+                          <div class="identifiant">
+                              <svg id="person_black_24dp_2_" data-name="person_black_24dp (2)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                  <path id="Tracé_2411" data-name="Tracé 2411" d="M0,0H24V24H0Z" fill="none"/>
+                                  <path id="Tracé_2412" data-name="Tracé 2412" d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z" fill="#c9c9c9"/>
+                              </svg> 
+                          </div>         
+                      
+                  </form>
+               </div>  
+              </nav>
+
+        {% endblock nav %}
+
+        {% endblock %}
     </body>
 </html>

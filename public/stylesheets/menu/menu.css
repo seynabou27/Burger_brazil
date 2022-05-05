@@ -1,0 +1,68 @@
+/* line 4, ../../sass/menu/menu.scss */
+.menu {
+  background-color: #1A1A1A;
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 56px;
+}
+
+/* line 13, ../../sass/menu/menu.scss */
+.custom-navbar {
+  box-shadow: 10px 10px 10px #eee;
+  background-color: #1A1A1A;
+}
+
+/* line 18, ../../sass/menu/menu.scss */
+.nav-link {
+  color: #ffffff !important;
+}
+
+/* line 21, ../../sass/menu/menu.scss */
+.nav-item:hover {
+  border-bottom: 3px solid #FF9D19;
+}
+
+/* line 27, ../../sass/menu/menu.scss */
+.custom-toggler.navbar-toggler {
+  border-color: #f7204e;
+}
+
+/* line 30, ../../sass/menu/menu.scss */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* line 33, ../../sass/menu/menu.scss */
+.custom-toggler .navbar-toggler-icon {
+  width: 18px !important;
+}
+
+/* line 36, ../../sass/menu/menu.scss */
+.custom-toggler:hover {
+  border-color: white;
+  background-color: #f76a88;
+}
+
+/* line 39, ../../sass/menu/menu.scss */
+.navbar-toggler-icon:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* line 42, ../../sass/menu/menu.scss */
+#logo_custom {
+  margin-top: -6px;
+}
+
+/* line 49, ../../sass/menu/menu.scss */
+.notification {
+  padding: 4px;
+  margin-right: 11px;
+}
+
+@media only screen and (max-width: 760px) {
+  /* line 64, ../../sass/menu/menu.scss */
+  #logo_custom {
+    width: 40%;
+  }
+}
