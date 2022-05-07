@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -26,14 +28,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    // #[ORM\Column(type: 'string', length: 255)]
-    // private $nom;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $nom;
 
-    // #[ORM\Column(type: 'string', length: 255)]
-    // private $prenom;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $prenom;
 
-    // #[ORM\Column(type: 'string', length: 255)]
-    // private $telephone;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $telephone;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commande::class)]
+    private $commandes;
+
+   
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -107,39 +120,83 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    // public function getNom(): string
-    // {
-    //     return $this->nom;
-    // }
+    
 
-    // public function setNom(string $nom): self
-    // {
-    //     $this->nom = $nom;
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
 
-    //     return $this;
-    // }
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
 
-    // public function getPrenom(): string
-    // {
-    //     return $this->prenom;
-    // }
+        return $this;
+    }
 
-    // public function setPrenom(string $prenom): self
-    // {
-    //     $this->prenom = $prenom;
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
 
-    //     return $this;
-    // }
+    public function setPrenom(?string $prenom): self
+    {
+        $this->prenom = $prenom;
 
-    // public function getTelephone(): ?string
-    // {
-    //     return $this->telephone;
-    // }
+        return $this;
+    }
 
-    // public function setTelephone(string $telephone): self
-    // {
-    //     $this->telephone = $telephone;
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
 
-    //     return $this;
-    // }
+    public function setTelephone(?int $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getUser() === $this) {
+                $commande->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
+
+    
 }

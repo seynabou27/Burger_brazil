@@ -13,7 +13,7 @@ class Commande
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $numero_commande;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -22,17 +22,25 @@ class Commande
     #[ORM\Column(type: 'string', length: 255)]
     private $etat_commande;
 
+    #[ORM\Column(type: 'integer')]
+    private $telephone_commande;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commandes')]
+    private $user;
+
+    
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumeroCommande(): ?int
+    public function getNumeroCommande(): ?string
     {
         return $this->numero_commande;
     }
 
-    public function setNumeroCommande(int $numero_commande): self
+    public function setNumeroCommande(string $numero_commande): self
     {
         $this->numero_commande = $numero_commande;
 
@@ -62,4 +70,30 @@ class Commande
 
         return $this;
     }
+
+    public function getTelephoneCommande(): ?int
+    {
+        return $this->telephone_commande;
+    }
+
+    public function setTelephoneCommande(int $telephone_commande): self
+    {
+        $this->telephone_commande = $telephone_commande;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    
 }
