@@ -16,7 +16,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/catalogue', name: 'catalogue')]
+    #[Route('/', name: 'catalogue')]
     public function catalogue(): Response
     {
         return $this->render('client/catalogue.html.twig', [
@@ -28,6 +28,14 @@ class ClientController extends AbstractController
     public function details(): Response
     {
         return $this->render('client/details.html.twig', [
+            'controller_name' => 'ClientController',
+        ]);
+    }
+
+    #[Route('/mes_commandes', name: 'mes_commandes')]
+    public function showsCommande(): Response
+    {
+        return $this->render('client/mes_commandes.html.twig', [
             'controller_name' => 'ClientController',
         ]);
     }

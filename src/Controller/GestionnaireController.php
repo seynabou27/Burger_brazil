@@ -15,4 +15,32 @@ class GestionnaireController extends AbstractController
             'controller_name' => 'GestionnaireController',
         ]);
     }
+
+    #[Route('/liste_commandes_client', name: 'client_gestionnaire')]
+    public function showCommandeClient(): Response
+    {
+        return $this->render('gestionnaire/liste_commandes_client.html.twig', [
+            'controller_name' => 'GestionnaireController',
+        ]);
+    }
+
+    #[Route('/ajout_produit', name: 'ajout_produit')]
+    public function addProduit(): Response
+    {
+        return $this->render('gestionnaire/ajout_produit.html.twig', [
+            'controller_name' => 'GestionnaireController',
+        ]);
+    }
+
+    #[Route('/tableau_bord', name: 'tableau_bord')]
+    public function showSatistique(): Response
+    {
+        return $this->render('gestionnaire/tableau_bord.html.twig', [
+            'controller_name' => 'GestionnaireController',
+        ]);
+    }
+
+
+    
+
 }

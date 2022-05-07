@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,13 +26,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Role::class)]
-    private $Role;
+    // #[ORM\Column(type: 'string', length: 255)]
+    // private $nom;
 
-    public function __construct()
-    {
-        $this->Role = new ArrayCollection();
-    }
+    // #[ORM\Column(type: 'string', length: 255)]
+    // private $prenom;
+
+    // #[ORM\Column(type: 'string', length: 255)]
+    // private $telephone;
 
     public function getId(): ?int
     {
@@ -71,6 +70,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
+        // $roles[] = 'ROLE_ADMIN';
+
 
         return array_unique($roles);
     }
@@ -106,33 +107,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return Collection<int, Role>
-     */
-    public function getRole(): Collection
-    {
-        return $this->Role;
-    }
+    // public function getNom(): string
+    // {
+    //     return $this->nom;
+    // }
 
-    public function addRole(Role $role): self
-    {
-        if (!$this->Role->contains($role)) {
-            $this->Role[] = $role;
-            $role->setUser($this);
-        }
+    // public function setNom(string $nom): self
+    // {
+    //     $this->nom = $nom;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeRole(Role $role): self
-    {
-        if ($this->Role->removeElement($role)) {
-            // set the owning side to null (unless already changed)
-            if ($role->getUser() === $this) {
-                $role->setUser(null);
-            }
-        }
+    // public function getPrenom(): string
+    // {
+    //     return $this->prenom;
+    // }
 
-        return $this;
-    }
+    // public function setPrenom(string $prenom): self
+    // {
+    //     $this->prenom = $prenom;
+
+    //     return $this;
+    // }
+
+    // public function getTelephone(): ?string
+    // {
+    //     return $this->telephone;
+    // }
+
+    // public function setTelephone(string $telephone): self
+    // {
+    //     $this->telephone = $telephone;
+
+    //     return $this;
+    // }
 }

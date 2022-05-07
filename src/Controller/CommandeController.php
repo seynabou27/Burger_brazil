@@ -34,11 +34,5 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    #[Route('/tableau_bord', name: 'tableau_bord')]
-    public function showSatistique(): Response
-    {
-        return $this->render('commande/tableau_bord.html.twig', [
-            'controller_name' => 'CommandeController',
-        ]);
-    }
+    
 }

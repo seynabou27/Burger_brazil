@@ -16,8 +16,7 @@ class Role
     #[ORM\Column(type: 'string', length: 255)]
     private $nom_role;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'Role')]
-    private $user;
+    
 
     public function getId(): ?int
     {
@@ -36,15 +35,7 @@ class Role
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
+    
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
+    
 }
