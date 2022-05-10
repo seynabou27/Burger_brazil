@@ -8,10 +8,10 @@
     width: 1366px;
     height: 56px;
     
-}
+}   
 
 .custom-navbar{
-    box-shadow: 10px 10px 10px #eee; 
+    // box-shadow: 10px 10px 10px #eee; 
     // z-index:1;
     background-color: #1A1A1A;
 }
@@ -56,6 +56,49 @@
 //     border-radius: 50%;
 // }
 
+.connexion{
+
+    background-color: #197DFF;
+    border: 2px solid #197DFF;
+    border-radius: 4px;
+    color: white;
+    padding: 6px;
+    margin: 6px;
+    font: normal normal bold 16px/19px Product Sans;
+    letter-spacing: 0px;
+
+
+    
+}
+ a:hover.connexion {
+    color: white;
+    text-decoration: none;
+
+}
+
+.inscription{
+
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 6px;
+    margin: 6px;
+    font: normal normal bold 16px/19px Product Sans;
+    letter-spacing: 0px;
+
+
+    
+}
+ a:hover.inscription {
+    color: white;
+    text-decoration: none;
+
+}
+
+
+.show{
+    display: block;
+}
 
 
 

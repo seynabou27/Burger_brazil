@@ -47,6 +47,35 @@ class CommandeRepository extends ServiceEntityRepository
         }
     }
 
+
+//     public function findPaginate($page,$limit,$commandes)
+//    {
+//        return $this->createQueryBuilder('i')  
+//            ->leftJoin('i.commande','a')
+//            ->andWhere('a.id=:id')
+//            ->setParameter('id', $commandes->getId())
+//            ->orderBy('i.dateAt', 'desc')
+//            ->setFirstResult($page)
+//            ->setMaxResults($limit)     
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function countCommandes($commandes)
+//    {
+//        return $this->createQueryBuilder('i')
+//                ->select('count(i.id) as count')
+//                ->leftJoin('i.commande', 'a')
+//                ->where('a.id = :id')
+//                ->setParameter('id',$commandes->getId())
+//                ->getQuery()
+//                ->getSingleScalarResult();
+//        ;
+//    }
+
+
+
     // /**
     //  * @return Commande[] Returns an array of Commande objects
     //  */

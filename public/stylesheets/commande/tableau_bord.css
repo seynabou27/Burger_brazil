@@ -5,17 +5,7 @@
   margin-top: 30px;
 }
 
-/* line 7, ../../sass/commande/tableau_bord.scss */
-.right {
-  background-color: brown;
-}
-
-/* line 11, ../../sass/commande/tableau_bord.scss */
-.left {
-  background-color: burlywood;
-}
-
-/* line 14, ../../sass/commande/tableau_bord.scss */
+/* line 8, ../../sass/commande/tableau_bord.scss */
 .title h5 {
   text-align: left;
   font: normal normal 300 32px/44px Avenir;
@@ -28,13 +18,13 @@
   margin-left: 179px;
 }
 
-/* line 26, ../../sass/commande/tableau_bord.scss */
+/* line 20, ../../sass/commande/tableau_bord.scss */
 .part1 {
   background-color: #EDEDED;
   height: 142px;
 }
 
-/* line 32, ../../sass/commande/tableau_bord.scss */
+/* line 26, ../../sass/commande/tableau_bord.scss */
 .part2 {
   background-color: white;
   height: 200px;

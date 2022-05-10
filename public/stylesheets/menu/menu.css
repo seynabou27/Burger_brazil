@@ -9,7 +9,6 @@
 
 /* line 13, ../../sass/menu/menu.scss */
 .custom-navbar {
-  box-shadow: 10px 10px 10px #eee;
   background-color: #1A1A1A;
 }
 
@@ -60,8 +59,48 @@
   margin-right: 11px;
 }
 
+/* line 59, ../../sass/menu/menu.scss */
+.connexion {
+  background-color: #197DFF;
+  border: 2px solid #197DFF;
+  border-radius: 4px;
+  color: white;
+  padding: 6px;
+  margin: 6px;
+  font: normal normal bold 16px/19px Product Sans;
+  letter-spacing: 0px;
+}
+
+/* line 73, ../../sass/menu/menu.scss */
+a:hover.connexion {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 79, ../../sass/menu/menu.scss */
+.inscription {
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 6px;
+  margin: 6px;
+  font: normal normal bold 16px/19px Product Sans;
+  letter-spacing: 0px;
+}
+
+/* line 92, ../../sass/menu/menu.scss */
+a:hover.inscription {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 99, ../../sass/menu/menu.scss */
+.show {
+  display: block;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 64, ../../sass/menu/menu.scss */
+  /* line 107, ../../sass/menu/menu.scss */
   #logo_custom {
     width: 40%;
   }

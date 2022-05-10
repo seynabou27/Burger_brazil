@@ -36,17 +36,21 @@
                  <span class="navbar-toggler-icon "></span>
              </button>
                <div class="collapse navbar-collapse " id="collapsibleNavbar">
-                   <ul class="navbar-nav m-auto ">
-                     <li class="nav-item">
-                       <a class="nav-link" href="{{path('tableau_bord')}}"><b>Tableau de bord</b></a>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link" href="{{path('liste_commande')}}"><b>Commandes</b></a>
-                     </li>
-                     <li class="nav-item">
-                       <a class="nav-link" href="{{path('produit')}}"><b>Produits</b></a>
-                     </li>  
-                   </ul>
+                   {% if is_granted ('IS_AUTHENTICATED_FULLY') %}
+
+                    <ul class="navbar-nav m-auto ">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{path('tableau_bord')}}"><b>Tableau de bord</b></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{path('liste_commande')}}"><b>Commandes</b></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{path('produit')}}"><b>Produits</b></a>
+                      </li>  
+                    </ul>
+
+                   
                   <form class="form-inline ml-auto">
       
                      {# <input  class="form-control mr-sm-4 form" type="text" placeholder="Search"> #}
@@ -58,25 +62,38 @@
                                   <path id="_Color" data-name=" ↳Color" d="M8,19.5a2,2,0,0,1-2-2h4A2,2,0,0,1,8,19.5Zm8-3H0v-1l2-2v-5A7.1,7.1,0,0,1,3.174,4.44,5.522,5.522,0,0,1,6.5,2.18V1.5a1.5,1.5,0,0,1,3,0v.68a5.529,5.529,0,0,1,3.322,2.264A7.085,7.085,0,0,1,14,8.5v5l2,2v1Z" transform="translate(4 2)" fill="rgba(255,255,255,0.74)"/>
                               </svg> 
                           </div>
-                          <div class="identifiant">
-                            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                              <li class="nav-item dropdown">
+                          <div class="identifiant ">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown ">
                                   <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                      {# {% if is_granted('IS_AUTHENTICATED_FULLY') %} #}
-                                          <li><a class="dropdown-item" href="#">Logout</a></li>
-                                      {# {% else %} #}
+                                  <ul id="drop" class="dropdown-menu dropdown-menu-end mr-5"style="margin-left: -95px" aria-labelledby="navbarDropdown">
+                                       {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+                                        <a  href="{{ path('app_logout') }}" class="button deconnexion"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
+                                       {% else %} 
                                           <li><a class="dropdown-item" href="#">Login</a></li>
                                           <li><a class="dropdown-item" href="#">Register</a></li>
-                                      {# {% endif %} #}
+                                       {% endif %} 
                       
                                   </ul>
                               </li>
-                          </ul>
+                            </ul>
                           </div> 
-                          <a  href="{{ path('app_logout') }}" class="button deconnexion"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
+                          {% endif %}
+                          {# {% if is_granted ('IS_GESTIONNAIRE') and ('IS_USER') %}
+                            <a  href="{{ path('app_logout') }}" class="button deconnexion"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
+                          {% endif %} #}
+                          {% block login %}   
+                            <div class="auth ml-auto">
+                              <a  href="{{ path('inscription') }}" class="button inscription">JE M'INSCRIS</a>
+                              <a  href="{{ path('app_login') }}" class="button connexion">JE ME CONNECTE</a>
+                            </div>
+                          {% endblock login %}
+
+
+
+
         
-                      
+                       
                   </form>
                </div>  
               </nav>
@@ -84,5 +101,10 @@
         {% endblock nav %}
 
         {% endblock %}
+        <script src="/js/app.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
     </body>
 </html>

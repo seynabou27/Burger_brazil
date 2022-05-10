@@ -17,6 +17,14 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    #[Route('/inscription', name: 'inscription')]
+    public function inscription(): Response
+    {
+        return $this->render('security/inscription.html.twig', [
+            'controller_name' => 'SecurityController',
+        ]);
+    }
+
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

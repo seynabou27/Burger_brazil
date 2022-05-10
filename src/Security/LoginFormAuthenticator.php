@@ -60,21 +60,25 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         //     return new RedirectResponse($this->urlGenerator->generate('mes_commandes'));
         // }
         // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        return new RedirectResponse($this->urlGenerator->generate('mes_commandes'));
-        // $roles = $token->getRoles();
-        // $rolesTab = array_map(function ($role) {
-        //     return $role->getRole();
-        // }, $roles);
-        
-        // if (in_array('ROLE_GESTIONNAIRE', $rolesTab, true)) {
-        //     // c'est un aministrateur : on le rediriger vers l'espace admin
-        //     $redirection = new RedirectResponse($this->router->generate('tableau_bord'));
-        // } else {
-        //     // c'est un utilisaeur lambda : on le rediriger vers l'accueil
-        //     $redirection = new RedirectResponse($this->router->generate('mes_commandes'));
-        // }
+        // return new RedirectResponse($this->urlGenerator->generate('mes_commandes'));
+        $roles = $token->getRoleNames();
+        $rolesTab = array_map(function ($role) {
+            return $role;
+        }, $roles);
+        // dump($rolesTab);
+        // die('okkk');
+        if (in_array('ROLE_GESTIONNAIRE', $rolesTab, true)) {
+            // c'est un gestionnaire : on le rediriger vers l'espace gestionnaire
+            // dump($rolesTab);
+            //     die('okkk');
+            $redirection = new RedirectResponse($this->urlGenerator->generate('tableau_bord'));
+        } elseif (in_array('ROLE_USER', $rolesTab, true)) {
+            // c'est un utilisaeur lambda : on le rediriger vers l'accueil
+            $redirection = new RedirectResponse($this->urlGenerator->generate('mes_commandes'));
+        }
 
-        // return $redirection;
+        return $redirection;
+
     }
 
         
