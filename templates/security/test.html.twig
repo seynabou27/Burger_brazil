@@ -40,3 +40,160 @@
     </button>
 </form>
 {% endblock %}
+
+
+
+
+<form method="post">
+
+    <div class="container-fluid login">
+        <div class="row login">
+            <div class="col-5 left">col-4
+                
+            </div>
+            
+            <div class="col-7 right">
+                <a  href="#"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS ACCUEIL</a>
+
+                <h4 class="connect1">
+                    CONNEXION
+                </h4>
+
+                <label for="inputEmail"></label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <label for="inputPassword"></label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+
+                <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}">
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                    </label>
+                </div>
+
+                <button type="submit" class="btn">Je me connecte</button>
+        
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--->
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm col-5 left">
+                One of three columns
+              </div>
+             
+              <div class="col-sm col-7 right">
+                One of three columns
+              </div>
+            </div>
+          </div>
+
+
+
+
+<!--
+
+    <div class="sidenav">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>
+                  <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" class="form-control" placeholder="User Name">
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-black">Login</button>
+                  <button type="submit" class="btn btn-secondary">Register</button>
+               </form>
+            </div>
+         </div>
+      </div>
+-->
+
+
+
+<div class="sidenav">
+    <img src="images/login.png" alt="">
+
+    <div class="login-main-text">
+        <h2>Application<br> Login Page</h2>
+        <p>Login or register from here to access.</p>
+    </div>
+    
+</div>
+ <div class="main right">
+    <div class="col-8 right">
+        <a  href="{{ path('catalogue') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS ACCUEIL</a>
+
+        <h4 class="connect1">
+            CONNEXION
+        </h4>
+           <div class="login-forms">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {# {% if app.user %}
+                    <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                    {% endif %} #}
+                    <div class="form-group">
+                        <label for="inputEmail">Email /Nom d'utilisateur</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Tapez ici">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Tapez ici">
+
+
+                    </div>
+                    
+                    <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}">
+
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
+
+                    <div class="end-lien">
+                        <button type="submit" class="btn btn-black mt-4 ">JE ME CONNECTE</button>        <br> <br>
+                    
+
+                        <a href="#" class="mot-out mt-4">J’AI OUBLIÉ MON MOT DE PASSE</a>
+
+                        <p>Je n’ai pas encore de compte, <a href="{{path('app_register')}}">Je m’inscris</a>.</p>
+
+
+                    </div>
+                </form>
+               
+           </div>
+    </div>
+    
+ </div>

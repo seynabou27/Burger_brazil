@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
@@ -27,6 +29,12 @@ class Commande
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commandes')]
     private $user;
+
+  
+    public function __construct()
+    {
+        $this->yes = new ArrayCollection();
+    }
 
     
 
@@ -94,6 +102,36 @@ class Commande
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    // public function addYe(Produit $ye): self
+    // {
+    //     if (!$this->yes->contains($ye)) {
+    //         $this->yes[] = $ye;
+    //         $ye->setCommande($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeYe(Produit $ye): self
+    // {
+    //     if ($this->yes->removeElement($ye)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($ye->getCommande() === $this) {
+    //             $ye->setCommande(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
 
     
 }

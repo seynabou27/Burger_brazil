@@ -1,0 +1,80 @@
+<h1>Register</h1>
+
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.prenom) }}
+
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.telephone) }}
+
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+
+
+
+    <div class="form-row">
+        <div class="form-groups col-md-4 ins1" >
+          <label for="input">Prénom (s)</label>
+          <input type="text" class="form-control" id="inputEmail4" placeholder="Tapez Ici">
+        </div>
+        <div class="form-groups col-md-4">
+          <label for="input">Nom</label>
+          <input type="text" class="form-control" id="input" placeholder="Tapez Ici">
+        </div>
+    </div>
+    <div class="form-row mt-4">
+    
+        <div class="form-groups  col-md-4">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-groups col-md-4">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group mt-4">
+        <label for="input">Téléphone</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="">
+
+
+    </div>
+    <div class="end-lien">
+        <button type="submit" class="btn btn-black mt-4 ">JE M'INSCRIS</button>        <br> <br>
+        
+
+        <p> J’ai déjà un compte, <a href="{{path('app_login')}}">Je me connecte</a>.</p>
+       
+
+
+    </div>
+
+
+
+    <div class="form-groups col-md-4">
+        {{ form_row(registrationForm.prenom) }}
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-groups col-md-4 ins1" >
+          {{ form_row(registrationForm.email) }}
+
+      </div>
+      <div class="form-groups col-md-4">
+          {{ form_row(registrationForm.plainPassword, {
+              label: 'Password'
+          }) }}                        
+      </div>
+
+      <div class="form-group">
+
+          {{ form_row(registrationForm.telephone) }}
+
+      </div>
+  </div>
+  

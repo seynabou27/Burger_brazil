@@ -7,7 +7,7 @@
 }
 
 /* line 8, ../../sass/client/catalogue.scss */
-.container-fluid img {
+#fluid img {
   width: 1242px;
   position: relative;
   z-index: 1;
@@ -191,7 +191,8 @@
   margin-top: 60px;
   align-items: center;
   margin-left: 438px;
-  height: 31px;
+  width: 230px;
+  height: 35px;
   background: #197DFF 0% 0% no-repeat padding-box;
   border-radius: 4px;
   opacity: 1;
@@ -225,7 +226,7 @@
 
 @media only screen and (max-width: 760px) {
   /* line 234, ../../sass/client/catalogue.scss */
-  .container-fluid img {
+  #fluid img {
     width: 400px;
   }
 }

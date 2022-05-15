@@ -1,1 +1,145 @@
-<h1>je suis dans liste_commande des clients ....</h1>
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block client %}{% endblock  %}
+
+{% block body %}
+
+<body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+
+        <div class="titre">
+            <div class="row">
+                <div class="col-6 titre1 ">
+                    <h4><b>Commandes</b></h4>
+
+
+                </div>
+                <div class="col-6 titre2">
+                    {# <svg class="icone1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <g id="Groupe_151237" data-name="Groupe 151237" transform="translate(-1741 -267)">
+                          <g id="reorder_black_24dp" transform="translate(1741 267)">
+                            <path id="Tracé_3507" data-name="Tracé 3507" d="M0,0H24V24H0Z" fill="none"/>
+                            <path id="Tracé_3508" data-name="Tracé 3508" d="M3,15H21V13H3Zm0,4H21V17H3Zm0-8H21V9H3ZM3,5V7H21V5Z" fill="#505050"/>
+                          </g>
+                        </g>
+                      </svg>
+
+                      <svg class="icone2" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                        <g id="Groupe_151236" data-name="Groupe 151236" transform="translate(-523 -730)">
+                          <rect id="Rectangle_824" data-name="Rectangle 824" width="6" height="6" transform="translate(523 730)" fill="#fff"/>
+                          <rect id="Rectangle_827" data-name="Rectangle 827" width="6" height="6" transform="translate(523 738)" fill="#fff"/>
+                          <rect id="Rectangle_825" data-name="Rectangle 825" width="6" height="6" transform="translate(531 730)" fill="#fff"/>
+                          <rect id="Rectangle_826" data-name="Rectangle 826" width="6" height="6" transform="translate(531 738)" fill="#fff"/>
+                        </g>
+                      </svg> #}
+                    {# <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
+                        NOUVELLE COMMANDE                      
+                    </button> #}
+
+
+                </div>
+            </div>
+
+        </div>
+
+    <div class="container contenu">
+        <div class="menu1">
+            <div class="partie1">
+                <ul>
+                    <li><a href="#">Tout</a></li>
+                    <li><a href="#">En cours</a></li>
+                    <li><a href="#">Validées</a></li>
+                    <li><a href="#">Payées</a></li>
+                    <li><a href="#">Annulées</a></li>
+    
+                </ul>
+
+            </div>
+            <div class="partie2">
+                <div class="row">
+                    <div class="col-6">
+                        <span class="span">
+                            <p>4annulées</p>
+                        </span>
+
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+
+                </div>
+                
+
+            </div>
+            <div class="partie3">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Client</th>
+                        <th scope="col">Numeros Commandes</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Produits</th>
+                        <th scope="col">Etat</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Date</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+
+
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+
+
+                      </tr>
+                      
+
+                    </tbody>
+                  </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+{% endblock body %}

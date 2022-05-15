@@ -1,18 +1,100 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
+{% block login %}{% endblock  %}
+{% block logo %}{% endblock  %}
+
 
 {% block body %}
-    <form method="post">
+    <body>
+        <div class="container-fluid login-container login">
+            <div class="row ">
+                <div class="col-5 login-form-1 right">
+                    <div class="side_right">
+                        <img src="images/login.png" alt="img" style="width:100%;">
+                    
+                        <div class="login-main-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="299" height="51" viewBox="0 0 299 51">
+                                <g id="Groupe_151590" data-name="Groupe 151590" transform="translate(-452 -331.053)">
+                                  <g id="Groupe_151256" data-name="Groupe 151256" transform="translate(452 333.042)">
+                                    <path id="Rectangle_137222" data-name="Rectangle 137222" d="M14,0H38.909A12.091,12.091,0,0,1,51,12.091V14a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A14,14,0,0,1,14,0Z" transform="translate(4 0.01)" fill="#ff9d19"/>
+                                    <path id="Rectangle_137223" data-name="Rectangle 137223" d="M0,0H51a0,0,0,0,1,0,0V1.909A12.091,12.091,0,0,1,38.909,14H14A14,14,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(4 35.01)" fill="#ff9d19"/>
+                                    <rect id="Rectangle_137224" data-name="Rectangle 137224" width="59" height="13" rx="6.5" transform="translate(0 18.01)" fill="#d3342d"/>
+                                  </g>
+                                  <text id="Brazil_Burger" data-name="Brazil Burger" transform="translate(530 367.053)" fill="#fff" font-size="36" font-family="Avenir-Black, Avenir" font-weight="800"><tspan x="0" y="0">Brazil Burger</tspan></text>
+                                </g>
+                            </svg>
+                            <h4>Bienvenue au Temple <br> du Burger !!</h4>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-7 login-form-2 left" style="height: 769px">
+                    <a  href="{{ path('catalogue') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS ACCUEIL</a>
 
+                    <h4 class="connect1">
+                        CONNEXION
+                    </h4>
+                    <div class="login-forms">
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
 
-        <div class="row login">
-            <div class="col-4 left">col-4
+                            {# {% if app.user %}
+                            <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                            </div>
+                            {% endif %} #}
+                            <div class="form-group">
+                                <label for="inputEmail">Email /Nom d'utilisateur</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Tapez ici">
+    
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Mot de passe</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Tapez ici">
+    
+    
+                            </div>
+                                
+                            <input type="hidden" name="_csrf_token"
+                            value="{{ csrf_token('authenticate') }}">
+                            {#
+                                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                See https://symfony.com/doc/current/security/remember_me.html
+    
+                                <div class="checkbox mb-3">
+                                    <label>
+                                        <input type="checkbox" name="_remember_me"> Remember me
+                                    </label>
+                                </div>
+                            #}
+                            <div class="end-lien">
+                                <button type="submit" class="btn btn-black mt-4 ">JE ME CONNECTE</button>        <br> <br>
+                                
+    
+                                <a href="#" class="mot-out mt-4">J’AI OUBLIÉ MON MOT DE PASSE</a>
+    
+                                <p>Je n’ai pas encore de compte, <a href="{{path('app_register')}}">Je m’inscris</a>.</p>
+    
+    
+                            </div>
+                        </form>
+
+                    </div>
                 
-            </div>
-            
-            <div class="col-8 right">col-8</div>
+                           
+                
 
+
+            </div>
         </div>
+        
+
+        
+        
+    </body>
     
 {% endblock %}

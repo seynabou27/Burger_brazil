@@ -19,31 +19,76 @@ class Burger
     #[ORM\Column(type: 'string', length: 255)]
     private $prix;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $details;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+   
+
+   
+
+    
+
+    /**
+     * Get the value of nom
+     */ 
+    public function getNom()
     {
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    /**
+     * Set the value of nom
+     *
+     * @return  self
+     */ 
+    public function setNom($nom)
     {
         $this->nom = $nom;
 
         return $this;
     }
 
-    public function getPrix(): ?string
+    /**
+     * Get the value of prix
+     */ 
+    public function getPrix()
     {
         return $this->prix;
     }
 
-    public function setPrix(string $prix): self
+    /**
+     * Set the value of prix
+     *
+     * @return  self
+     */ 
+    public function setPrix($prix)
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of details
+     */ 
+    public function getDetails()
+    {
+        return $this->details;
+    }
+
+    /**
+     * Set the value of details
+     *
+     * @return  self
+     */ 
+    public function setDetails($details)
+    {
+        $this->details = $details;
 
         return $this;
     }

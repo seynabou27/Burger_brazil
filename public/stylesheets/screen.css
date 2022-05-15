@@ -484,7 +484,7 @@ a:hover.inscription {
 }
 
 /* line 8, ../sass/client/catalogue.scss */
-.container-fluid img {
+#fluid img {
   width: 1242px;
   position: relative;
   z-index: 1;
@@ -668,7 +668,8 @@ a:hover.inscription {
   margin-top: 60px;
   align-items: center;
   margin-left: 438px;
-  height: 31px;
+  width: 230px;
+  height: 35px;
   background: #197DFF 0% 0% no-repeat padding-box;
   border-radius: 4px;
   opacity: 1;
@@ -702,7 +703,289 @@ a:hover.inscription {
 
 @media only screen and (max-width: 760px) {
   /* line 234, ../sass/client/catalogue.scss */
-  .container-fluid img {
+  #fluid img {
     width: 400px;
   }
+}
+/* line 1, ../sass/client/details.scss */
+.contenue {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #D3D3D3;
+  border-radius: 8px;
+  background-color: #ffffff;
+  top: 238px;
+  /* left: 262px;
+width: 808px; */
+  height: auto;
+  margin-top: 3px;
+  margin-left: 184px;
+  margin-right: 184px;
+  padding: 22px;
+}
+
+/* line 26, ../sass/client/details.scss */
+.Debuts {
+  padding: 3px;
+  margin: 10px;
+  height: auto;
+  background-color: #ffffff;
+  border-bottom: 2px solid #D3D3D3;
+}
+
+/* line 35, ../sass/client/details.scss */
+.Milieux {
+  padding: 3px;
+  margin: 10px;
+  background-color: white;
+  height: 250px;
+  border-bottom: 2px solid #D3D3D3;
+}
+
+/* line 48, ../sass/client/details.scss */
+.Fin {
+  padding: 3px;
+  margin: 10px;
+  background-color: white;
+  height: auto;
+}
+
+/* line 56, ../sass/client/details.scss */
+.titres1 {
+  top: 152px;
+  padding: 19px;
+  width: 267px;
+  height: 44px;
+  margin-left: 155px;
+  text-align: left;
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+}
+
+/* line 71, ../sass/client/details.scss */
+.titres a {
+  margin-left: 174px;
+  text-align: left;
+  color: #197DFF;
+  opacity: 1;
+}
+
+/* line 78, ../sass/client/details.scss */
+.titres {
+  padding: 23px;
+  margin-top: 17px;
+}
+
+/* line 82, ../sass/client/details.scss */
+.dets li {
+  text-decoration: none;
+  list-style: none;
+  padding: 4px;
+}
+
+/* line 88, ../sass/client/details.scss */
+.dets span {
+  color: #aba6a6;
+}
+
+/* line 1, ../sass/security/login.scss */
+.row.login {
+  background-color: #1A1A1A;
+  color: white;
+}
+
+/* line 8, ../sass/security/login.scss */
+.left .connect1 {
+  margin-top: 60px;
+  height: 68px;
+  text-align: center;
+  font: normal normal 300 29px/38px Avenir;
+  letter-spacing: 0px;
+  color: #FF9D19;
+  opacity: 1;
+}
+
+/* line 19, ../sass/security/login.scss */
+.left a {
+  padding: 5px;
+  font-size: 12px;
+  color: #5DA4FF;
+  text-decoration: none;
+}
+
+/* line 30, ../sass/security/login.scss */
+.login-form-2 .left {
+  background-color: #1A1A1A;
+}
+
+/* line 40, ../sass/security/login.scss */
+body {
+  font-family: "Lato", sans-serif;
+}
+
+@media screen and (max-width: 450px) {
+  /* line 66, ../sass/security/login.scss */
+  .login-form {
+    margin-top: 10%;
+  }
+
+  /* line 70, ../sass/security/login.scss */
+  .register-form {
+    margin-top: 10%;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 76, ../sass/security/login.scss */
+  .side_right {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  /* line 88, ../sass/security/login.scss */
+  .register-form {
+    margin-top: 20%;
+  }
+}
+/* line 95, ../sass/security/login.scss */
+.login-forms {
+  align-items: center;
+  justify-content: center;
+  margin-left: 168px;
+}
+
+/* line 100, ../sass/security/login.scss */
+.login-main-text {
+  margin-top: 25%;
+  padding: 60px;
+  color: #fff;
+}
+
+/* line 107, ../sass/security/login.scss */
+.login-main-text h4 {
+  top: 528px;
+  margin-top: 110px;
+  text-align: center;
+  font: oblique normal medium 20px/24px Avenir;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+/* line 119, ../sass/security/login.scss */
+.login-main-text {
+  font-weight: 300;
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  margin-top: -90%;
+  text-align: center;
+  padding-left: 120px;
+}
+
+/* line 129, ../sass/security/login.scss */
+.btn-black {
+  background-color: #197DFF;
+  color: #fff;
+}
+
+/* line 135, ../sass/security/login.scss */
+.form-group input {
+  outline: none;
+  border: 2px solid #BEBEBE;
+  background: transparent;
+  color: white;
+  width: 372px;
+  height: 45px;
+}
+
+/* line 144, ../sass/security/login.scss */
+.form-group label {
+  outline: none;
+  color: white;
+}
+
+/* line 149, ../sass/security/login.scss */
+.end-lien {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+  color: white;
+  font-size: 16px;
+  margin-right: 209px;
+}
+
+/* line 160, ../sass/security/login.scss */
+.inscrisp {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+  color: white;
+  font-size: 16px;
+  margin-right: 116px;
+}
+
+/* line 170, ../sass/security/login.scss */
+.end-lien a {
+  font-size: 15px;
+}
+
+/* line 173, ../sass/security/login.scss */
+.end-lien p {
+  margin-top: 35px;
+  height: 19px;
+  text-align: center;
+  font: normal normal normal 16px/20px Lato;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+/* line 183, ../sass/security/login.scss */
+.form-groups {
+  margin-bottom: 8px;
+  padding-bottom: 15px;
+  position: relative;
+  width: 561px;
+}
+
+/* line 189, ../sass/security/login.scss */
+.form-groups input {
+  outline: none;
+  border: 2px solid #BEBEBE;
+  background: transparent;
+  color: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* line 202, ../sass/security/login.scss */
+.telephone input {
+  outline: none;
+  border: 2px solid #BEBEBE;
+  background: transparent;
+  color: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 213%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* line 215, ../sass/security/login.scss */
+.form-groups label {
+  outline: none;
+  color: white;
+  display: block;
 }

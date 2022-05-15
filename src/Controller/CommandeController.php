@@ -49,13 +49,13 @@ class CommandeController extends AbstractController
     }
 
 
-    #[Route('/produit', name: 'produit')]
-    public function showProduit(): Response
-    {
-        return $this->render('commande/produit.html.twig', [
-            'controller_name' => 'CommandeController',
-        ]);
-    }
+    // #[Route('/produit', name: 'produit')]
+    // public function showProduit(): Response
+    // {
+    //     return $this->render('commande/produit.html.twig', [
+    //         'controller_name' => 'CommandeController',
+    //     ]);
+    // }
 
     
 }

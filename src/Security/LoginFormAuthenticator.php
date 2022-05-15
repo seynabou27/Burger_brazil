@@ -76,6 +76,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             // c'est un utilisaeur lambda : on le rediriger vers l'accueil
             $redirection = new RedirectResponse($this->urlGenerator->generate('mes_commandes'));
         }
+        // dd($roles);
 
         return $redirection;
 

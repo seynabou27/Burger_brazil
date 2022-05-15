@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+
+{% block client %}{% endblock  %}
+
+{% block body %}
+    
+    <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+
+        <div class="row">
+            <div class=" col-6 titre">
+            
+                <div class="prod">
+                    <h4><b>Produits</b></h4>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 produit">
+                <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
+                    NOUVEAU PRODUIT                      
+                </button>
+
+            </div>
+
+        </div>
+        <div class="contenu3 container" style="background: #FFFFFF 0% 0% no-repeat padding-box; width: 908px;">
+            <div class="menu_produit">
+                <ul>
+                    <li><a href="{{path('produit')}}">Tout</a></li>
+                    <li><a href="{{path('liste_menus')}}">Menus</a></li>
+                    <li><a href="{{path('liste_burgers')}}">Burgers</a></li>
+                    <li><a href="{{path('liste_complement')}}">Complements</a></li>
+    
+                </ul>
+
+            </div>
+            
+                <div class="">
+                    <span class="span">
+                        <p>20 Produits</p>
+                    </span>
+                </div>
+                
+                <div class=" select">
+
+                    <select name="" id="">
+                        <option value="">Type de produit</option>
+                    </select>
+
+                    <select name="" id="">
+                        <option value="">Date d'ajout</option>
+                    </select>
+
+
+                </div>
+
+            
+
+        </div>
+        {% for complement in complement %}
+        <div class="container contenu2 mx-auto mt-4">
+            <div class="row cards" style=" margin-right: 105px; margin-left: 90px;">
+              <div class="col-md-4">
+                <div class="card" style="width: 300px;  display:flex ;">
+            <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{complement.nom_complemnt}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
+              {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+              <a href="#" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+            </div>
+            </div>
+              </div>    
+           
+            
+        </div>
+        </div>
+        {% endfor %}
+
+
+    </body>
+
+{% endblock %}

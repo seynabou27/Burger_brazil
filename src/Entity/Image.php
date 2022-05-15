@@ -16,6 +16,10 @@ class Image
     #[ORM\Column(type: 'string', length: 255)]
     private $nom;
 
+    // #[ORM\ManyToOne(targetEntity: Burger::class, inversedBy: 'images')]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private $burger;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,4 +36,16 @@ class Image
 
         return $this;
     }
+
+    // public function getBurger(): ?Burger
+    // {
+    //     return $this->burger;
+    // }
+
+    // public function setBurger(?Burger $burger): self
+    // {
+    //     $this->burger = $burger;
+
+    //     return $this;
+    // }
 }

@@ -34,6 +34,7 @@ class CommandeFixtures extends Fixture
 
 
         $manager->persist($commande);
+        
         $manager->persist($commande1);
 
 

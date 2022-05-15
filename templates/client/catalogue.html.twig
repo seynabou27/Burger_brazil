@@ -5,19 +5,26 @@
 
 
 
-
-
+{% block navbar %}
+    {% if role is defined and role == "ROLE_USER" %}
+        {% block client %}{{ parent() }}{% endblock %}
+    {% elseif role is defined and role == "ROLE_GESTIONNAIRE" %}
+        {% block gest %}{{ parent() }}{% endblock  %}
+    {% else %}
+        {% block login %}{{parent()}}{% endblock %}
+    {% endif %}
+{% endblock %}
 {% block body %}
-    {{ parent() }}
+
+    
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid" id="fluid">
             <h4 class="annoce">
                 Bienvenue au Temple du Burger !!
             </h4>
             <img src="images/catalogue1.png" alt="jijiuj">
 
 
-            
         </div>
         <div class="contente">
             <div class="row ensemble">
@@ -56,63 +63,79 @@
             <div class="container filtres">
                 <!--filtering-->
                 <div class="filtre_menu">
-                    <ul>
+                    <div class="filtre_menu">
+                        <div class="row">
+                            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <h1 class="gallery-title"></h1>
+                              <div class="text-center">
+                                    <button class="btn btn-default filter-button active" id="menu" onclick="call(this.id)">Menus</button>
+                                    <button class="btn btn-default filter-button" id="burger" onclick="call(this.id)">Burger</button>
+                                    <button class="btn btn-default filter-button" id="complement" onclick="call(this.id)">Complement</button>
+                                    
+                              </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                    {# <ul>
                         <li><a href="#">Tout</a></li>
                         <li><a href="#">En cours</a></li>
                         <li><a href="#">Validées</a></li>
                         
         
-                    </ul>
+                    </ul> #}
     
                 </div>
  
-              
-                
-                <div class="grid">
+                <div class="grid" style="display:flex;">
+                    {% for burger in burger %}
                     <div class="container contenu2 mx-auto mt-4">
-                        <div class="row cards" style=" margin-right: 40px; margin-left: 70px;">
-                          <div class="col-md-4">
-                            <div class="card" style="width: 300px;">
-                        {# <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="..."> #}
-                        <img src="images/burger2.png" class="card-img-top" alt="...">
+                        <div class="row cards" >
+                            <div class="col-md-4">
+                                <div class="card" style="width: 300px; display:flex;">
+                                    {# <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="..."> #}
+                                    <img src="images/burger2.png" class="card-img-top" alt="...">
 
-                        <div class="card-body">
-                          <h5 class="card-title">Cheese Burgers</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
-                          {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
-                          <a href="#" class="btn details " style="margin-left: 147px;">Commander</a>
-                        </div>
-                        </div>
-                          </div>    
-                             <div class="col-md-4">
-                      <div class="card" style="width: 300px;">
-                        <img src="images/berger1.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Cheese Burgers</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
-                              <a href="#" class="btn details "  style="margin-left: 147px;">Commander</a>
-                            </div>
-                        </div>
-                        </div>    
-                        <div class="col-md-4">
-                            <div class="card" style="width:300px;">
-                                <img src="images/burger3.png" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Cheese Burgers</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Menu  .  15 000 Fcfa</h6>
-                                    {# <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a> #}
-                                    <a href="#" class="btn details " style="margin-left: 147px;">Commander</a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{burger.nom}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{burger.prix}}</h6></p>
+                                        {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+                                        {# <a href="{{ path('app_login') }}" class="btn mr-2"> Details</a>  #}
+                                        <a href="{{path('details',{'id':burger.id})}}" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-            
+                            </div>    
+                            {# <div class="col-md-4">
+                                <div class="card" style="width: 300px;">
+                                    <img src="images/berger1.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cheese Burgers</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
+                                        <a href="{{ path('app_login') }}" class="btn details "  style="margin-left: 147px;">Commander</a>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="col-md-4">
+                                <div class="card" style="width:300px;">
+                                    <img src="images/burger3.png" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cheese Burgers</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Menu  .  15 000 Fcfa</h6>
+                                        {# <a href="#" class="btn mr-2"> Details</a>  
+                                        <a href="{{ path('app_login') }}" class="btn details mr-2 " style="margin-left: 147px;">Commander</a>
+                                    </div>
+                                </div>
+                            </div>  #}
                 
-                        
+                    
+                            
+                        </div>
                     </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
 
-                <a href="#" class="btn btn-primary" id="commander" role="button" aria-disabled="true">PASSER UNE COMMANDE</a>
+                <a href="{{ path('app_login') }}" class="btn btn-primary" id="commander" role="button" aria-disabled="true">PASSER UNE COMMANDE</a>
 
             </div>
 

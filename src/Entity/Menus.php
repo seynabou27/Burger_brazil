@@ -14,36 +14,51 @@ class Menus
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $nom;
+    private $nom_menu;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $prix;
+    private $prix_menu;
+
+    #[ORM\Column(type: 'string', length: 1500)]
+    private $detail_menu;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getNomMenu(): ?string
     {
-        return $this->nom;
+        return $this->nom_menu;
     }
 
-    public function setNom(string $nom): self
+    public function setNomMenu(string $nom_menu): self
     {
-        $this->nom = $nom;
+        $this->nom_menu = $nom_menu;
 
         return $this;
     }
 
-    public function getPrix(): ?string
+    public function getPrixMenu(): ?string
     {
-        return $this->prix;
+        return $this->prix_menu;
     }
 
-    public function setPrix(string $prix): self
+    public function setPrixMenu(string $prix_menu): self
     {
-        $this->prix = $prix;
+        $this->prix_menu = $prix_menu;
+
+        return $this;
+    }
+
+    public function getDetailMenu(): ?string
+    {
+        return $this->detail_menu;
+    }
+
+    public function setDetailMenu(string $detail_menu): self
+    {
+        $this->detail_menu = $detail_menu;
 
         return $this;
     }

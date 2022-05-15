@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\Complements;
+use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Complements>
+ * @extends ServiceEntityRepository<Produit>
  *
- * @method Complements|null find($id, $lockMode = null, $lockVersion = null)
- * @method Complements|null findOneBy(array $criteria, array $orderBy = null)
- * @method Complements[]    findAll()
- * @method Complements[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Produit|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Produit|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Produit[]    findAll()
+ * @method Produit[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ComplementsRepository extends ServiceEntityRepository
+class ProduitRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Complements::class);
+        parent::__construct($registry, Produit::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Complements $entity, bool $flush = true): void
+    public function add(Produit $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class ComplementsRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Complements $entity, bool $flush = true): void
+    public function remove(Produit $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,15 +48,15 @@ class ComplementsRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Complements[] Returns an array of Complements objects
+    //  * @return Produit[] Returns an array of Produit objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -65,10 +65,10 @@ class ComplementsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Complements
+    public function findOneBySomeField($value): ?Produit
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

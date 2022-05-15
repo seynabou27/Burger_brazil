@@ -1,1 +1,246 @@
+.row.login {
+    
+    background-color: #1A1A1A;
+    color:white;
+    
+}
+
+.left .connect1{
+    margin-top: 60px;
+    height: 68px;
+    text-align: center;
+    font: normal normal 300 29px/38px Avenir;
+    letter-spacing: 0px;
+    color: #FF9D19;
+    opacity: 1;
+    // margin-left: 170px;
+}
+
+.left a{
+    padding: 5px;
+    font-size: 12px;
+    color: #5DA4FF;
+    text-decoration: none;
+}
+
+
+// fin/////////
+
+
+ .login-form-2 .left{
+    background-color:#1A1A1A;
+   
+
+ }
+
+
+ //testt
+
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+// .side_right {
+//     // height: 100%;
+//     // background-color: rgb(101, 34, 34);
+//     overflow-x: hidden;
+//     // padding-top: 20px;
+//     color: #1A1A1A;
+// }
+// .side_right img {
+//     position: relative;
+//     z-index: 1;
+// }
+
+
+
+
+
+@media screen and (max-height: 450px) {
+    // .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .side_right{
+        // width: 40%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+// .login-form{
+//     margin-top: 80%;
+// }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+
+.login-forms{
+    align-items: center;
+    justify-content: center;
+    margin-left: 168px;
+}
+.login-main-text{
+    margin-top: 25%;
+    padding: 60px;
+    color: #fff;
+   
+}
+
+.login-main-text h4{
+    top: 528px;
+    margin-top: 110px;
+    // width: 192px;
+    // height: 51px;
+    text-align: center;
+    font: oblique normal medium 20px/24px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+
+}
+.login-main-text {
+    font-weight: 300;
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    margin-top: -90%;
+    text-align: center;
+    padding-left: 120px;
+
+}
+.btn-black{
+    background-color: #197DFF;
+    color: #fff;
+}
+
+
+.form-group input{
+    outline: none;
+    border: 2px solid #BEBEBE;
+    background: transparent;
+    color: white;
+    width: 372px;
+    height: 45px;
+
+}
+.form-group label{
+    outline: none;
+    color: white;
+
+}
+.end-lien {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3px;
+    color: white;
+    font-size: 16px;
+    margin-right: 209px;
+}
+
+.inscrisp{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3px;
+    color: white;
+    font-size: 16px;
+    margin-right: 116px;
+}
+.end-lien a{
+    font-size: 15px;
+}
+.end-lien p{
+    margin-top:35px;
+    height: 19px;
+    text-align: center;
+    font: normal normal normal 16px/20px Lato;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+//inscription register
+.form-groups{
+    margin-bottom: 8px;
+    padding-bottom: 15px;
+    position: relative;
+    width: 561px;
+}
+.form-groups input{
+    outline: none;
+    border: 2px solid #BEBEBE;
+    background: transparent;
+    color: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+
+}
+.telephone  input {
+    outline: none;
+    border: 2px solid #BEBEBE;
+    background: transparent;
+    color: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 213%;
+    padding: 10px;
+    font-size: 14px;
+
+}
+.form-groups label{
+    outline: none;
+    color: white;
+    display: block;
+
+}
+
+// .form{
+//     padding: 30px 40px;
+
+// }
+
+// .form-control label{
+//     color: #777;
+//     display: block;
+//     margin-bottom: 5px;
+// }
+// .form-control input{
+//     border: 2px solid #f0f0f0;
+//     border-radius: 4px;
+//     display: block;
+//     width: 100%;
+//     padding: 10px;
+//     font-size: 14px;
+    
+
+// }
+// .form-control :focus{
+//     outline: 0;
+//     border-color: #777;
+// }
 
