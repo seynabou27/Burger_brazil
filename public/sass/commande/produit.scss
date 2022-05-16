@@ -106,7 +106,17 @@ border-radius: 2px;
     margin-left: 147px;
 }
 
-.produit button{
+.produit a {
+    margin-top: 38px;
+    background-color: #197DFF;
+    color: white;
+    width: 174px;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 215px;
+}
+.produit button {
     margin-top: 38px;
     background-color: #197DFF;
     color: white;
@@ -119,15 +129,16 @@ border-radius: 2px;
 
 
 
-// .cards .row  {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -ms-flex-wrap: wrap;
-//     flex-wrap: wrap;
-//     margin-right: 105px;
-//     margin-left: 90px;
-// }
+
+.cards .row  {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 105px;
+    margin-left: 90px;
+}
 
 @media (min-width: 1200px){
     .container {

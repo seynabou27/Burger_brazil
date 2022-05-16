@@ -99,8 +99,22 @@ a:hover.inscription {
   display: block;
 }
 
+/* line 103, ../../sass/menu/menu.scss */
+.auth .number {
+  position: absolute;
+  top: -11px;
+  font-size: 15px;
+  width: 43px;
+  height: 40px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 107, ../../sass/menu/menu.scss */
+  /* line 122, ../../sass/menu/menu.scss */
   #logo_custom {
     width: 40%;
   }

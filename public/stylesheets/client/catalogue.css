@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 2, ../../sass/client/catalogue.scss */
 .container-fluid {
   background-color: #262626;
@@ -138,55 +137,49 @@
   border-bottom: 3px solid #FF9D19;
 }
 
-/* line 138, ../../sass/client/catalogue.scss */
-.filtre_menu {
-  width: 100%;
-  margin: 0px auto 0px auto;
-  background-color: #c03131;
-  color: black;
-  top: 0px;
-}
-
-/* line 148, ../../sass/client/catalogue.scss */
-.filtre_menu ul {
+/* line 137, ../../sass/client/catalogue.scss */
+.food_section .filters_menu {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   list-style-type: none;
+  margin: 45px 0 20px 0;
 }
 
-/* line 153, ../../sass/client/catalogue.scss */
-.filtre_menu li {
-  float: left;
-  width: 11%;
-  /*100% divisé par le nombre d'éléments de menu*/
+/* line 150, ../../sass/client/catalogue.scss */
+.filters_menu {
+  color: white;
+  display: flex;
+  align-items: center;
   text-align: center;
-  /*Centre le texte dans les éléments de menu*/
+  margin-left: 350px;
 }
 
-/*Evite que le menu n'ait une hauteur nulle*/
-/* line 160, ../../sass/client/catalogue.scss */
-.filtre_menu ul::after {
-  content: "";
-  display: table;
-  clear: both;
+/* line 158, ../../sass/client/catalogue.scss */
+.filters_menu li {
+  padding: 7px 19px;
+  cursor: pointer;
 }
 
-/* line 166, ../../sass/client/catalogue.scss */
-.filtre_menu a {
-  display: block;
-  /*Toute la surface sera cliquable*/
-  text-decoration: none;
-  color: black;
-  padding: 7px 0px;
-  /*Agrandit le menu et espace la bordure du texte*/
+/* line 164, ../../sass/client/catalogue.scss */
+.filters_menu li.active {
+  border-bottom: 3px solid #FF9D19;
+  color: #ffffff;
 }
 
-/* line 173, ../../sass/client/catalogue.scss */
-.filtre_menu a:hover {
-  color: black;
-  border-bottom: 2px solid black;
-  border-radius: 2px;
+/* line 168, ../../sass/client/catalogue.scss */
+.filters_menu li {
+  padding: 7px 25px;
+  cursor: pointer;
 }
 
-/* line 180, ../../sass/client/catalogue.scss */
+/* line 215, ../../sass/client/catalogue.scss */
 #commander {
   margin-top: 60px;
   align-items: center;
@@ -199,7 +192,7 @@
   text-align: center;
 }
 
-/* line 193, ../../sass/client/catalogue.scss */
+/* line 228, ../../sass/client/catalogue.scss */
 .contact {
   display: block;
   color: white;
@@ -210,7 +203,7 @@
   padding: 14px;
 }
 
-/* line 203, ../../sass/client/catalogue.scss */
+/* line 238, ../../sass/client/catalogue.scss */
 .contact h4 {
   font: normal normal 300 25px/40px Avenir;
   letter-spacing: 0px;
@@ -219,13 +212,13 @@
   opacity: 1;
 }
 
-/* line 219, ../../sass/client/catalogue.scss */
+/* line 254, ../../sass/client/catalogue.scss */
 .footer {
   padding: 34px;
 }
 
 @media only screen and (max-width: 760px) {
-  /* line 234, ../../sass/client/catalogue.scss */
+  /* line 270, ../../sass/client/catalogue.scss */
   #fluid img {
     width: 400px;
   }

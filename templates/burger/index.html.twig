@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier !{% endblock %}
+{% block gest %}{% endblock  %}
+{% block login %}{% endblock %}
+
+{% block body %}
+
+<body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+    <div class="titres">
+        <a href="{{ path('catalogue') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS CATALOGUE</a>
+        <h5 class="titres1">
+            Votre panier 
+        </h5>
+    </div>
+    <div class="contenue ">
+        {% if item | length > 0 %}
+
+            <div class="partie3 mt-4">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Total</th>
+                        <th></th>
+                        
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in item %}
+                        <tr>
+                            <td>{{ item. burger.nom}}</td>
+                            <td>{{ item. burger.prix}}  Fcfa</td>
+                            <td>{{ item. quantite}}</td>
+                            <td>{{item.burger.prix * item.quantite}} Fcfa</td>
+                            <td>
+                                <a href="{{ path('remove',{'id': item.burger.id})}}" class="btn btn-info btn-sm"> <i class="fas fa-trash"></i> </a>
+                            </td>
+
+                        </tr>   
+                        {% endfor %}
+                    
+                
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total :</td>
+                            <td>{{total}}</td>
+                            <td></td>
+                        </tr>
+
+                    </tfoot>
+                    {# <a href="{{ path('app_login') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> #}
+
+                </table>
+
+                <a href="{{ path('app_login') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> 
+
+
+            </div>
+
+
+        
+        {% else %}
+            <h3> Votre panier esr vide!</h3>
+            <p>Veillez le remplir !</p>
+        
+        {% endif %}
+
+
+
+
+        
+    </div>
+
+
+
+
+
+
+</body>
+
+{% endblock %}

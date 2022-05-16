@@ -14,51 +14,71 @@ class Complement
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $nom_complement;
+    private $nom;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $prix_complement;
+    private $prix;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $detail_complement;
+    private $detail;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomComplement(): ?string
+    
+
+    /**
+     * Get the value of nom
+     */
+    public function getNom()
     {
-        return $this->nom_complement;
+        return $this->nom;
     }
 
-    public function setNomComplement(string $nom_complement): self
+    /**
+     * Set the value of nom
+     */
+    public function setNom($nom): self
     {
-        $this->nom_complement = $nom_complement;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getPrixComplement(): ?string
+    /**
+     * Get the value of prix
+     */
+    public function getPrix()
     {
-        return $this->prix_complement;
+        return $this->prix;
     }
 
-    public function setPrixComplement(string $prix_complement): self
+    /**
+     * Set the value of prix
+     */
+    public function setPrix($prix): self
     {
-        $this->prix_complement = $prix_complement;
+        $this->prix = $prix;
 
         return $this;
     }
 
-    public function getDetailComplement(): ?string
+    /**
+     * Get the value of detail
+     */
+    public function getDetail()
     {
-        return $this->detail_complement;
+        return $this->detail;
     }
 
-    public function setDetailComplement(string $detail_complement): self
+    /**
+     * Set the value of detail
+     */
+    public function setDetail($detail): self
     {
-        $this->detail_complement = $detail_complement;
+        $this->detail = $detail;
 
         return $this;
     }

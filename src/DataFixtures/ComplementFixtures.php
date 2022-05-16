@@ -14,9 +14,9 @@ class ComplementFixtures extends Fixture
         // $manager->persist($product);
 
         $complement = new Complement();
-            $complement->setNomComplement('Frites');
-            $complement->setPrixComplement('1000 Fcfa');
-            $complement->setDetailComplement('poivre , sale, piment');
+            $complement->setNom('Frites');
+            $complement->setPrix('1000 Fcfa');
+            $complement->setDetail('poivre , sale, piment');
 
             $manager->persist($complement);
 
@@ -24,9 +24,9 @@ class ComplementFixtures extends Fixture
 
 
             $complement1 = new Complement();
-            $complement1->setNomComplement('Boisson');
-            $complement1->setPrixComplement('1000 Fcfa');
-            $complement1->setDetailComplement('Fanta, Sprite,Coca');
+            $complement1->setNom('Boisson');
+            $complement1->setPrix('1000 Fcfa');
+            $complement1->setDetail('Fanta, Sprite,Coca');
 
             $manager->persist($complement1);
 

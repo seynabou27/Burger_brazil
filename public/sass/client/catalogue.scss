@@ -134,47 +134,82 @@
 
 // }
 
-
-.filtre_menu{
-    width: 100%;
-    margin: 0px auto 0px auto;    
-    background-color: rgb(192, 49, 49);
-    color: black;
-    // position: sticky;
-    top: 0px;
-
-}
-
-.filtre_menu ul {
+.food_section .filters_menu {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     list-style-type: none;
+    margin: 45px 0 20px 0;
+}
+.filters_menu{
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 350px;
 }
 
-
-.filtre_menu li{
-    float: left;
-    width: 11%;/*100% divisé par le nombre d'éléments de menu*/
-    text-align: center;/*Centre le texte dans les éléments de menu*/
+.filters_menu li {
+    padding: 7px 19px;
+    cursor: pointer;
+    // border-radius: 25px;
 }
 
-/*Evite que le menu n'ait une hauteur nulle*/
-.filtre_menu ul::after{
-    content: "";
-    display: table;
-    clear: both;
+.filters_menu li.active {
+    border-bottom: 3px solid #FF9D19;
+    color: #ffffff;
 }
+.filters_menu li {
+    padding: 7px 25px;
+    cursor: pointer;
+    // border-radius: 25px;
+}
+// .filtre_menu{
+//     width: 100%;
+//     margin: 0px auto 0px auto;    
+//     // background-color: rgb(192, 49, 49);
+//     color: black;
+//     // position: sticky;
+//     top: 0px;
 
-.filtre_menu a{
-    display: block; /*Toute la surface sera cliquable*/
-    text-decoration: none;
-    color: black;
-    padding: 7px 0px;/*Agrandit le menu et espace la bordure du texte*/
-}
+// }
 
-.filtre_menu a:hover {
-    color: rgb(0, 0, 0);
-    border-bottom: 2px solid rgb(0, 0, 0);
-    border-radius: 2px;
-}
+// .filtre_menu ul {
+//     list-style-type: none;
+// }
+
+
+// .filtre_menu li{
+//     float: left;
+//     width: 11%;/*100% divisé par le nombre d'éléments de menu*/
+//     text-align: center;/*Centre le texte dans les éléments de menu*/
+// }
+
+// /*Evite que le menu n'ait une hauteur nulle*/
+// .filtre_menu ul::after{
+//     content: "";
+//     display: table;
+//     clear: both;
+// }
+
+// .filtre_menu a{
+//     display: block; /*Toute la surface sera cliquable*/
+//     text-decoration: none;
+//     color: black;
+//     padding: 7px 0px;/*Agrandit le menu et espace la bordure du texte*/
+// }
+
+// .filtre_menu a:hover {
+//     color: rgb(0, 0, 0);
+//     border-bottom: 2px solid rgb(0, 0, 0);
+//     border-radius: 2px;
+// }
 
 
 #commander{
@@ -219,6 +254,7 @@
 .footer{
     padding: 34px;
 }
+
 
 
 

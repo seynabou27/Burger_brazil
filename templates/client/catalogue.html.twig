@@ -62,36 +62,50 @@
 
             <div class="container filtres">
                 <!--filtering-->
-                <div class="filtre_menu">
-                    <div class="filtre_menu">
-                        <div class="row">
-                            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                              <h1 class="gallery-title"></h1>
-                              <div class="text-center">
-                                    <button class="btn btn-default filter-button active" id="menu" onclick="call(this.id)">Menus</button>
-                                    <button class="btn btn-default filter-button" id="burger" onclick="call(this.id)">Burger</button>
-                                    <button class="btn btn-default filter-button" id="complement" onclick="call(this.id)">Complement</button>
-                                    
-                              </div>
-                            </div>
-        
-                        </div>
-                    </div>
-                    {# <ul>
-                        <li><a href="#">Tout</a></li>
-                        <li><a href="#">En cours</a></li>
-                        <li><a href="#">Validées</a></li>
-                        
-        
-                    </ul> #}
-    
-                </div>
+
+                <ul class=" .food_section filters_menu">
+                    <li class="active" data-filter="*">Tout</li>
+                    <li data-filter=".Menus" class="">Menus</li>
+                    <li data-filter=".burger" class="">Burger</li>
+                    <li data-filter=".Complement" class="">Complement</li>
+                </ul>
  
                 <div class="grid" style="display:flex;">
-                    {% for burger in burger %}
                     <div class="container contenu2 mx-auto mt-4">
-                        <div class="row cards" >
-                            <div class="col-md-4">
+                 
+
+                        <div class="row cards mt-4 " >
+                            {% for menus in menus %}
+                            <div class="col-md-4 menus">
+                                <div class="card" style="width: 300px; display:flex;">
+                                    <img src="images/burger2.png" class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{menus.nom}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{menus.prix}}</h6></p>
+                                        {% if is_granted ( 'IS_USER') %}
+                                            <a href="{{ path('app_login') }}" class="btn">Commander</a>
+                                            {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
+                                            <a href="{{ path('ajout_commande') }}" class="btn">Commander</a>
+
+
+                                            
+                                        {% endif %}
+
+                                        {# <a class="panier" href="{{path('add_panier', {'id':menus.id})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a> #}
+
+                                        <a href="{{path('details',{'id':menus.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
+                                    </div>
+                                </div>
+                            </div>    
+                            
+                
+                    
+                            {% endfor %} 
+                        </div>
+                        <div class="row cards mt-4 " >
+                            {% for burger in burger %}
+                            <div class="col-md-4 burger">
                                 <div class="card" style="width: 300px; display:flex;">
                                     {# <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="..."> #}
                                     <img src="images/burger2.png" class="card-img-top" alt="...">
@@ -99,39 +113,58 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{burger.nom}}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{burger.prix}}</h6></p>
-                                        {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
-                                        {# <a href="{{ path('app_login') }}" class="btn mr-2"> Details</a>  #}
-                                        <a href="{{path('details',{'id':burger.id})}}" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
-                                    </div>
-                                </div>
-                            </div>    
-                            {# <div class="col-md-4">
-                                <div class="card" style="width: 300px;">
-                                    <img src="images/berger1.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cheese Burgers</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
-                                        <a href="{{ path('app_login') }}" class="btn details "  style="margin-left: 147px;">Commander</a>
-                                    </div>
-                                </div>
-                            </div>    
-                            <div class="col-md-4">
-                                <div class="card" style="width:300px;">
-                                    <img src="images/burger3.png" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cheese Burgers</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Menu  .  15 000 Fcfa</h6>
-                                        {# <a href="#" class="btn mr-2"> Details</a>  
-                                        <a href="{{ path('app_login') }}" class="btn details mr-2 " style="margin-left: 147px;">Commander</a>
-                                    </div>
-                                </div>
-                            </div>  #}
-                
                     
-                            
+                                        {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+                                        {% if is_granted ( 'IS_USER') %}
+                                            <a href="{{ path('app_login') }}" class="btn">Commander</a>
+                                            {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
+                                            <a href="{{ path('ajout_commande') }}" class="btn">Commander</a>
+
+
+                                            
+                                        {% endif %}
+
+                                        <a class="panier" href="{{path('add_panier', {'id':burger.id})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
+
+                                        <a href="{{path('details',{'id':burger.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
+                                    </div>
+                                </div>
+                            </div>    
+                    
+                            {% endfor %} 
+                        </div>
+                        <div class="row cards mt-4 " >
+                            {% for complement in complement %}
+                            <div class="col-md-4 complement">
+                                <div class="card" style="width: 300px; display:flex;">
+                                    {# <img src="https://source.unsplash.com/800x610/?burger" class="card-img-top" alt="..."> #}
+                                    <img src="images/burger2.png" class="card-img-top" alt="...">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{complement.nom}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{complement.prix}}</h6></p>
+                    
+                                        {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+                                        {% if is_granted ( 'IS_USER') %}
+                                            <a href="{{ path('app_login') }}" class="btn">Commander</a>
+                                            {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
+                                            <a href="{{ path('ajout_commande') }}" class="btn">Commander</a>
+
+
+                                            
+                                        {% endif %}
+
+                                        {# <a class="panier" href="{{path('add_panier', {'id':burger.id})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a> #}
+
+                                        <a href="{{path('details',{'id':complement.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
+                                    </div>
+                                </div>
+                            </div>    
+                    
+                            {% endfor %} 
                         </div>
                     </div>
-                    {% endfor %}
+                    
 
                 </div>
 

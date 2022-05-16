@@ -59,7 +59,7 @@ class GestionnaireController extends AbstractController
         
         //liste complement
         $complement = $repoComplet ->findAll();
-        return $this->render('gestionnaire/liste_complement.html.twig', [
+        return $this->render('gestionnaire/Liste_complement.html.twig', [
             'complement'=> $complement
         ]);
     }
@@ -126,7 +126,13 @@ class GestionnaireController extends AbstractController
 
         ]);
     }
+    // #[Route('/produit', name: 'add_produit')]
+    // public function addMenu( Request $request,
+    //                         BurgerRepository $repoburger){
 
+            
+
+    // }
     
 
 

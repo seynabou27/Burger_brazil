@@ -14,18 +14,18 @@ class MenusFixtures extends Fixture
         // $manager->persist($product);
 
         $menus = new Menus();
-            $menus->setNomMenu('Menu Simple');
-            $menus->setPrixMenu('3500 Fcfa');
-            $menus->setDetailMenu('Burgers, Frites et Boisson');
+            $menus->setNom('Menu Simple');
+            $menus->setPrix('3500 Fcfa');
+            $menus->setDetail('Burgers, Frites et Boisson');
 
             $manager->persist($menus);
 
             $this->addReference("menus", $menus);
 
             $menus1 = new Menus();
-            $menus1->setNomMenu('Menu Royale');
-            $menus1->setPrixMenu('4000 Fcfa');
-            $menus1->setDetailMenu('Burgers + Crudite + Salade
+            $menus1->setNom('Menu Royale');
+            $menus1->setPrix('4000 Fcfa');
+            $menus1->setDetail('Burgers + Crudite + Salade
                                     , Frites et Boisson');
 
             $manager->persist($menus1);

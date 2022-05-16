@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Repository\BurgerRepository;
+use App\Repository\ComplementRepository;
+use App\Repository\MenusRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +21,10 @@ class ClientController extends AbstractController
     }
 
     #[Route('/', name: 'catalogue')]
-    public function catalogue(BurgerRepository $repoBurger,Request $request): Response
+    public function catalogue(BurgerRepository $repoBurger,
+                            MenusRepository $repoMenu,
+                            ComplementRepository $repoComplet,
+                            Request $request): Response
     {
         if($this->getUser()){
             $role = $this->getUser()->getRoles()[0];
@@ -27,10 +32,21 @@ class ClientController extends AbstractController
             $role = "";
         }
         $burgers = $repoBurger -> findAll();
-        // dd($burgers[0]);   
+        // dd($burgers[0]);  
+        
+        //liste menu
+        $menus = $repoMenu -> findAll();
+        
+        //liste complement
+        $complement = $repoComplet ->findAll();
+        // ajout au panier
+
+            
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
             'burger' =>$burgers,
+            'menus'=> $menus,
+            'complement'=> $complement,
         ]);
     }
 
@@ -54,6 +70,15 @@ class ClientController extends AbstractController
 
         
  return $this->render('client/mes_commandes.html.twig', [
+            'controller_name' => 'ClientController',
+     ]);
+    }
+    //ajout commande d'un client
+    #[Route('/ajout_commande', name: 'ajout_commande')]
+    public function addCommande(): Response
+    {
+        
+    return $this->render('client/ajout_commande.html.twig', [
             'controller_name' => 'ClientController',
      ]);
     }

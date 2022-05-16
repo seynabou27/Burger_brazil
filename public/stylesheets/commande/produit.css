@@ -113,6 +113,18 @@
 }
 
 /* line 109, ../../sass/commande/produit.scss */
+.produit a {
+  margin-top: 38px;
+  background-color: #197DFF;
+  color: white;
+  width: 174px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 215px;
+}
+
+/* line 119, ../../sass/commande/produit.scss */
 .produit button {
   margin-top: 38px;
   background-color: #197DFF;
@@ -124,8 +136,19 @@
   margin-left: 215px;
 }
 
+/* line 133, ../../sass/commande/produit.scss */
+.cards .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 105px;
+  margin-left: 90px;
+}
+
 @media (min-width: 1200px) {
-  /* line 133, ../../sass/commande/produit.scss */
+  /* line 144, ../../sass/commande/produit.scss */
   .container {
     max-width: 1140px;
   }
