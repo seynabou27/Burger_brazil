@@ -1,0 +1,92 @@
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Les détails{% endblock %}
+
+{% block client %}{% endblock  %}
+
+{% block body %}
+
+
+
+
+<body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+    <div class="titres11">
+        <a href="{{ path('produit') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS PRODUIT</a>
+        <h6 class="titres12">
+            Ajout Menus
+        </h6>
+    </div>
+    <div class="contenues11 mt-3" style=" background: #ffffff 0% 0% no-repeat padding-box;border: 1px solid #EAEAEA;border-radius: 4px;opacity: 1;width: 667px;height: auto;margin-top:  -19px;margin-left: 291px;margin-right: 291px;padding: 22px;">
+
+        {{ form_start(menuForm) }}
+        <div class="form-groupe">
+            <div class="col">
+                {{ form_row(menuForm.nom , {'attr': {'placeholder': 'Tapez ici'} }) }}
+            </div>
+        </div>
+        <div class="form-groupe">
+            <div class="col">
+                {{ form_row(menuForm.prix , {'attr': {'placeholder': 'Tapez ici'} }) }}
+            </div>
+        </div>
+        <div class="form-groupe">
+            <div class="col">
+                {{ form_row(menuForm.detail , {'attr': {'placeholder': 'Tapez ici'} }) }}
+            </div>
+        </div>
+        <div class="form-groupe">
+
+            <div class="col">
+                {{ form_row(menuForm.burgerss) }}
+            </div>
+
+        </div>
+        <div class="form-groupe">
+            
+            <div class="col">
+                {% for item in complement   %}
+                    <div class="form-check">
+                        <label class="form-check-label" for="gridRadios1">{{item.nom}}</label>
+                        <input class="form-check-input" type="checkbox" name="complements[]" id="gridRadios1" value="{{item.id}}" >
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="form-groupe file">
+            <div class="col">
+                {{ form_label(menuForm.images, 'Choisir une image') }}
+                {{ form_row(menuForm.images) }}
+            </div>
+        </div>
+            
+            {# <a href="#" >Annuler</a> #}
+            <button type="submit" class="btn btn-black boutton_ajout mt-4 ">AJOUTER</button>         <br> <br>
+
+
+
+
+
+
+        {{ form_end(menuForm) }}
+
+
+
+
+        
+
+        
+    </div>
+
+    
+
+    
+
+
+
+</body>
+
+{% endblock body %}

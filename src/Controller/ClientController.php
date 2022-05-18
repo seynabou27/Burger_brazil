@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
+use App\Repository\MenusRepository;
 use App\Repository\BurgerRepository;
 use App\Repository\ComplementRepository;
-use App\Repository\MenusRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,6 +32,11 @@ class ClientController extends AbstractController
         }else{
             $role = "";
         }
+            
+            // dd($complements);
+         
+                $img = new Image();
+
         $burgers = $repoBurger -> findAll();
         // dd($burgers[0]);  
         
@@ -41,7 +47,7 @@ class ClientController extends AbstractController
         $complement = $repoComplet ->findAll();
         // ajout au panier
 
-            
+        
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
             'burger' =>$burgers,
@@ -51,17 +57,30 @@ class ClientController extends AbstractController
     }
 
     #[Route('/details/{id}', name: 'details')]
-    public function details(int $id , BurgerRepository $repoBurger): Response
+    public function details(int $id , BurgerRepository $repoBurger,
+                            ComplementRepository $repoComplet,
+                            MenusRepository $repoMenu): Response
     {
+        $burgers = $repoBurger -> findBy(['etat'=>'non_archiver']);
+        $complement = $repoComplet-> findBy(['etat'=>'non_archiver']);
+        $menus = $repoMenu -> findBy(['etat'=>'non_archiver']);
+        $catalogue = array_merge($burgers , $complement , $menus);
+
+        foreach ($catalogue as $value) {
+            if($value->getId()==$id){
+                if($value->getType() == "menu"){
+                    $details = $repoMenu->find($id);
+                }elseif($value->getType() == "burger"){
+                    $details = $repoBurger->find($id);
+                }
+            }
+        }
         
-        $burgers = $repoBurger -> findBy(["id"=>$id]);
         return $this->render('client/details.html.twig', [
-            'burgers'=>$burgers,
+            'details'=>$details,
+            'type' =>  $details->getType(),
         ]);
 
-        /* return $this->render('client/details.html.twig', [
-            'controller_name' => 'ClientController',
-        ]); */
     }
 
     #[Route('/mes_commandes', name: 'mes_commandes')]

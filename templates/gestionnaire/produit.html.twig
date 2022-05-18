@@ -9,7 +9,7 @@
     
     <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
 
-        <div class="row">
+        <div class="row" style="width:100% ;">
             <div class=" col-6 titre">
             
                 <div class="prod">
@@ -19,13 +19,20 @@
                 </div>
 
             </div>
-            <div class="col-md-4 produit">
-                <a href="{{ path('ajout_commande') }}" class="btn btn-primary"  role="button" aria-disabled="true"> <i class="fa-solid fa-plus"></i> NOUVEAU PRODUIT</a>
+            {# <div class="col-md-4 produit">
+                <a href="{{ path('ajout_produit') }}" class="btn btn-primary"  role="button" aria-disabled="true"> <i class="fa-solid fa-plus"></i> NOUVEAU PRODUIT</a>
+            </div> #}
+            <div class="dropdown col-md-4 produits">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-plus"></i>
 
-                {# <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
-                    NOUVEAU PRODUIT                      
-                </button> #}
-
+                    NOUVEAU PRODUIT
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{{ path('ajout_produit') }}">Ajout Burger</a>
+                  <a class="dropdown-item" href="{{ path('ajout_menu') }}">Ajout Menus</a>
+                  <a class="dropdown-item" href="{{ path('ajout_complement') }}">Ajout Complement</a>
+                </div>
             </div>
 
         </div>
@@ -65,23 +72,69 @@
         </div>
         
         <div class="container contenu2 mx-auto mt-4">
-            <div class="row cards" style=" margin-right: 105px; margin-left: 90px;">
-                {% for burger in burger %}
-              <div class=" col col-md-4">
-                    <div class="card" style="width: 300px;  display:flex ;">
-                        <img src="images/tt1.jpg" class="card-img-top" alt="...">
+
+            <div class="row cards mt-4 " style=" margin-right: 105px; margin-left: 90px;" >
+                {% for produit in produit %}
+                {# {% for image in menus.imagess %} #}
+
+                <div class="col-md-4 menus">
+                    <div class="card" style="width: 300px; display:flex;">
+                        <img src="/images/burger2.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{burger.nom}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Menu .  15 000 Fcfa</h6>
-                            {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
-                            <a href="#" class="btn details " style="margin-left: 147px;"><i class="fab fa-add"></i> Voir Détails</a>
+                            <h5 class="card-title">{{produit.nom}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{produit.prix}} Fcfa</h6></p>
+                            
                         </div>
                     </div>
                 </div>    
-         
+                
+    
+        
+                    {# {% endfor %}  #}
                 {% endfor %}
             </div>
-        </div>
+            {# <div class="row cards " style=" margin-right: 105px; margin-left: 90px;">
+                {% for burger in burger %}
+                    {% for image in burger.images %}
+
+                    
+                        <div class=" col col-md-4 mt-4">
+                            <div class="card" style="width: 300px;  display:flex ;">
+                                <img src="{{'/images/' ~ image.nom}}" alt="" srcset="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{burger.nom}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Menu .  {{burger.prix}} Fcfa</h6>
+                                </div>
+                            </div>
+                        </div>    
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="row cards mt-4 " style=" margin-right: 105px; margin-left: 90px;" >
+                {% for complement in complement %}
+                {% for image in complement.images %}
+
+                <div class="col-md-4 complement">
+                    <div class="card" style="width: 300px; display:flex;">
+                        <img src="{{'/images/' ~ image.nom}}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{complement.nom}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{complement.prix}} Fcfa</h6></p>
+                           
+                        </div>
+                    </div>
+                </div>    
+        
+                {% endfor %} 
+                {% endfor %}
+            </div>
+        </div> #}
+        
+
+    {# </div> #}
+
+        {# </div> #}
         
 
 

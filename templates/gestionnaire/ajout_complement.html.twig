@@ -13,47 +13,45 @@
 
 
 <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
-    <div class="titres11">
-        <a href="{{ path('produit') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS PRODUIT</a>
-        <h6 class="titres12">
-            Ajout Burgers
+    <div class="titres">
+        <a class="retour1" href="{{ path('produit') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS PRODUIT</a>
+        <h6 class="titres13">
+            Ajout Complément
         </h6>
     </div>
-    <div class="contenues1 mt-4">
-        
+    <div class="contenues1">
 
-        {{ form_start(burgerForm) }}
+        {{ form_start(complementForm) }}
             <div class="form-groupe">
                 <div class="col">
-                    {{ form_row(burgerForm.nom , {'attr': {'placeholder': 'Tapez ici'} }) }}
+                    {{ form_row(complementForm.nom , {'attr': {'placeholder': 'Tapez ici'} }) }}
                 </div>
             </div>
             <div class="form-groupe">
                 <div class="col">
-                    {{ form_row(burgerForm.prix , {'attr': {'placeholder': 'Tapez ici'} }) }}
+                    {{ form_row(complementForm.prix , {'attr': {'placeholder': 'Tapez ici'} }) }}
                 </div>
             </div>
             <div class="form-groupe">
                 <div class="col">
-                    {{ form_row(burgerForm.details , {'attr': {'placeholder': 'Tapez ici'} }) }}
+                    {{ form_row(complementForm.detail , {'attr': {'placeholder': 'Tapez ici'} }) }}
                 </div>
             </div>
             <div class="form-groupe file">
                 <div class="col">
-                    {{ form_label(burgerForm.images, 'Choisir une image') }}
-                    {{ form_row(burgerForm.images) }}
+                    {{ form_label(complementForm.images, 'Choisir une image') }}
+                    {{ form_row(complementForm.images) }}
                 </div>
             </div>
             <div class="boutton_ajout">
                 
                 {# <a href="#" >Annuler</a> #}
                 <button type="submit" class="btn btn-black mt-4 ">AJOUTER</button>         <br> <br>
+        </div>
 
 
-            </div>
 
-
-        {{ form_end(burgerForm) }}
+        {{ form_end(complementForm) }}
 
 
 

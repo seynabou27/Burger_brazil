@@ -30,10 +30,18 @@ class Commande
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commandes')]
     private $user;
 
+    #[ORM\ManyToMany(targetEntity: Menus::class, inversedBy: 'commandes')]
+    private $menus;
+
+    // #[ORM\ManyToMany(targetEntity: Burger::class, inversedBy: 'commandes')]
+    // private $burger;
+
   
     public function __construct()
     {
         $this->yes = new ArrayCollection();
+        $this->menus = new ArrayCollection();
+        $this->burger = new ArrayCollection();
     }
 
     
@@ -129,6 +137,54 @@ class Commande
     //             $ye->setCommande(null);
     //         }
     //     }
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection<int, Menus>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menus $menu): self
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menus $menu): self
+    {
+        $this->menus->removeElement($menu);
+
+        return $this;
+    }
+
+    // /**
+    //  * @return Collection<int, Burger>
+    //  */
+    // public function getBurger(): Collection
+    // {
+    //     return $this->burger;
+    // }
+
+    // public function addBurger(Burger $burger): self
+    // {
+    //     if (!$this->burger->contains($burger)) {
+    //         $this->burger[] = $burger;
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeBurger(Burger $burger): self
+    // {
+    //     $this->burger->removeElement($burger);
 
     //     return $this;
     // }

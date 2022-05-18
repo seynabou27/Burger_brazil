@@ -20,7 +20,6 @@
         </h5>
     </div>
     <div class="contenue">
-        {% for burger in burgers %} 
 
         <div class="Debuts">
             <div class="row mt-4">
@@ -62,15 +61,24 @@
             <h6>INFOS PRODUIT</h6>
             <div class="row mt-4">
                 <div class="col-4">
-                   <img src="/images/details.jpg" alt="jfugzurg" style="width: 100%;">
+                    {% if type is defined and type == "menu" %}
+                        {% for row in details.imagess %}
+                            <img src="/images/{{row.nom}}" alt="jfugzurg" style="width: 100%;">
+                        {% endfor %}
+                    {% else %}
+                    {% for row in details.images %}
+                            <img src="/images/{{row.nom}}" alt="jfugzurg" style="width: 100%;">
+                        {% endfor %}
+                    {% endif %}
+
                 
     
                 </div>
                <div class="col-4 dets">
-                  <li> <span>Nom  :</span> {{burger.nom}} </li>
-                  <li> <span>Type  :</span> {{burger.details}} </li> 
-                  <li> <span>Prix  :</span> {{burger.prix}}</li> 
-    
+                  <li> <span>Nom  :</span> {{details.nom}}  </li>
+                  <li> <span>Type  :</span> {{details.Type}} </li> 
+                  <li> <span>Prix  :</span> {{details.prix}}</li> 
+
                 </div>
                 {# <div class="col-4">
                     <span>
@@ -91,7 +99,6 @@
            <h6>INFOS CLIENT</h6>
 
         </div>
-        {% endfor %} 
   
 
     </div>

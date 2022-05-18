@@ -464,7 +464,33 @@ a:hover.inscription {
   margin-left: 215px;
 }
 
-/* line 133, ../sass/commande/produit.scss */
+/* line 129, ../sass/commande/produit.scss */
+.produits button {
+  margin-top: 38px;
+  background-color: #197DFF;
+  color: white;
+  width: 187px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 215px;
+}
+
+/* line 140, ../sass/commande/produit.scss */
+.produits .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #197DFF;
+  border-color: #197DFF;
+}
+
+/* line 145, ../sass/commande/produit.scss */
+.produits .btn-secondary:hover {
+  color: #fff;
+  background-color: #197DFF;
+  border-color: #197DFF;
+}
+
+/* line 154, ../sass/commande/produit.scss */
 .cards .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,8 +501,151 @@ a:hover.inscription {
   margin-left: 90px;
 }
 
+/* line 169, ../sass/commande/produit.scss */
+.contenues1 {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  opacity: 1;
+  width: 667px;
+  height: 530px;
+  margin-top: -19px;
+  margin-left: 291px;
+  margin-right: 291px;
+  padding: 22px;
+}
+
+/* line 187, ../sass/commande/produit.scss */
+.contenues11 {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  opacity: 1;
+  width: 667px;
+  height: auto;
+  margin-top: -19px;
+  margin-left: 291px;
+  margin-right: 291px;
+  padding: 22px;
+}
+
+/* line 204, ../sass/commande/produit.scss */
+.titres11 {
+  margin: 2px;
+  margin-top: 53px;
+}
+
+/* line 208, ../sass/commande/produit.scss */
+.titres12 {
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 13px;
+  margin-left: 295px;
+}
+
+/* line 220, ../sass/commande/produit.scss */
+.titres13 {
+  font: normal normal 300 32px/44px Avenir;
+  letter-spacing: 0px;
+  color: #383A4D;
+  opacity: 1;
+  margin-top: 0px;
+  /* justify-content: space-evenly; */
+  margin-block-start: 13px;
+  margin-left: 295px;
+}
+
+/* line 232, ../sass/commande/produit.scss */
+.titres11 a {
+  font: normal normal 300 20px/30px Avenir;
+  letter-spacing: 0px;
+  color: #197DFF;
+  opacity: 1;
+  margin-top: 0px;
+  margin-block-start: 45px;
+  margin-left: 289px;
+}
+
+/* line 243, ../sass/commande/produit.scss */
+.retour1 {
+  font: normal normal 300 20px/30px Avenir;
+  letter-spacing: 0px;
+  color: #197DFF;
+  opacity: 1;
+  margin-top: 0px;
+  margin-block-start: 45px;
+  margin-left: 289px;
+  padding-left: 119px;
+}
+
+/* line 264, ../sass/commande/produit.scss */
+.form-groupe {
+  margin-bottom: 8px;
+  padding-bottom: 15px;
+  position: relative;
+  width: 613px;
+}
+
+/* line 270, ../sass/commande/produit.scss */
+.form-groupe ul {
+  color: red;
+}
+
+/* line 273, ../sass/commande/produit.scss */
+.form-groupe input {
+  outline: none;
+  border: 2px solid #BEBEBE;
+  background: transparent;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* line 288, ../sass/commande/produit.scss */
+.form-groupe textarea {
+  outline: none;
+  border: 2px solid #BEBEBE;
+  background: transparent;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* line 302, ../sass/commande/produit.scss */
+.form-groupe label {
+  outline: none;
+  color: black;
+  display: block;
+}
+
+/* line 309, ../sass/commande/produit.scss */
+.boutton_ajout {
+  float: right;
+}
+
+/* line 313, ../sass/commande/produit.scss */
+.boutton_ajout a {
+  background-color: #197DFF;
+  color: white;
+  width: 300px;
+  height: 32px;
+  border-radius: 4px;
+  margin-left: 215px;
+  padding: 7px 0px;
+}
+
 @media (min-width: 1200px) {
-  /* line 144, ../sass/commande/produit.scss */
+  /* line 326, ../sass/commande/produit.scss */
   .container {
     max-width: 1140px;
   }
@@ -806,7 +975,7 @@ width: 808px; */
 /* line 78, ../sass/client/details.scss */
 .titres {
   padding: 23px;
-  margin-top: 17px;
+  margin-top: 2px;
 }
 
 /* line 82, ../sass/client/details.scss */
