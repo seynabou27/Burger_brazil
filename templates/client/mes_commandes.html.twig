@@ -10,7 +10,7 @@
 <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
 
         <div class="titre">
-            <div class="row">
+            <div class="row" style="width:100%;">
                 <div class="col-6 titre1 ">
                     <h4><b>Mes Commandes</b></h4>
 
@@ -69,45 +69,27 @@
                       </tr>
                     </thead>
                     <tbody>
+                      {% for item in commandes %}
+
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <th>{{item.numerocommande}}</th>
+                        <td>
+                            {% for row in item.burger %}
+                                {{row.nom}}
+                            {% endfor %}
+                            {% for row in item.menus %}
+                            {{row.nom}}
+                            {% endfor %}
+                        </td>
+                        <td>{{item.telephonecommande}}</td>
+                        <td>{{item.etatcommande}}</td>
+                        <td>{{item.datecommande}}</td>
+                        <td>{{item.datecommande}}</td>
 
 
                       </tr>
                     </tbody>
+                    {% endfor %}
                   </table>
 
             </div>

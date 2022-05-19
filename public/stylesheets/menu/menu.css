@@ -113,8 +113,13 @@ a:hover.inscription {
   border-radius: 50%;
 }
 
+/* line 120, ../../sass/menu/menu.scss */
+.nav-item .paniers {
+  margin-left: 23px;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 122, ../../sass/menu/menu.scss */
+  /* line 131, ../../sass/menu/menu.scss */
   #logo_custom {
     width: 40%;
   }

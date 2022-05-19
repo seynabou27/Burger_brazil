@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Controller\generateNumeroCommande;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -10,7 +11,10 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserFixture extends Fixture
 {
 
-    public function __construct( private UserPasswordHasherInterface $hasher){}
+    public function __construct( private UserPasswordHasherInterface $hasher){
+        $this->encoder=$hasher;
+
+    }
 
     public function load(ObjectManager $manager): void
     {
@@ -46,6 +50,7 @@ class UserFixture extends Fixture
             $user->setNom('Coudy Ly');
             $user->setPrenom('Wane');
             $user->setTelephone('788346131');
+
 
             $manager->persist($user);
 

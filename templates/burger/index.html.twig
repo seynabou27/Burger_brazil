@@ -34,10 +34,24 @@
                         <tr>
                             <td>{{ item. burger.nom}}</td>
                             <td>{{ item. burger.prix}}  Fcfa</td>
-                            <td>{{ item. quantite}}</td>
+                            <td><form method="post" action="/add_panier/burger/quantite/" data-var="" class="-df -i-ctr -pr -mla" data-track-onsubmit="addToCart">
+                                <button type="button" class="btn" id=" qt-plus" aria-label="diminuer la quantité panier" data-submit="" name="action" value="de">
+                                    <i class="fa-solid fa-minus"></i>
+
+                                </button>
+                                <span class="-w-32 -mas -m -fs14 -tac -lh-1">{{ item. quantite}}</span>
+                                <button type="button" class="btn" id="qt-minus " aria-label="augmenter la quantité panier" data-submit="" name="action" value="in">
+                                    <i class="fas fa-add"></i>
+
+                                </button>
+                                <input name="quantite" value="" type="hidden">
+                            </form> 
+
+                            </td>
+                            
                             <td>{{item.burger.prix * item.quantite}} Fcfa</td>
                             <td>
-                                <a href="{{ path('remove',{'id': item.burger.id})}}" class="btn btn-info btn-sm"> <i class="fas fa-trash"></i> </a>
+                                <a href="{{ path('remove',{'id':item.burger.id})}}" class="btn btn-info btn-sm"> <i class="fas fa-trash"></i> </a>
                             </td>
 
                         </tr>   
@@ -53,13 +67,26 @@
                         </tr>
 
                     </tfoot>
-                    {# <a href="{{ path('app_login') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> #}
 
                 </table>
-                {# {% if  %}
-                    
-                {% endif %} %} #}
+                {# {% if is_granted ('IS_A') %}
+
+                <a href="{{ path('ajout_commande') }}" class="btn btn-primary"  role="button" aria-disabled="true">VALIDER UNE COMMANDE</a> 
+
+                {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
+
                 <a href="{{ path('app_login') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> 
+
+
+                
+            {% endif %} #}
+            {# <a href="{{ path('ajout_commande') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> #}
+            <form method="post" action="">
+                
+                <button type="submit" class="btn btn-primary">VALIDER COMMANDE</button>
+
+
+            </form>
 
 
             </div>

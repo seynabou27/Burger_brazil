@@ -33,6 +33,12 @@ class Commande
     #[ORM\ManyToMany(targetEntity: Menus::class, inversedBy: 'commandes')]
     private $menus;
 
+    #[ORM\ManyToMany(targetEntity: Burger::class, inversedBy: 'commandes')]
+    private $bufbgsrger;
+
+    #[ORM\OneToOne(targetEntity: Paiement::class, cascade: ['persist', 'remove'])]
+    private $paiements;
+
     // #[ORM\ManyToMany(targetEntity: Burger::class, inversedBy: 'commandes')]
     // private $burger;
 
@@ -42,6 +48,8 @@ class Commande
         $this->yes = new ArrayCollection();
         $this->menus = new ArrayCollection();
         $this->burger = new ArrayCollection();
+        $this->etat_commande = "En cours";
+
     }
 
     
@@ -188,6 +196,42 @@ class Commande
 
     //     return $this;
     // }
+
+    /**
+     * @return Collection<int, Burger>
+     */
+    public function getBurger(): Collection
+    {
+        return $this->burger;
+    }
+
+    public function addBurger(Burger $burger): self
+    {
+        if (!$this->burger->contains($burger)) {
+            $this->burger[] = $burger;
+        }
+
+        return $this;
+    }
+
+    public function removeBurger(Burger $burger): self
+    {
+        $this->burger->removeElement($burger);
+
+        return $this;
+    }
+
+    public function getPaiements(): ?Paiement
+    {
+        return $this->paiements;
+    }
+
+    public function setPaiements(?Paiement $paiements): self
+    {
+        $this->paiements = $paiements;
+
+        return $this;
+    }
 
     
 }

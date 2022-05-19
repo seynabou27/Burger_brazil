@@ -14,15 +14,16 @@ class CommandeFixtures extends Fixture
         // $manager->persist($product);
 
         $commande = new Commande();
-        
-        $commande->setNumeroCommande('Commande1');
+
+        $commande->setNumeroCommande($this->generateNumeroCommande->generateNumeroCommande());
+        // $commande->setNumeroCommande('Commande1');
         $commande->setTelephoneCommande('778864543');
         $commande->setEtatCommande('En cours');
         $commande->setDateCommande('06/06/2022');
 
         $commande1 = new Commande();
 
-        $commande1->setNumeroCommande('Commande2');
+        $commande->setNumeroCommande($this->generateNumeroCommande->generateNumeroCommande());
         $commande1->setTelephoneCommande('778804943');
         $commande1->setEtatCommande('En cours');
         $commande1->setDateCommande('07/06/2022');

@@ -2,12 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
+use App\Entity\Paiement;
 use App\Repository\BurgerRepository;
+use App\Repository\CommandeRepository;
+use App\Repository\MenusRepository;
+use App\Repository\UserRepository;
+use DateTime;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Console\Command\Command;
+
 // /**
 //  *
 //  * @IsGranted("ROLE_USER")
@@ -17,40 +27,111 @@ class BurgerController extends AbstractController
     /**
  * @Route("/panier", name="panier")
  */
-    #[Route('/burger', name: 'app_burger')]
-    public function index(  Request $request,BurgerRepository $burger): Response
+
+    #[Route('/burger/{id}', name: 'app_burger')]
+    public function index(?int $id ,Request $request,BurgerRepository $burger,
+                            MenusRepository $repoMenus,
+                            CommandeRepository $repoCommande
+                            , UserRepository $userRepo,
+                            EntityManagerInterface $entityManager): Response
     {
+        $method = $request->getMethod(); 
+
+        $commande = new Commande();
+
+         $paiement= new Paiement();
+
+
         $session = $request ->getSession();
 
         $panier =$session->get('panier',[]);
         // pour enrechir le panier
-        $panierwithData = [];
+        $panierData = [];
+        $idMenus = [];
+        $idBurgers = [];
         foreach ($panier as $id => $quantite) {
-
-            $panierwithData [] = [
-                'burger' => $burger->find($id),
+            if(str_contains($id , 'burger')){
+                $idBurgers [] = (int) filter_var($id , FILTER_SANITIZE_NUMBER_INT);
+            }else{
+                $idMenus [] = (int) filter_var($id , FILTER_SANITIZE_NUMBER_INT);
+            }
+            $panierData [] = [
+                'burger'=> str_contains($id , 'burger')? $burger->find($id):$repoMenus->find($id),
                 'quantite'=> $quantite,
+                
+
+
             ];
         }
 
+        //panier
+        
         $total = 0;
-        foreach ($panierwithData as $item ) {
+        foreach ($panierData as $item ) {
 
             $totalitem = $item['burger']->getPrix() * $item['quantite'];
             $total +=$totalitem;
         }
+
+        if ($method == 'POST') {
+            $date = date_format(date_create() , 'Y-m-d');
+            $idUser = array_values((array)$this->getUser())[0];
+            $commandes = $repoCommande->findBy([
+                'user' => $idUser
+            ]);
+            $user = $userRepo->find($idUser);
+
+            $paiement->setMontant(0);
+            $commande->setDateCommande($date) 
+                    ->setNumeroCommande(rand())
+                    ->setUser($this->getUser())
+                    ->setTelephoneCommande($user->getTelephone())
+                    ->setPaiements($paiement);
+            if(count($idBurgers)>0){
+                foreach ($idBurgers as $val) {
+                    $commande->addBurger($burger->find($val));
+                }
+            }       
+            if(count($idMenus)>0){
+                foreach ($idMenus as $val2) {
+                    $commande->addMenu($repoMenus->find($val2));
+                }
+            } 
+               
+            $entityManager->persist($paiement);
+            $entityManager->persist($commande);
+            $entityManager->flush();
+
+            return $this->redirectToRoute("mes_commandes");
+        }
+
+       
+
+        
         // dd($panierwithData);
         return $this->render('burger/index.html.twig', [
-            'item' => $panierwithData,
+            'item' => $panierData,
             'total'=> $total,
         ]);
     }
+    public function getTotal() : float{
+        $total = 0;
+       
+        // foreach($this->getFullCart() as $item)
+        // {
+        //     $total += $item['burger']->getPrix() * $item['quantite'];
+        // }
+       
+            return $total;
+          }
 
      /**
- * @Route("/panier/add{id}", name="add_panier")
+ * @Route("/panier/add/{id}", name="add_panier")
  */
 
-    public function add($id, Request $request){
+    public function add($id, Request $request, BurgerRepository $burger,
+                        MenusRepository $repoMenus,
+                        CommandeRepository $repoCommande){
         $session = $request ->getSession();
 
         $panier= $session->get('panier',[]);
@@ -65,7 +146,7 @@ class BurgerController extends AbstractController
 
         }
 
-
+        
 
         $session->set('panier' ,$panier);
 
@@ -79,11 +160,14 @@ class BurgerController extends AbstractController
   */
 
  public function remove($id, Request $request){
+     
     $session = $request ->getSession();
 
     $panier =$session->get('panier',[]);
 
     if (!empty($panier[$id])) {
+        // die('ok');
+
         unset($panier[$id]);
 
     }
@@ -92,6 +176,30 @@ class BurgerController extends AbstractController
     return $this->redirectToRoute("panier");
 
  }
+//  public function Ajout_quantite(Request $request){
+//     session_start();
+    
+//     if(array_key_exists('action', $_GET)){
+//        $actionpanier=$_GET['action'];
+//        $ajout=$_GET['qt-plus'];
+//        $idproduit=$_GET['idpdt'];
+
+       
+//           if ($actionpanier=='ajoutun'){
+//             $_SESSION['achats'][$idproduit]++;
+//          }
+//          if ($actionpanier=='supprun'){
+//             $_SESSION['achats'][$idproduit]--;
+//          }
+//           $_SESSION['verif_value'] = rand(1,1000000);
+//        }
+       
+    // <script>
+    // window.location.replace('index2.php?panier=1.php');
+    // </script>
+    
+ 
+ 
 
 
 

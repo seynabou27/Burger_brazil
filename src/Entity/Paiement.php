@@ -13,8 +13,6 @@ class Paiement
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'date')]
-    private $date;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $montant;
@@ -24,17 +22,6 @@ class Paiement
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
 
     public function getMontant(): ?string
     {

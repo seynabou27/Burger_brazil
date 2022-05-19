@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Image;
 use App\Repository\MenusRepository;
 use App\Repository\BurgerRepository;
+use App\Repository\CommandeRepository;
 use App\Repository\ComplementRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ClientController extends AbstractController
@@ -35,7 +37,20 @@ class ClientController extends AbstractController
             
             // dd($complements);
          
-                $img = new Image();
+            $burgers = $repoBurger -> findBy(['etat'=>'non_archiver']);
+            $menus = $repoMenu -> findBy(['etat'=>'non_archiver']);
+            $catalogue = array_merge($menus,$burgers);
+    
+            // foreach ($catalogue as $value) {
+            //     if($value->getId()==$id){
+            //         if($value->getType() == "menu"){
+            //             $catalogues = $repoMenu->find($id);
+            //         }elseif($value->getType() == "burger"){
+            //             $catalogues = $repoBurger->find($id);
+            //         }
+            //     }
+            // }
+            
 
         $burgers = $repoBurger -> findAll();
         // dd($burgers[0]);  
@@ -50,9 +65,7 @@ class ClientController extends AbstractController
         
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
-            'burger' =>$burgers,
-            'menus'=> $menus,
-            'complement'=> $complement,
+            'catalogues'=>$catalogue,
         ]);
     }
 
@@ -84,21 +97,42 @@ class ClientController extends AbstractController
     }
 
     #[Route('/mes_commandes', name: 'mes_commandes')]
-    public function showsCommande(): Response
+    public function showsCommande(CommandeRepository $repoCommande): Response
     {
-
-        
- return $this->render('client/mes_commandes.html.twig', [
-            'controller_name' => 'ClientController',
+        $idUser = array_values((array)$this->getUser())[0];
+        $commandes = $repoCommande->findBy([
+            'user' => $idUser
+            
+        ]);
+    
+    return $this->render('client/mes_commandes.html.twig', [
+            'commandes' => $commandes,
      ]);
     }
     //ajout commande d'un client
+
+
+
+
+
+
+
     #[Route('/ajout_commande', name: 'ajout_commande')]
-    public function addCommande(): Response
+    public function addCommande(CommandeRepository $repoCommande,
+                                SessionInterface $session,
+                                Request $request,
+                                 ): Response
+
+
     {
+
+        
+
+        
         
     return $this->render('client/ajout_commande.html.twig', [
             'controller_name' => 'ClientController',
      ]);
     }
 }
+

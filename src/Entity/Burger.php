@@ -37,12 +37,16 @@ class Burger
     #[ORM\Column(type: 'string', length: 255)]
     private $Type;
 
+    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'burger')]
+    private $commandes;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->menuses = new ArrayCollection();
         $this->etat = 'non_archiver';
         $this->Type ='burger';
+        $this->commandes = new ArrayCollection();
     }
 
     // #[ORM\OneToMany(mappedBy: 'burgers', targetEntity: Image::class, orphanRemoval: true, cascade:['persist'])]
@@ -271,6 +275,33 @@ class Burger
     public function setType(string $Type): self
     {
         $this->Type = $Type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->addBurger($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            $commande->removeBurger($this);
+        }
 
         return $this;
     }
