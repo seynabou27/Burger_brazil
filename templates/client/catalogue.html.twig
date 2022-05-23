@@ -72,10 +72,20 @@
  
                 <div class="grid" style="display:flex;">
                     <div class="container contenu2 mx-auto mt-4">
-                 
+                        
 
                         <div class="row cards" style=" margin-right: 48px; margin-left: 63px;" >
                             {% for catalogues in catalogues %}
+
+                                {# {% if type is defined and type == "menu" %}
+                                    {% for row in catalogues.imagess %}
+                                        <img src="/images/{{row.nom}}" alt="jfugzurg" style="width: 100%;">
+                                    {% endfor %}
+                                    {% else %}
+                                    {% for row in catalogues.images %}
+                                        <img src="/images/{{row.nom}}" alt="jfugzurg" style="width: 100%;">
+                                    {% endfor %}
+                                {% endif %} #}
                             {# {% for image in menus.imagess %} #}
             
                             <div class="col-md-4 menus mt-4">
@@ -85,7 +95,7 @@
                                         <h5 class="card-title">{{catalogues.nom}}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{catalogues.prix}} Fcfa</h6></p>
                                         
-                                        <a class="panier" href="{{path('add_panier', {'id':catalogues.id ~ catalogues.type})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
+                                        <a class="panier" id="panier" href="{{path('add_panier', {'id':catalogues.id ~ catalogues.type})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
 
                                         <a href="{{path('details',{'id':catalogues.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
                                     </div>
@@ -97,48 +107,12 @@
                                 {# {% endfor %}  #}
                             {% endfor %}
                         </div>
-                        {# <div class="row cards mt-4 " >
-                            {% for burger in burger %}
-                            <div class="col-md-4 burger">
-                                <div class="card mt-4" style="width: 300px; display:flex;">
-                                    {% for row in burger.images %}
-                                    <img src="/images/{{row.nom}}" alt="jfugzurg" style="width: 100%;">
-                                    {% endfor %} 
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{burger.nom}}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{burger.prix}}</h6></p>
-                    
-                                        {# {% if is_granted ( 'IS_USER') %}
-                                            <a href="{{ path('app_login') }}" class="btn">Commander</a>
-                                            {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
-                                            <a href="{{ path('ajout_commande') }}" class="btn">Commander</a>
-
-
-                                            {{path('details',{'id':menus.id})}}
-                                        {% endif %} 
-
-                                        <a class="panier" href="{{path('add_panier', {'id':burger.id})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
-
-                                        <a href="{{path('details',{'id':burger.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
-                                    </div>
-                                </div>
-                            </div>    
-                    
-                            {% endfor %} 
-                        </div> #}
+                        
                        
                     </div>
                     
 
                 </div>
-                {# {% if is_granted ( 'IS_USER') %}
-                                            <a href="{{ path('app_login') }}" class="btn">Commander</a>
-                                            {% elseif is_granted ('IS_AUTHENTICATED_FULLY') %}
-                                            <a href="{{ path('ajout_commande') }}" class="btn">Commander</a>
-
-
-                                            
-                                        {% endif %} #}
 
                 <a href="{{ path('app_login') }}" class="btn btn-primary" id="commander" role="button" aria-disabled="true">PASSER UNE COMMANDE</a>
 

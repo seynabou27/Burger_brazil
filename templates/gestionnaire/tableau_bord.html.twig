@@ -13,73 +13,174 @@
 
 <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
 
-    <div class="title">
-        <h5>
-            Mon tableau de bord
-        </h5>
-
-    </div>
-    <div class=" container tableau" style="margin-top: 30px;">
-        <div class="row divided" style=" width: 100%;">
-
-            <div class="col-md-6 right">
-                <div class="totale">
-                    <div class="card  part1">
-                        <div class="card-title">
-                            
-                                <span>Recette du jour</span>
-                              
-                              <div class="align-self-center">
-                                  <a  class="font-large-2 float-right" href="#"> <i class="fa-solid fa-plus"></i> Voir Détail</a>
-                                
-                                </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body cleartfix">
-                                <div class="media align-items-stretch">
-                                    
-                                    <div class="align-self-center">
-                                        <h1 class="mr-2">546 000 Fcfa</h1>
-                                      </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="part2 mx-auto mt-4">
-                        Burgers les plus vendus du jour
-
-                    </div>
-
-                    <div class="part2 mx-auto mt-4">
-                        Commandes validées du jour
-                    </div>
-
-
-                </div>
-            </div>
-             
-            <div class="col-md-6 left">
-                <div class="part2 mx-auto">
-                    Commandes en cours du jour
-
-                </div>
-
-                <div class="part2 mx-auto mt-4">
-                    Commandes annulées du jour
-
-                </div>
-
-            </div>
-          </div>
-          
-
-        </div>
+    <div class="tableau-bord">
         
+        <div class="title">
+            <h5>
+                Mon tableau de bord
+            </h5>
+    
+        </div>
+            <div class=" container tableau" style="margin-top: 30px; ">
+                <div class="row divided">
+    
+                    <div class="col-md-6 right">
+                        <div class="totale">
+                            <div class="card  part5" style="background-color: #EDEDED;">
+                                <div class="card-title">
+                                
+                                    <span style="padding:25px ;">Recette du jour</span>
+                                  
+                                  <div class="align-self-center">
+                                      <a  style="padding:9px ; margin-right:5px;" class="font-large-2 float-right" href="#"> <i class="fa-solid fa-plus"></i> Voir Détail</a>
+                                    
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body cleartfix">
+                                        <div class="media align-items-stretch">
+                                        
+                                            <div class="align-self-center">
+                                                <h1 class="mr-2">300 000 Fcfa</h1>
+                                            </div>
+    
+                                        </div>
+    
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+    
+                            <div class="part2 mx-auto mt-4" style="height:337px ;border-radius: 4px;">
+                           
+                                <div class="parti">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>Burgers les plus vendus du jour</td>
+                                        <td></td>
+                                        <td><i class="fas fas-add"></i>Voir plus</td>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for burgers in burgers %}
+    
+                                        <tr>
+                                            <td>{{burgers.nom}}</td>
+                                            
+                                            <td></td>
+                                            <td style="color:#aca1a1 ;">2 Ventes</td>
+                
+                                        </tr> 
+                                                                        
+                                        {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                        <td></td>
+                                        
+                
+                                    </tfoot>
+                
+                                </table>
+    
+                            </div>
+                            
+    
+                        </div>
+                        <div class="part2 mx-auto mt-4" style="height:267px ;border-radius: 4px;">
+                            <div class="parti">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>Commandes validées du jour</td>
+                                        <td></td>
+                                        <td><i class="fas fas-add"></i>Voir plus</td>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for menus in menus %}
+    
+                                        <tr>
+                                            <td>{{menus.nom}}</td>
+                                            
+                                            <td></td>
+                                            <td style="color:#aca1a1 ;">2 Ventes</td>
+                
+                                        </tr> 
+                                                                        
+                                        {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                        <td></td>
+                                        
+                
+                                    </tfoot>
+                
+                
+                                </table>
+    
+                            </div>
+                            
+    
+                        </div>
+                        
+    
+    
+                    </div>
+                </div>
+                 
+                <div class="col-md-6 left">
+                    <div class="part2 mx-auto">
+                        <div class="parti">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <td>Commandes en cours du jour</td>
+                                    <td></td>
+                                    <td><i class="fas fas-add"></i>Voir plus</td>
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for menus in menus %}
+    
+                                    <tr>
+                                        <td>{{menus.nom}}</td>
+                                        
+                                        <td></td>
+                                        <td style="color:#aca1a1 ;">2 Ventes</td>
+            
+                                    </tr> 
+                                                                    
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <td></td>
+                                    
+            
+                                </tfoot>
+            
+            
+                            </table>
+    
+                        </div>
+    
+                    </div>
+    
+                <div class="part2 mx-auto mt-4">
+    
+                        
+    
+                </div>
+              </div>
+              
+    
+            </div>
+            
+        </div>
     </body>
 
 

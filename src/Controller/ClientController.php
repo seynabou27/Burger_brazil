@@ -7,6 +7,8 @@ use App\Repository\MenusRepository;
 use App\Repository\BurgerRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\ComplementRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +26,7 @@ class ClientController extends AbstractController
     }
 
     #[Route('/', name: 'catalogue')]
-    public function catalogue(BurgerRepository $repoBurger,
+    public function catalogue(?int $id, BurgerRepository $repoBurger,
                             MenusRepository $repoMenu,
                             ComplementRepository $repoComplet,
                             Request $request): Response
@@ -52,20 +54,14 @@ class ClientController extends AbstractController
             // }
             
 
-        $burgers = $repoBurger -> findAll();
-        // dd($burgers[0]);  
         
-        //liste menu
-        $menus = $repoMenu -> findAll();
-        
-        //liste complement
-        $complement = $repoComplet ->findAll();
-        // ajout au panier
 
         
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
             'catalogues'=>$catalogue,
+            
+            
         ]);
     }
 
@@ -97,16 +93,24 @@ class ClientController extends AbstractController
     }
 
     #[Route('/mes_commandes', name: 'mes_commandes')]
-    public function showsCommande(CommandeRepository $repoCommande): Response
+    public function showsCommande(CommandeRepository $repoCommande, PaginatorInterface $paginator, Request $request): Response
     {
+
+        // $commandes =$paginator->paginate(
+        //     // $commande ->findAll(),
+        //     $idUser = array_values((array)$this->getUser())[0],
+        //     $request->query->getInt('page', 1),
+        //     10
+
+        // );
         $idUser = array_values((array)$this->getUser())[0];
-        $commandes = $repoCommande->findBy([
-            'user' => $idUser
-            
-        ]);
+
+        $commandes = $repoCommande->findBy(['user' => $idUser]);
+        
     
     return $this->render('client/mes_commandes.html.twig', [
             'commandes' => $commandes,
+            
      ]);
     }
     //ajout commande d'un client

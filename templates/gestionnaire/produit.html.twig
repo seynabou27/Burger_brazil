@@ -80,7 +80,7 @@
                 {# {% for image in menus.imagess %} #}
 
                 <div class="col-md-4 menus">
-                    <div class="card" style="width: 300px; display:flex;">
+                    <div class="card mt-4" style="width: 300px; display:flex;">
                         <img src="/images/burger2.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{produit.nom}}</h5>
@@ -95,48 +95,7 @@
                     {# {% endfor %}  #}
                 {% endfor %}
             </div>
-            {# <div class="row cards " style=" margin-right: 105px; margin-left: 90px;">
-                {% for burger in burger %}
-                    {% for image in burger.images %}
-
-                    
-                        <div class=" col col-md-4 mt-4">
-                            <div class="card" style="width: 300px;  display:flex ;">
-                                <img src="{{'/images/' ~ image.nom}}" alt="" srcset="">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{burger.nom}}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Menu .  {{burger.prix}} Fcfa</h6>
-                                </div>
-                            </div>
-                        </div>    
-                    {% endfor %}
-                {% endfor %}
-            </div>
-            <div class="row cards mt-4 " style=" margin-right: 105px; margin-left: 90px;" >
-                {% for complement in complement %}
-                {% for image in complement.images %}
-
-                <div class="col-md-4 complement">
-                    <div class="card" style="width: 300px; display:flex;">
-                        <img src="{{'/images/' ~ image.nom}}" class="card-img-top" alt="...">
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{complement.nom}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{complement.prix}} Fcfa</h6></p>
-                           
-                        </div>
-                    </div>
-                </div>    
         
-                {% endfor %} 
-                {% endfor %}
-            </div>
-        </div> #}
-        
-
-    {# </div> #}
-
-        {# </div> #}
         
 
 

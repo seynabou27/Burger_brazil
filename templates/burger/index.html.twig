@@ -13,11 +13,11 @@
             Votre panier 
         </h5>
     </div>
-    <div class="contenue ">
+    <div class="contenue " style="height:344px ;">
         {% if item | length > 0 %}
 
             <div class="partie3 mt-4">
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive-xl">
                     <thead>
                     <tr>
                         <th scope="col">Produit</th>
@@ -51,7 +51,7 @@
                             
                             <td>{{item.burger.prix * item.quantite}} Fcfa</td>
                             <td>
-                                <a href="{{ path('remove',{'id':item.burger.id})}}" class="btn btn-info btn-sm"> <i class="fas fa-trash"></i> </a>
+                                <a href="{{ path('remove',{'id':item.burger.id})}}" class="btn  btn-sm" style="background-color:#efefef;"> <i class="fas fa-trash" style="color:black ; padding:7px;"></i> </a>
                             </td>
 
                         </tr>   
@@ -83,7 +83,7 @@
             {# <a href="{{ path('ajout_commande') }}" class="btn btn-primary"  role="button" aria-disabled="true">PASSER UNE COMMANDE</a> #}
             <form method="post" action="">
                 
-                <button type="submit" class="btn btn-primary">VALIDER COMMANDE</button>
+                <button type="submit" class="btn btn-primary" style="float:right">PASSER COMMANDE</button>
 
 
             </form>

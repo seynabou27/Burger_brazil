@@ -11,8 +11,11 @@ use App\Entity\Complement;
 use App\Form\ComplementType;
 use App\Repository\MenusRepository;
 use App\Repository\BurgerRepository;
+use App\Repository\CommandeRepository;
 use App\Repository\ComplementRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -76,12 +79,25 @@ class GestionnaireController extends AbstractController
 
 
     #[Route('/liste_commandes_client', name: 'client_gestionnaire')]
-    public function showCommandeClient(): Response
+    public function showCommandeClient(Request $request,CommandeRepository $repoCommande , UserRepository $repoUser, PaginatorInterface $paginator): Response
     {
+        $commandes = $paginator->paginate(
 
-        
+            $commandeClient = $repoCommande->findAll(),
+            $request->query->getInt('page',1),
+            3
+
+        );
+
+        // $idUser = array_values((array)$this->getUser())[0];
+        // $commandes = $repoCommande->findBy(['user' => $idUser]);
+        // $commandeClient = $repoCommande->findAll();
+        // $user=$repoUser->findAll();
+
+        // $roles[] = 'ROLE_USER';
+                
         return $this->render('gestionnaire/liste_commandes_client.html.twig', [
-            'controller_name' => 'GestionnaireController',
+            'commandes' => $commandes,
         ]);
     }
 
@@ -245,8 +261,27 @@ class GestionnaireController extends AbstractController
     }
 
     #[Route('/tableau_bord', name: 'tableau_bord')]
-    public function showSatistique(): Response
+    public function showSatistique(Request $request,BurgerRepository $repoBurger,MenusRepository $repoMenu,ComplementRepository $repoComplet): Response
     {
+
+        $menus = new Menus();
+    
+        $datas = $request->request->all();
+        extract($datas);
+
+        $burgers = $repoBurger -> findAll();
+        // dd($burgers[0]);  
+        
+        //liste menu
+        $menus = $repoMenu -> findAll();
+        
+        //liste complement
+        $complement = $repoComplet ->findAll();
+
+        $burgers = $repoBurger -> findBy(['etat'=>'non_archiver']);
+        $menus = $repoMenu -> findBy(['etat'=>'non_archiver']);
+        $catalogue = array_merge($menus,$burgers);
+
         if($this->getUser()){
             $role = $this->getUser()->getRoles()[0];
         }else{
@@ -254,6 +289,10 @@ class GestionnaireController extends AbstractController
         }
         return $this->render('gestionnaire/tableau_bord.html.twig', [
             'role' => $role,
+            'catalogues'=>$catalogue,
+            'burgers'=>$burgers,
+            'menus'=>$menus,
+
         ]);
     }
 

@@ -8,7 +8,7 @@
     border-radius: 4px;
     opacity: 1;
     width: 1160px;
-    height: 400px;
+    height: auto;
     margin-top:  27px;
 }
 
@@ -125,15 +125,48 @@
 
 
 .table-hover tbody tr:hover {
-    background-color: rgba(236, 236, 236, 0.075);
+    outline: none;
+    background-color: transparent;
     border: 2px  solid #FF9D19;
 
 }
+.table-hover .hover{
+    background-color: #197DFF;
+}
+
+
 
 // .icone2{
 //     background: #505050 0% 0% no-repeat padding-box;
 //     opacity: 1;
 // }
+
+.pagination .page-item.active .page-link {
+    z-index: 1;
+    color: #FF9D19;
+    background-color: #ffffff;
+    border-color: #FF9D19;
+}
+
+.pagination .page-item .page-link{
+    color: #FF9D19;
+    background-color: #ffffff;
+    
+
+}
+.pagination .page-item.disabled{
+    display: none;
+}
+
+.select1{
+    margin-left: 189px;
+    margin-top: 21px;
+}
+.select1 select{
+    outline: none;
+    padding: 7px;
+}
+
 
 
 

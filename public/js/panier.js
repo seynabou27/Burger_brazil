@@ -62,3 +62,5 @@
     //         saveCart(inCartItemsNum, cartArticles);
     //     }
     // });
+
+    alert(ok);

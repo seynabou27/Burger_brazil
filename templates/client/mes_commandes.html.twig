@@ -56,7 +56,7 @@
 
             </div>
             <div class="partie3">
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive-xl">
                     <thead>
                       <tr>
                         <th scope="col">Numéro Commande</th>
@@ -82,8 +82,22 @@
                             {% endfor %}
                         </td>
                         <td>{{item.telephonecommande}}</td>
-                        <td>{{item.etatcommande}}</td>
-                        <td>{{item.datecommande}}</td>
+                        <td style="color:#197DFF ;">{{item.etatcommande}}</td>
+                        <td>
+                            {% for row in item.burger %}
+                                {{row.prix}} Fcfa /
+                            {% endfor %}
+                            {% for row in item.menus %}
+                            {{row.prix}} Fcfa /
+                            {% endfor %}
+                        </td>
+                        {# {% for row in item.burger %}
+                                {% for row in item.menus %}
+                                    {{row.prix + row.prix}} Fcfa 
+                                    
+                                {% endfor %}
+                            
+                            {% endfor %} #}
                         <td>{{item.datecommande}}</td>
 
 

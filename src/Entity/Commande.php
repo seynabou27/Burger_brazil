@@ -34,7 +34,7 @@ class Commande
     private $menus;
 
     #[ORM\ManyToMany(targetEntity: Burger::class, inversedBy: 'commandes')]
-    private $bufbgsrger;
+    private $burger;
 
     #[ORM\OneToOne(targetEntity: Paiement::class, cascade: ['persist', 'remove'])]
     private $paiements;

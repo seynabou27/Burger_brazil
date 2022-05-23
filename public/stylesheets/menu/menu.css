@@ -10,96 +10,87 @@
 /* line 13, ../../sass/menu/menu.scss */
 .custom-navbar {
   background-color: #1A1A1A;
+  height: 68px;
 }
 
-/* line 18, ../../sass/menu/menu.scss */
+/* line 19, ../../sass/menu/menu.scss */
 .nav-link {
   color: #ffffff !important;
 }
 
-/* line 21, ../../sass/menu/menu.scss */
+/* line 22, ../../sass/menu/menu.scss */
 .nav-item:hover {
   border-bottom: 3px solid #FF9D19;
 }
 
-/* line 27, ../../sass/menu/menu.scss */
+/* line 28, ../../sass/menu/menu.scss */
 .custom-toggler.navbar-toggler {
   border-color: #f7204e;
 }
 
-/* line 30, ../../sass/menu/menu.scss */
-.custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-/* line 33, ../../sass/menu/menu.scss */
+/* line 32, ../../sass/menu/menu.scss */
 .custom-toggler .navbar-toggler-icon {
   width: 18px !important;
 }
 
-/* line 36, ../../sass/menu/menu.scss */
+/* line 35, ../../sass/menu/menu.scss */
 .custom-toggler:hover {
   border-color: white;
-  background-color: #f76a88;
+  background-color: #1A1A1A;
 }
 
-/* line 39, ../../sass/menu/menu.scss */
-.navbar-toggler-icon:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-/* line 42, ../../sass/menu/menu.scss */
+/* line 40, ../../sass/menu/menu.scss */
 #logo_custom {
   margin-top: -6px;
 }
 
-/* line 49, ../../sass/menu/menu.scss */
+/* line 47, ../../sass/menu/menu.scss */
 .notification {
   padding: 4px;
   margin-right: 11px;
 }
 
-/* line 59, ../../sass/menu/menu.scss */
+/* line 57, ../../sass/menu/menu.scss */
 .connexion {
   background-color: #197DFF;
   border: 2px solid #197DFF;
   border-radius: 4px;
   color: white;
-  padding: 6px;
+  padding: 9px;
   margin: 6px;
-  font: normal normal bold 16px/19px Product Sans;
+  font: normal normal bold 13px/15px Product Sans;
   letter-spacing: 0px;
 }
 
-/* line 73, ../../sass/menu/menu.scss */
+/* line 71, ../../sass/menu/menu.scss */
 a:hover.connexion {
   color: white;
   text-decoration: none;
 }
 
-/* line 79, ../../sass/menu/menu.scss */
+/* line 77, ../../sass/menu/menu.scss */
 .inscription {
   border: 2px solid #ffffff;
   border-radius: 4px;
   color: #ffffff;
-  padding: 6px;
+  padding: 9px;
   margin: 6px;
-  font: normal normal bold 16px/19px Product Sans;
+  font: normal normal bold 13px/15px Product Sans;
   letter-spacing: 0px;
 }
 
-/* line 92, ../../sass/menu/menu.scss */
+/* line 90, ../../sass/menu/menu.scss */
 a:hover.inscription {
   color: white;
   text-decoration: none;
 }
 
-/* line 99, ../../sass/menu/menu.scss */
+/* line 97, ../../sass/menu/menu.scss */
 .show {
   display: block;
 }
 
-/* line 103, ../../sass/menu/menu.scss */
+/* line 101, ../../sass/menu/menu.scss */
 .auth .number {
   position: absolute;
   top: -11px;
@@ -113,14 +104,56 @@ a:hover.inscription {
   border-radius: 50%;
 }
 
-/* line 120, ../../sass/menu/menu.scss */
+/* line 118, ../../sass/menu/menu.scss */
 .nav-item .paniers {
   margin-left: 23px;
 }
 
+/* line 126, ../../sass/menu/menu.scss */
+.deconnexion a {
+  background-color: #f76a88;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 131, ../../sass/menu/menu.scss */
+  /* line 133, ../../sass/menu/menu.scss */
   #logo_custom {
-    width: 40%;
+    width: 50%;
+  }
+
+  /* line 136, ../../sass/menu/menu.scss */
+  .mobile {
+    background-color: #1A1A1A;
+  }
+
+  /* line 139, ../../sass/menu/menu.scss */
+  .notification {
+    display: none;
+  }
+
+  /* line 142, ../../sass/menu/menu.scss */
+  .identifiant {
+    margin-left: 336px;
+    margin-top: -36px;
+  }
+
+  /* line 146, ../../sass/menu/menu.scss */
+  .navbar-nav li {
+    padding: 12px;
+  }
+
+  /* line 149, ../../sass/menu/menu.scss */
+  .nav-link:hover {
+    border-bottom: none;
+    border-width: 12px;
+  }
+
+  /* line 153, ../../sass/menu/menu.scss */
+  .tableau-bord {
+    margin-top: 198px;
+  }
+
+  /* line 156, ../../sass/menu/menu.scss */
+  .auth {
+    padding: 9px;
   }
 }

@@ -221,5 +221,93 @@
   /* line 270, ../../sass/client/catalogue.scss */
   #fluid img {
     width: 400px;
+    margin-top: 24px;
+  }
+
+  /* line 275, ../../sass/client/catalogue.scss */
+  .annoce {
+    z-index: 2;
+    position: absolute;
+    width: 480px;
+    height: 108px;
+    text-align: center;
+    font: normal normal normal 58px/70px Avenir;
+    font-size: 58px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: -372px;
+    font-size: 21px;
+    margin-top: -162px;
+  }
+
+  /* line 291, ../../sass/client/catalogue.scss */
+  .gauche img {
+    top: 581px;
+    margin-left: 64px;
+    opacity: 1;
+  }
+
+  /* line 297, ../../sass/client/catalogue.scss */
+  .milieu img {
+    margin-left: 69px;
+    opacity: 1;
+    margin-top: 27px;
+  }
+
+  /* line 306, ../../sass/client/catalogue.scss */
+  .droite {
+    width: 322px;
+    height: 456px;
+    margin-left: 87px;
+    opacity: 1;
+    margin-top: -76px;
+  }
+
+  /* line 314, ../../sass/client/catalogue.scss */
+  .ensemble2 h5 {
+    margin-top: 66px;
+    font: normal normal 300 30px/40px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    text-align: center;
+  }
+
+  /* line 324, ../../sass/client/catalogue.scss */
+  .ensemble2 p {
+    margin-top: 12px;
+    height: 50px;
+    text-align: center;
+    font: normal normal normal 16px/25px Lato;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 0.65;
+  }
+
+  /* line 334, ../../sass/client/catalogue.scss */
+  .filters_menu {
+    margin-left: 91px;
+    margin-top: 22px;
+  }
+
+  /* line 338, ../../sass/client/catalogue.scss */
+  .row .cards {
+    margin-right: 48px;
+    margin-left: 43px;
+  }
+
+  /* line 342, ../../sass/client/catalogue.scss */
+  #commander {
+    margin-top: 52px;
+    align-items: center;
+    margin-left: 128px;
+    width: 230px;
+    height: 35px;
+    background: #197DFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    text-align: center;
   }
 }

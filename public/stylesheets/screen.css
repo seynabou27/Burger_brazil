@@ -80,96 +80,87 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 13, ../sass/menu/menu.scss */
 .custom-navbar {
   background-color: #1A1A1A;
+  height: 68px;
 }
 
-/* line 18, ../sass/menu/menu.scss */
+/* line 19, ../sass/menu/menu.scss */
 .nav-link {
   color: #ffffff !important;
 }
 
-/* line 21, ../sass/menu/menu.scss */
+/* line 22, ../sass/menu/menu.scss */
 .nav-item:hover {
   border-bottom: 3px solid #FF9D19;
 }
 
-/* line 27, ../sass/menu/menu.scss */
+/* line 28, ../sass/menu/menu.scss */
 .custom-toggler.navbar-toggler {
   border-color: #f7204e;
 }
 
-/* line 30, ../sass/menu/menu.scss */
-.custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-/* line 33, ../sass/menu/menu.scss */
+/* line 32, ../sass/menu/menu.scss */
 .custom-toggler .navbar-toggler-icon {
   width: 18px !important;
 }
 
-/* line 36, ../sass/menu/menu.scss */
+/* line 35, ../sass/menu/menu.scss */
 .custom-toggler:hover {
   border-color: white;
-  background-color: #f76a88;
+  background-color: #1A1A1A;
 }
 
-/* line 39, ../sass/menu/menu.scss */
-.navbar-toggler-icon:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-/* line 42, ../sass/menu/menu.scss */
+/* line 40, ../sass/menu/menu.scss */
 #logo_custom {
   margin-top: -6px;
 }
 
-/* line 49, ../sass/menu/menu.scss */
+/* line 47, ../sass/menu/menu.scss */
 .notification {
   padding: 4px;
   margin-right: 11px;
 }
 
-/* line 59, ../sass/menu/menu.scss */
+/* line 57, ../sass/menu/menu.scss */
 .connexion {
   background-color: #197DFF;
   border: 2px solid #197DFF;
   border-radius: 4px;
   color: white;
-  padding: 6px;
+  padding: 9px;
   margin: 6px;
-  font: normal normal bold 16px/19px Product Sans;
+  font: normal normal bold 13px/15px Product Sans;
   letter-spacing: 0px;
 }
 
-/* line 73, ../sass/menu/menu.scss */
+/* line 71, ../sass/menu/menu.scss */
 a:hover.connexion {
   color: white;
   text-decoration: none;
 }
 
-/* line 79, ../sass/menu/menu.scss */
+/* line 77, ../sass/menu/menu.scss */
 .inscription {
   border: 2px solid #ffffff;
   border-radius: 4px;
   color: #ffffff;
-  padding: 6px;
+  padding: 9px;
   margin: 6px;
-  font: normal normal bold 16px/19px Product Sans;
+  font: normal normal bold 13px/15px Product Sans;
   letter-spacing: 0px;
 }
 
-/* line 92, ../sass/menu/menu.scss */
+/* line 90, ../sass/menu/menu.scss */
 a:hover.inscription {
   color: white;
   text-decoration: none;
 }
 
-/* line 99, ../sass/menu/menu.scss */
+/* line 97, ../sass/menu/menu.scss */
 .show {
   display: block;
 }
 
-/* line 103, ../sass/menu/menu.scss */
+/* line 101, ../sass/menu/menu.scss */
 .auth .number {
   position: absolute;
   top: -11px;
@@ -183,15 +174,57 @@ a:hover.inscription {
   border-radius: 50%;
 }
 
-/* line 120, ../sass/menu/menu.scss */
+/* line 118, ../sass/menu/menu.scss */
 .nav-item .paniers {
   margin-left: 23px;
 }
 
+/* line 126, ../sass/menu/menu.scss */
+.deconnexion a {
+  background-color: #f76a88;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 131, ../sass/menu/menu.scss */
+  /* line 133, ../sass/menu/menu.scss */
   #logo_custom {
-    width: 40%;
+    width: 50%;
+  }
+
+  /* line 136, ../sass/menu/menu.scss */
+  .mobile {
+    background-color: #1A1A1A;
+  }
+
+  /* line 139, ../sass/menu/menu.scss */
+  .notification {
+    display: none;
+  }
+
+  /* line 142, ../sass/menu/menu.scss */
+  .identifiant {
+    margin-left: 336px;
+    margin-top: -36px;
+  }
+
+  /* line 146, ../sass/menu/menu.scss */
+  .navbar-nav li {
+    padding: 12px;
+  }
+
+  /* line 149, ../sass/menu/menu.scss */
+  .nav-link:hover {
+    border-bottom: none;
+    border-width: 12px;
+  }
+
+  /* line 153, ../sass/menu/menu.scss */
+  .tableau-bord {
+    margin-top: 198px;
+  }
+
+  /* line 156, ../sass/menu/menu.scss */
+  .auth {
+    padding: 9px;
   }
 }
 /* line 2, ../sass/commande/liste_commande.scss */
@@ -201,7 +234,7 @@ a:hover.inscription {
   border-radius: 4px;
   opacity: 1;
   width: 1160px;
-  height: 400px;
+  height: auto;
   margin-top: 27px;
 }
 
@@ -328,8 +361,45 @@ a:hover.inscription {
 
 /* line 127, ../sass/commande/liste_commande.scss */
 .table-hover tbody tr:hover {
-  background-color: rgba(236, 236, 236, 0.075);
+  outline: none;
+  background-color: transparent;
   border: 2px  solid #FF9D19;
+}
+
+/* line 133, ../sass/commande/liste_commande.scss */
+.table-hover .hover {
+  background-color: #197DFF;
+}
+
+/* line 144, ../sass/commande/liste_commande.scss */
+.pagination .page-item.active .page-link {
+  z-index: 1;
+  color: #FF9D19;
+  background-color: #ffffff;
+  border-color: #FF9D19;
+}
+
+/* line 151, ../sass/commande/liste_commande.scss */
+.pagination .page-item .page-link {
+  color: #FF9D19;
+  background-color: #ffffff;
+}
+
+/* line 157, ../sass/commande/liste_commande.scss */
+.pagination .page-item.disabled {
+  display: none;
+}
+
+/* line 161, ../sass/commande/liste_commande.scss */
+.select1 {
+  margin-left: 189px;
+  margin-top: 21px;
+}
+
+/* line 165, ../sass/commande/liste_commande.scss */
+.select1 select {
+  outline: none;
+  padding: 7px;
 }
 
 /* line 1, ../sass/commande/produit.scss */
@@ -678,15 +748,33 @@ a:hover.inscription {
 /* line 20, ../sass/commande/tableau_bord.scss */
 .part1 {
   background-color: #EDEDED;
-  height: 142px;
+  height: 341px;
 }
 
-/* line 26, ../sass/commande/tableau_bord.scss */
+/* line 27, ../sass/commande/tableau_bord.scss */
 .part2 {
   background-color: white;
-  height: 200px;
+  height: 375px;
 }
 
+@media screen and (max-width: 760px) {
+  /* line 32, ../sass/commande/tableau_bord.scss */
+  .title h5 {
+    font: normal normal 300 32px/44px Avenir;
+    letter-spacing: 0px;
+    color: #383A4D;
+    opacity: 1;
+    margin-top: 0px;
+    justify-content: space-evenly;
+    margin-block-start: 40px;
+    margin-left: 64px;
+  }
+
+  /* line 43, ../sass/commande/tableau_bord.scss */
+  .left {
+    margin-top: 17px;
+  }
+}
 /* line 2, ../sass/client/catalogue.scss */
 .container-fluid {
   background-color: #262626;
@@ -910,6 +998,94 @@ a:hover.inscription {
   /* line 270, ../sass/client/catalogue.scss */
   #fluid img {
     width: 400px;
+    margin-top: 24px;
+  }
+
+  /* line 275, ../sass/client/catalogue.scss */
+  .annoce {
+    z-index: 2;
+    position: absolute;
+    width: 480px;
+    height: 108px;
+    text-align: center;
+    font: normal normal normal 58px/70px Avenir;
+    font-size: 58px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: -372px;
+    font-size: 21px;
+    margin-top: -162px;
+  }
+
+  /* line 291, ../sass/client/catalogue.scss */
+  .gauche img {
+    top: 581px;
+    margin-left: 64px;
+    opacity: 1;
+  }
+
+  /* line 297, ../sass/client/catalogue.scss */
+  .milieu img {
+    margin-left: 69px;
+    opacity: 1;
+    margin-top: 27px;
+  }
+
+  /* line 306, ../sass/client/catalogue.scss */
+  .droite {
+    width: 322px;
+    height: 456px;
+    margin-left: 87px;
+    opacity: 1;
+    margin-top: -76px;
+  }
+
+  /* line 314, ../sass/client/catalogue.scss */
+  .ensemble2 h5 {
+    margin-top: 66px;
+    font: normal normal 300 30px/40px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    text-align: center;
+  }
+
+  /* line 324, ../sass/client/catalogue.scss */
+  .ensemble2 p {
+    margin-top: 12px;
+    height: 50px;
+    text-align: center;
+    font: normal normal normal 16px/25px Lato;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 0.65;
+  }
+
+  /* line 334, ../sass/client/catalogue.scss */
+  .filters_menu {
+    margin-left: 91px;
+    margin-top: 22px;
+  }
+
+  /* line 338, ../sass/client/catalogue.scss */
+  .row .cards {
+    margin-right: 48px;
+    margin-left: 43px;
+  }
+
+  /* line 342, ../sass/client/catalogue.scss */
+  #commander {
+    margin-top: 52px;
+    align-items: center;
+    margin-left: 128px;
+    width: 230px;
+    height: 35px;
+    background: #197DFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    text-align: center;
   }
 }
 /* line 1, ../sass/client/details.scss */
@@ -1020,56 +1196,37 @@ width: 808px; */
   text-decoration: none;
 }
 
-/* line 30, ../sass/security/login.scss */
+/* line 25, ../sass/security/login.scss */
+.left a:hover {
+  list-style: none;
+  color: white;
+}
+
+/* line 34, ../sass/security/login.scss */
 .login-form-2 .left {
   background-color: #1A1A1A;
 }
 
-/* line 40, ../sass/security/login.scss */
+/* line 44, ../sass/security/login.scss */
 body {
   font-family: "Lato", sans-serif;
 }
 
-@media screen and (max-width: 450px) {
-  /* line 66, ../sass/security/login.scss */
-  .login-form {
-    margin-top: 10%;
-  }
-
-  /* line 70, ../sass/security/login.scss */
-  .register-form {
-    margin-top: 10%;
-  }
-}
-@media screen and (min-width: 768px) {
-  /* line 76, ../sass/security/login.scss */
-  .side_right {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-  }
-
-  /* line 88, ../sass/security/login.scss */
-  .register-form {
-    margin-top: 20%;
-  }
-}
-/* line 95, ../sass/security/login.scss */
+/* line 71, ../sass/security/login.scss */
 .login-forms {
   align-items: center;
   justify-content: center;
   margin-left: 168px;
 }
 
-/* line 100, ../sass/security/login.scss */
+/* line 76, ../sass/security/login.scss */
 .login-main-text {
   margin-top: 25%;
   padding: 60px;
   color: #fff;
 }
 
-/* line 107, ../sass/security/login.scss */
+/* line 83, ../sass/security/login.scss */
 .login-main-text h4 {
   top: 528px;
   margin-top: 110px;
@@ -1080,7 +1237,7 @@ body {
   opacity: 1;
 }
 
-/* line 119, ../sass/security/login.scss */
+/* line 95, ../sass/security/login.scss */
 .login-main-text {
   font-weight: 300;
   position: absolute;
@@ -1091,13 +1248,13 @@ body {
   padding-left: 120px;
 }
 
-/* line 129, ../sass/security/login.scss */
+/* line 105, ../sass/security/login.scss */
 .btn-black {
   background-color: #197DFF;
   color: #fff;
 }
 
-/* line 135, ../sass/security/login.scss */
+/* line 111, ../sass/security/login.scss */
 .form-group input {
   outline: none;
   border: 2px solid #BEBEBE;
@@ -1107,13 +1264,13 @@ body {
   height: 45px;
 }
 
-/* line 144, ../sass/security/login.scss */
+/* line 120, ../sass/security/login.scss */
 .form-group label {
   outline: none;
   color: white;
 }
 
-/* line 149, ../sass/security/login.scss */
+/* line 125, ../sass/security/login.scss */
 .end-lien {
   display: block;
   align-items: center;
@@ -1125,7 +1282,7 @@ body {
   margin-right: 209px;
 }
 
-/* line 160, ../sass/security/login.scss */
+/* line 136, ../sass/security/login.scss */
 .inscrisp {
   display: block;
   align-items: center;
@@ -1137,12 +1294,12 @@ body {
   margin-right: 116px;
 }
 
-/* line 170, ../sass/security/login.scss */
+/* line 146, ../sass/security/login.scss */
 .end-lien a {
   font-size: 15px;
 }
 
-/* line 173, ../sass/security/login.scss */
+/* line 149, ../sass/security/login.scss */
 .end-lien p {
   margin-top: 35px;
   height: 19px;
@@ -1152,7 +1309,7 @@ body {
   opacity: 1;
 }
 
-/* line 183, ../sass/security/login.scss */
+/* line 159, ../sass/security/login.scss */
 .form-groups {
   margin-bottom: 8px;
   padding-bottom: 15px;
@@ -1160,7 +1317,7 @@ body {
   width: 561px;
 }
 
-/* line 189, ../sass/security/login.scss */
+/* line 165, ../sass/security/login.scss */
 .form-groups input {
   outline: none;
   border: 2px solid #BEBEBE;
@@ -1174,7 +1331,7 @@ body {
   font-size: 14px;
 }
 
-/* line 202, ../sass/security/login.scss */
+/* line 178, ../sass/security/login.scss */
 .telephone input {
   outline: none;
   border: 2px solid #BEBEBE;
@@ -1188,9 +1345,17 @@ body {
   font-size: 14px;
 }
 
-/* line 215, ../sass/security/login.scss */
+/* line 191, ../sass/security/login.scss */
 .form-groups label {
   outline: none;
   color: white;
   display: block;
+}
+
+@media only screen and (max-width: 760px) {
+  /* line 225, ../sass/security/login.scss */
+  .right img {
+    width: 100%;
+    height: 300px;
+  }
 }

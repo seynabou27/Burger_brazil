@@ -21,11 +21,30 @@
 /* line 20, ../../sass/commande/tableau_bord.scss */
 .part1 {
   background-color: #EDEDED;
-  height: 142px;
+  height: 341px;
 }
 
-/* line 26, ../../sass/commande/tableau_bord.scss */
+/* line 27, ../../sass/commande/tableau_bord.scss */
 .part2 {
   background-color: white;
-  height: 200px;
+  height: 375px;
+}
+
+@media screen and (max-width: 760px) {
+  /* line 32, ../../sass/commande/tableau_bord.scss */
+  .title h5 {
+    font: normal normal 300 32px/44px Avenir;
+    letter-spacing: 0px;
+    color: #383A4D;
+    opacity: 1;
+    margin-top: 0px;
+    justify-content: space-evenly;
+    margin-block-start: 40px;
+    margin-left: 64px;
+  }
+
+  /* line 43, ../../sass/commande/tableau_bord.scss */
+  .left {
+    margin-top: 17px;
+  }
 }

@@ -6,7 +6,7 @@
   border-radius: 4px;
   opacity: 1;
   width: 1160px;
-  height: 400px;
+  height: auto;
   margin-top: 27px;
 }
 
@@ -133,6 +133,43 @@
 
 /* line 127, ../../sass/commande/liste_commande.scss */
 .table-hover tbody tr:hover {
-  background-color: rgba(236, 236, 236, 0.075);
+  outline: none;
+  background-color: transparent;
   border: 2px  solid #FF9D19;
+}
+
+/* line 133, ../../sass/commande/liste_commande.scss */
+.table-hover .hover {
+  background-color: #197DFF;
+}
+
+/* line 144, ../../sass/commande/liste_commande.scss */
+.pagination .page-item.active .page-link {
+  z-index: 1;
+  color: #FF9D19;
+  background-color: #ffffff;
+  border-color: #FF9D19;
+}
+
+/* line 151, ../../sass/commande/liste_commande.scss */
+.pagination .page-item .page-link {
+  color: #FF9D19;
+  background-color: #ffffff;
+}
+
+/* line 157, ../../sass/commande/liste_commande.scss */
+.pagination .page-item.disabled {
+  display: none;
+}
+
+/* line 161, ../../sass/commande/liste_commande.scss */
+.select1 {
+  margin-left: 189px;
+  margin-top: 21px;
+}
+
+/* line 165, ../../sass/commande/liste_commande.scss */
+.select1 select {
+  outline: none;
+  padding: 7px;
 }

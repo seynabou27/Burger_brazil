@@ -67,6 +67,18 @@
 
                     </div>
                     <div class="col-6">
+                      <div class=" select1">
+
+                        <select name="" id="">
+                            <option value="">Type de produit</option>
+                        </select>
+    
+                        <select name="" id="">
+                            <option value="">Etats Commande</option>
+                        </select>
+    
+    
+                    </div>
 
                     </div>
 
@@ -78,59 +90,42 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">Client</th>
-                        <th scope="col">Numeros Commandes</th>
-                        <th scope="col">Téléphone</th>
-                        <th scope="col">Produits</th>
-                        <th scope="col">Etat</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Date</th>
+                        <th scope="col" style="text-align: center ;">Client</th>
+                        <th scope="col" style="text-align: center ;">Numeros Commandes</th>
+                        <th scope="col" style="text-align: center ;">Téléphone</th>
+                        <th scope="col" style="text-align: center ;">Produits</th>
+                        <th scope="col" style="text-align: center ;">Etat</th>
+                        <th scope="col" style="text-align: center ;">Prix</th>
+                        <th scope="col" style="text-align: center ;">Date</th>
 
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                      {% for item in commandes %}
 
+                      <tr>
+                        <td>
+                        </td>
+                        <td style="text-align: center ; padding: 20px;">{{item.numerocommande}}</td>
+                        <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>
+                        <td style="text-align: center ;">
+                          {% for row in item.burger %}
+                            {{row.nom}} <br>
+                          {% endfor %}
+                          {% for row in item.menus %}
+                            {{row.nom}} <br>
+                          {% endfor %}
+                        </td>
+                        <td style="text-align: center ; padding: 20px;">{{item.etatcommande}}</td>
+                        <td></td>
+                        <td style="text-align: center ;padding: 20px;">{{item.datecommande}}</td>
+                        <td></td>
 
 
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-
-
-                      </tr>
+                     
                       
-
+                      {% endfor %}
                     </tbody>
                   </table>
 
@@ -138,7 +133,12 @@
 
         </div>
 
+        <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
+          {{ knp_pagination_render(commandes)}}
+        </div>
+
     </div>
+   
 
 
 

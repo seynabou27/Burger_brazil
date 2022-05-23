@@ -16,23 +16,24 @@
   <body>
     {% block logo %}
         <nav class="navbar  navbar-expand-md custom-navbar navbar-dark">
-         
-          <svg xmlns="http://www.w3.org/2000/svg" width="140" height="25" viewBox="0 0 140 25">
-            <g id="Groupe_151589" data-name="Groupe 151589" transform="translate(-452 -331)">
-              <g id="Groupe_151256" data-name="Groupe 151256" transform="translate(0 1)">
-                  <path id="Rectangle_137222" data-name="Rectangle 137222" d="M7,0H18.955A6.045,6.045,0,0,1,25,6.045V7a0,0,0,0,1,0,0H0A0,0,0,0,1,0,7V7A7,7,0,0,1,7,0Z" transform="translate(454 331)" fill="#ff9d19"/>
-                  <path id="Rectangle_137223" data-name="Rectangle 137223" d="M0,0H25a0,0,0,0,1,0,0V.955A6.045,6.045,0,0,1,18.955,7H7A7,7,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(454 348)" fill="#ff9d19"/>
-                  <rect id="Rectangle_137224" data-name="Rectangle 137224" width="29" height="6" rx="3" transform="translate(452 340)" fill="#ff9d19"/>
+         <a href="{{path('catalogue')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="140" height="25" viewBox="0 0 140 25">
+              <g id="Groupe_151589" data-name="Groupe 151589" transform="translate(-452 -331)">
+                <g id="Groupe_151256" data-name="Groupe 151256" transform="translate(0 1)">
+                    <path id="Rectangle_137222" data-name="Rectangle 137222" d="M7,0H18.955A6.045,6.045,0,0,1,25,6.045V7a0,0,0,0,1,0,0H0A0,0,0,0,1,0,7V7A7,7,0,0,1,7,0Z" transform="translate(454 331)" fill="#ff9d19"/>
+                    <path id="Rectangle_137223" data-name="Rectangle 137223" d="M0,0H25a0,0,0,0,1,0,0V.955A6.045,6.045,0,0,1,18.955,7H7A7,7,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(454 348)" fill="#ff9d19"/>
+                    <rect id="Rectangle_137224" data-name="Rectangle 137224" width="29" height="6" rx="3" transform="translate(452 340)" fill="#ff9d19"/>
+                  </g>
+                  <text id="BurgerFood" transform="translate(490 349)" fill="#fff" font-size="18" font-family="Avenir-Black, Avenir" font-weight="800"><tspan x="0" y="0">BrazilBurger</tspan></text>
                 </g>
-                <text id="BurgerFood" transform="translate(490 349)" fill="#fff" font-size="18" font-family="Avenir-Black, Avenir" font-weight="800"><tspan x="0" y="0">BrazilBurger</tspan></text>
-              </g>
-            </svg>
-            <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span class="navbar-toggler-icon "></span>
-            </button>
-            {% endblock %}
+              </svg>
+          </a>
+          <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+        {% endblock %}
 
-          <div class="collapse navbar-collapse " id="collapsibleNavbar">
+          <div class="collapse navbar-collapse  mobile" id="collapsibleNavbar">
             {% if is_granted ('IS_AUTHENTICATED_FULLY') %}  
               {% block navbar %}
                 <ul class="navbar-nav m-auto ">
@@ -53,7 +54,7 @@
                       <a class="nav-link" href="{{path('catalogue')}}"><b>Catalogue</b></a>
                     </li>  
                     <li class="nav-item">
-                      <a class="nav-link" href="{{path('mes_commandes')}}"><b>Mes commandes</b></a>
+                      <a class="nav-link active" href="{{path('mes_commandes')}}"><b>Mes commandes</b></a>
                     </li> 
                     
                   {% endblock %}
@@ -80,7 +81,8 @@
                       <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                         <ul id="drop" class="dropdown-menu dropdown-menu-end mr-5"style="margin-left: -95px" aria-labelledby="navbarDropdown">
-                            <a  href="{{ path('app_logout') }}" class="button deconnexion">Deconnexion</a>
+                           
+                            <a  href="{{ path('app_logout') }}" class="button deconnexion" style="padding:7px ;"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
                         </ul>
                       </li>
                     </ul>
