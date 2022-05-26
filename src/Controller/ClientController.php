@@ -95,17 +95,16 @@ class ClientController extends AbstractController
     #[Route('/mes_commandes', name: 'mes_commandes')]
     public function showsCommande(CommandeRepository $repoCommande, PaginatorInterface $paginator, Request $request): Response
     {
-
-        // $commandes =$paginator->paginate(
-        //     // $commande ->findAll(),
-        //     $idUser = array_values((array)$this->getUser())[0],
-        //     $request->query->getInt('page', 1),
-        //     10
-
-        // );
         $idUser = array_values((array)$this->getUser())[0];
 
-        $commandes = $repoCommande->findBy(['user' => $idUser]);
+        $commandes = $paginator->paginate(
+
+            $commandeClient = $repoCommande->findBy(['user' => $idUser]),
+            $request->query->getInt('page',1),
+            3
+
+        );
+        
         
     
     return $this->render('client/mes_commandes.html.twig', [

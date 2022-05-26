@@ -34,24 +34,16 @@
                         <tr>
                             <td>{{ item. burger.nom}}</td>
                             <td>{{ item. burger.prix}}  Fcfa</td>
-                            <td><form method="post" action="/add_panier/burger/quantite/" data-var="" class="-df -i-ctr -pr -mla" data-track-onsubmit="addToCart">
-                                <button type="button" class="btn" id=" qt-plus" aria-label="diminuer la quantité panier" data-submit="" name="action" value="de">
-                                    <i class="fa-solid fa-minus"></i>
-
-                                </button>
-                                <span class="-w-32 -mas -m -fs14 -tac -lh-1">{{ item. quantite}}</span>
-                                <button type="button" class="btn" id="qt-minus " aria-label="augmenter la quantité panier" data-submit="" name="action" value="in">
-                                    <i class="fas fa-add"></i>
-
-                                </button>
-                                <input name="quantite" value="" type="hidden">
-                            </form> 
+                            <td>
+                                <a class="moins" id="" href="{{path('moins', {'id':item.burger.id ~ item.burger.type})}}"><i class="fa-solid fa-minus"></i></a>
+                                {{item.quantite}}
+                                <a class="plus" id="" href="{{path('plus', {'id':item.burger.id ~ item.burger.type})}}"><i class="fa-solid fa-plus"></i></a>
 
                             </td>
                             
                             <td>{{item.burger.prix * item.quantite}} Fcfa</td>
                             <td>
-                                <a href="{{ path('remove',{'id':item.burger.id})}}" class="btn  btn-sm" style="background-color:#efefef;"> <i class="fas fa-trash" style="color:black ; padding:7px;"></i> </a>
+                                <a href="{{path('remove', {'id':item.burger.id ~ item.burger.type})}}" class="btn  btn-sm" style="background-color:#efefef;"> <i class="fas fa-trash" style="color:black ; padding:7px;"></i> </a>
                             </td>
 
                         </tr>   
@@ -62,7 +54,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="3">Total :</td>
-                            <td>{{total}}</td>
+                            <td>{{total}} Fcfa</td>
                             <td></td>
                         </tr>
 

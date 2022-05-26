@@ -3,22 +3,29 @@
 {% block title %}Catalogue{% endblock %}
 
 
+{% block gest %}{% endblock  %}
 
 
-{% block navbar %}
-    {% if role is defined and role == "ROLE_USER" %}
-        {% block client %}{{ parent() }}{% endblock %}
-        {% block panier %}{{ parent() }}{% endblock  %}
-    {% elseif role is defined and role == "ROLE_GESTIONNAIRE" %}
-        {% block gest %}{{ parent() }}{% endblock  %}
-    {% else %}
-        {% block login %}{{parent()}}{% endblock %}
-    {% endif %}
-{% endblock %}
+    {# {% block navbar %}
+        {% if role is defined and role == "ROLE_USER" %}
+            {% block client %}{{ parent() }}{% endblock %}
+            {% block panier %}{{ parent() }}{% endblock  %}
+        {% elseif role is defined and role == "ROLE_GESTIONNAIRE" %}
+            {% block gest %}{{ parent() }}{% endblock  %}
+        {% else %}
+            {% block login %}{{parent()}}{% endblock %}
+        {% endif %}
+    {% endblock %} #}
 {% block body %}
+
+
 
     
     <body>
+
+        {# <div class="alert alert-success" role="alert">
+            <p class="alert-content"><strong>Bravo ! </strong>Votre compte a bien été créé.</p>
+        </div> #}
         <div class="container-fluid" id="fluid">
             <h4 class="annoce">
                 Bienvenue au Temple du Burger !!
@@ -90,14 +97,13 @@
             
                             <div class="col-md-4 menus mt-4">
                                 <div class="card" style="width: 300px; display:flex;">
-                                    <img src="/images/burger2.png" class="card-img-top" alt="...">
+                                    <img src="/images/burger2.png" class="card-img-top pulse" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{catalogues.nom}}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted"><p class="MN">Menu . {{catalogues.prix}} Fcfa</h6></p>
-                                        
-                                        <a class="panier" id="panier" href="{{path('add_panier', {'id':catalogues.id ~ catalogues.type})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
-
                                         <a href="{{path('details',{'id':catalogues.id})}}" class="btn details " style="margin-left: 89px;"><i class="fab fa-add"></i> Voir Détails</a>
+                                        <a class="panier" role="button" id="panier" href="{{path('add_panier', {'id':catalogues.id ~ catalogues.type})}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;margin-right: 15px;"></i></a>
+                                        
                                     </div>
                                 </div>
                             </div>    
@@ -113,8 +119,9 @@
                     
 
                 </div>
+                
 
-                <a href="{{ path('app_login') }}" class="btn btn-primary" id="commander" role="button" aria-disabled="true">PASSER UNE COMMANDE</a>
+                <a href="{{ path('app_login') }}" class="btn btn-primary btn-subtle" id="commander" role="button" aria-disabled="true">PASSER UNE COMMANDE</a>
 
             </div>
 

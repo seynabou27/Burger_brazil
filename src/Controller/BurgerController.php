@@ -125,11 +125,69 @@ class BurgerController extends AbstractController
             return $total;
           }
 
-     /**
- * @Route("/panier/add/{id}", name="add_panier")
- */
+    /**
+     * @Route("/panier/add/{id}", name="add_panier")
+    */
 
     public function add($id, Request $request, BurgerRepository $burger,
+                        MenusRepository $repoMenus,
+                        CommandeRepository $repoCommande){
+        $session = $request ->getSession();
+
+        $panier= $session->get('panier',[]);
+
+        if (!empty ($panier[$id])){
+
+            $panier[$id] ++;
+
+
+
+        }else {
+            $panier[$id] =1;
+            // $this->addFlash('success', 'Article Created! Knowledge is power!');
+
+
+        }
+
+
+        
+
+        $session->set('panier' ,$panier);
+
+        //dd($session->get('panier'));
+        return $this->redirectToRoute("catalogue");
+
+
+    }
+
+    /**
+     * @Route("/panier/remove/{id}", name="remove")
+    */
+
+    public function remove($id, Request $request){
+     
+        $session = $request ->getSession();
+
+        $panier =$session->get('panier',[]);
+
+        if (!empty($panier[$id])) {
+            // die('ok');
+   
+            unset($panier[$id]);
+
+        }
+        $session->set('panier', $panier);
+
+        return $this->redirectToRoute("panier");
+
+    }
+
+ 
+ /**
+     * @Route("/panier/plus/{id}", name="plus")
+    */
+
+    public function plus($id, Request $request, BurgerRepository $burger,
                         MenusRepository $repoMenus,
                         CommandeRepository $repoCommande){
         $session = $request ->getSession();
@@ -151,55 +209,42 @@ class BurgerController extends AbstractController
         $session->set('panier' ,$panier);
 
         //dd($session->get('panier'));
-        return $this->redirectToRoute("catalogue");
+        return $this->redirectToRoute("panier");
 
 
     }
-      /**
-  * @Route("/panier/remove/{id}", name="remove")
-  */
+    /**
+     * @Route("/panier/moins/{id}", name="moins")
+    */
 
- public function remove($id, Request $request){
-     
-    $session = $request ->getSession();
+    public function moins($id, Request $request, BurgerRepository $burger,
+                        MenusRepository $repoMenus,
+                        CommandeRepository $repoCommande){
+        $session = $request ->getSession();
 
-    $panier =$session->get('panier',[]);
+        $panier= $session->get('panier',[]);
 
-    if (!empty($panier[$id])) {
-        // die('ok');
+        if (!empty ($panier[$id])){
 
-        unset($panier[$id]);
+            $panier[$id] --;
+            if($panier[$id]){
+                $this->remove($id, $request);
+            }
+
+        }else {
+            $panier[$id] = 1;
+
+        }
+
+        
+
+        $session->set('panier' ,$panier);
+
+        //dd($session->get('panier'));
+        return $this->redirectToRoute("panier");
+
 
     }
-    $session->set('panier', $panier);
-
-    return $this->redirectToRoute("panier");
-
- }
-//  public function Ajout_quantite(Request $request){
-//     session_start();
-    
-//     if(array_key_exists('action', $_GET)){
-//        $actionpanier=$_GET['action'];
-//        $ajout=$_GET['qt-plus'];
-//        $idproduit=$_GET['idpdt'];
-
-       
-//           if ($actionpanier=='ajoutun'){
-//             $_SESSION['achats'][$idproduit]++;
-//          }
-//          if ($actionpanier=='supprun'){
-//             $_SESSION['achats'][$idproduit]--;
-//          }
-//           $_SESSION['verif_value'] = rand(1,1000000);
-//        }
-       
-    // <script>
-    // window.location.replace('index2.php?panier=1.php');
-    // </script>
-    
- 
- 
 
 
 

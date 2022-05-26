@@ -68,9 +68,21 @@
                     </div>
                     <div class="col-6">
                       <div class=" select1">
+                        {# <select class="form-control w-25 my-2" name="classe" id="">
+                          <option value="">Classe</option>
+                          {% for classe in classes %}
+                               <option  
+                          data-path="{{   path('iscription_filtre_classe',{id:classe.id})}}" value="{{classe.id}}">{{classe.libelle}}
+                          </option>
+                          {% endfor %}
+                        </select> #}
 
-                        <select name="" id="">
-                            <option value="">Type de produit</option>
+                        <select name="produit" id="">
+                          {# {% for burgers in burger %}
+                            <option  
+                              data-path="{{ path('filtre_produit',{id:burgers.id})}}" value="{{burgers.id}}">{{burgers.nom}}
+                            </option>
+                          {% endfor %} #}
                         </select>
     
                         <select name="" id="">
@@ -104,7 +116,8 @@
                       {% for item in commandes %}
 
                       <tr>
-                        <td>
+                        <td style="text-align: center ; padding: 20px;">
+                          {{item.user.nom}}  {{item.user.prenom}}
                         </td>
                         <td style="text-align: center ; padding: 20px;">{{item.numerocommande}}</td>
                         <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>

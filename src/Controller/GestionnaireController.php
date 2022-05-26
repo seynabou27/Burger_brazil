@@ -9,17 +9,18 @@ use App\Form\MenuType;
 use App\Form\BurgerType;
 use App\Entity\Complement;
 use App\Form\ComplementType;
+use App\Repository\UserRepository;
 use App\Repository\MenusRepository;
 use App\Repository\BurgerRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\ComplementRepository;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Knp\Component\Pager\PaginatorInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -77,33 +78,86 @@ class GestionnaireController extends AbstractController
     }
 
 
-
+    #[Route('/liste_commandes_client', name: 'filtre_produit')]
     #[Route('/liste_commandes_client', name: 'client_gestionnaire')]
-    public function showCommandeClient(Request $request,CommandeRepository $repoCommande , UserRepository $repoUser, PaginatorInterface $paginator): Response
+    public function showCommandeClient(Request $request,CommandeRepository $repoCommande , 
+                                        UserRepository $repoUser, 
+                                        PaginatorInterface $paginator,
+                                        BurgerRepository $repoBurger,
+                                        ComplementRepository $repoComplet,
+                                        MenusRepository $repoMenu,
+                                        SessionInterface $session,): Response
     {
+        $idUser = array_values((array)$this->getUser())[0];
+     
         $commandes = $paginator->paginate(
-
+            
             $commandeClient = $repoCommande->findAll(),
+            // $commandeClient = $repoCommande->findBy(['user' => $idUser]),
             $request->query->getInt('page',1),
             3
 
         );
 
-        // $idUser = array_values((array)$this->getUser())[0];
-        // $commandes = $repoCommande->findBy(['user' => $idUser]);
-        // $commandeClient = $repoCommande->findAll();
-        // $user=$repoUser->findAll();
+        if($request->isXmlHttpRequest()) {
+            $id =(int) $request->query->get('id');
 
-        // $roles[] = 'ROLE_USER';
+            $burgers = $repoBurger -> find($id );
+            $complement = $repoComplet-> find($id );
+            $menus = $repoMenu -> find($id );
+            $commandes = array_merge($burgers , $complement , $menus);
+                     
+            
+            $produit = $repoCommande->findBy([
+                'commandes'=>$commandes,
+                'burgers'=>$burgers
+
+                ]);
+                      
+            $session->set("commandeClient", $commandeClient);
+            $session->set("classeSelected", $produit);
+        }
+        // dd($commandes);
+
                 
         return $this->render('gestionnaire/liste_commandes_client.html.twig', [
             'commandes' => $commandes,
+            // 'produit'=> $produit,
+
+
         ]);
     }
 
+//     #[Route('/AC/inscription/classe', name: 'iscription_filtre_classe')]
+//     public function showInscriptionByClasse(
+//                          InscriptionRepository $repoIns,
+//                          ClasseRepository $repoClasse,
+//                          SessionInterface $session,
+//                          Request $request ): Response
+//     {
+ 
+//        if($request->isXmlHttpRequest()) {
+//            $id =(int) $request->query->get('id');
+         
+//            $classe = $repoClasse->find($id );
+//            $anneeEncours = $session->get("anneeEncours");
+//            $inscrits = $repoIns->findBy([
+//                'classe'=>$classe,
+//                'anneeScolaire'=>$anneeEncours
+//            ]);
+          
+//            $session->set("inscrits", $inscrits);
+//            $session->set("classeSelected", $classe);
+//        }
+ 
+//        return new JsonResponse($this->generateUrl('inscription_show'));
+//    }
+
+
     #[Route('/ajout_produit', name: 'ajout_produit')]
     #[Route('/produit/editer/{id}', name: 'editer_produit')]
-    public function addProduit(?Burger $burger,Request $request,EntityManagerInterface $entityManager): Response
+    public function addProduit(?Burger $burger,Request $request,
+                                EntityManagerInterface $entityManager): Response
     {
         //Ajout burger
         if (!$burger) {
@@ -131,6 +185,8 @@ class GestionnaireController extends AbstractController
 
 
             }
+            $this->addFlash('success', 'Article Created! Knowledge is power!');
+
             $burger = $form->getData();
             
             $entityManager->persist($burger);

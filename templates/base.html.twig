@@ -28,6 +28,7 @@
                 </g>
               </svg>
           </a>
+          
           <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon "></span>
           </button>
@@ -38,6 +39,7 @@
               {% block navbar %}
                 <ul class="navbar-nav m-auto ">
                   {% block gest %}
+                  {# {% if not app.user %} #}
                     <li class="nav-item">
                       <a class="nav-link" href="{{path('tableau_bord')}}"><b>Tableau de bord</b></a>
                     </li>
@@ -47,8 +49,10 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{path('produit')}}"><b>Produits</b></a>
                     </li> 
+                    {# {% endif %} #}
                   {% endblock %}
                   {% block client %}
+                  {% if app.user %}
                    
                     <li class="nav-item">
                       <a class="nav-link" href="{{path('catalogue')}}"><b>Catalogue</b></a>
@@ -56,15 +60,27 @@
                     <li class="nav-item">
                       <a class="nav-link active" href="{{path('mes_commandes')}}"><b>Mes commandes</b></a>
                     </li> 
-                    
+                    {% endif %}
                   {% endblock %}
                 </ul>
                 {% block panier %}
+
+                {% if app.user %}
+
                   <div class="paniers" style="margin-right: -338px;">
                         
-                    <a href="{{path('app_login')}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;"></i></a>
+                    <a href="{{path('panier')}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;"></i></a>
 
                   </div> 
+                   {% elseif not app.user %}
+                    <div class="paniers" style="margin-right: -338px;">
+                        
+                      <a href="{{path('app_login')}}"><i class="fa-solid fa-cart-shopping" style="color: #FF9D19 ;"></i></a>
+
+                    </div> 
+
+                  {% endif %}
+
                 {% endblock %}
               {% endblock  %}
             {% endif %} 
@@ -81,6 +97,7 @@
                       <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                         <ul id="drop" class="dropdown-menu dropdown-menu-end mr-5"style="margin-left: -95px" aria-labelledby="navbarDropdown">
+                          {# {% set id = app.request.get('User').nom %} #}
                            
                             <a  href="{{ path('app_logout') }}" class="button deconnexion" style="padding:7px ;"><i class="fas fa-sign-out-alt"></i>Deconnexion</a>
                         </ul>
