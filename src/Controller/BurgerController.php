@@ -153,6 +153,9 @@ class BurgerController extends AbstractController
         
 
         $session->set('panier' ,$panier);
+        
+        $session->set('sucess' ,"Ajouter avec succes!!");
+
 
         //dd($session->get('panier'));
         return $this->redirectToRoute("catalogue");

@@ -54,12 +54,15 @@ class ClientController extends AbstractController
             // }
             
 
-        
+        $session =$request->getSession();
 
         
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
             'catalogues'=>$catalogue,
+            'sucess'=>$session->get('sucess'),
+            'removeSucess'=>$session->remove('sucess'),
+
             
             
         ]);

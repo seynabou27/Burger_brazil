@@ -338,6 +338,9 @@ class GestionnaireController extends AbstractController
         $menus = $repoMenu -> findBy(['etat'=>'non_archiver']);
         $catalogue = array_merge($menus,$burgers);
 
+        // compteur des produits
+        
+
         if($this->getUser()){
             $role = $this->getUser()->getRoles()[0];
         }else{
@@ -352,6 +355,8 @@ class GestionnaireController extends AbstractController
         ]);
     }
 
+
+    
     #[Route('/produit', name: 'produit')]
     public function showProduit(Request $request,
                                 BurgerRepository $repoburger,
