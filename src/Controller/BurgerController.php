@@ -39,7 +39,7 @@ class BurgerController extends AbstractController
 
         $commande = new Commande();
 
-         $paiement= new Paiement();
+        $paiement= new Paiement();
 
 
         $session = $request ->getSession();
@@ -73,7 +73,9 @@ class BurgerController extends AbstractController
             $total +=$totalitem;
         }
 
+
         if ($method == 'POST') {
+            // dd($total);
             $date = date_format(date_create() , 'Y-m-d');
             $idUser = array_values((array)$this->getUser())[0];
             $commandes = $repoCommande->findBy([
@@ -86,7 +88,8 @@ class BurgerController extends AbstractController
                     ->setNumeroCommande(rand())
                     ->setUser($this->getUser())
                     ->setTelephoneCommande($user->getTelephone())
-                    ->setPaiements($paiement);
+                    ->setPaiements($paiement)
+                    ->setMontant($total);
             if(count($idBurgers)>0){
                 foreach ($idBurgers as $val) {
                     $commande->addBurger($burger->find($val));
@@ -101,6 +104,7 @@ class BurgerController extends AbstractController
             $entityManager->persist($paiement);
             $entityManager->persist($commande);
             $entityManager->flush();
+            $session->remove('panier',[]);
 
             return $this->redirectToRoute("mes_commandes");
         }
@@ -154,7 +158,7 @@ class BurgerController extends AbstractController
 
         $session->set('panier' ,$panier);
         
-        $session->set('sucess' ,"Ajouter avec succes!!");
+        $session->set('success' ,"Votre produit a etait ajoute avec succès!!");
 
 
         //dd($session->get('panier'));

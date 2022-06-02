@@ -77,6 +77,12 @@ width: 808px; */
 }
 
 /* line 88, ../../sass/client/details.scss */
-.dets span {
-  color: #aba6a6;
+.dets1 {
+  color: noir;
+}
+
+/* line 91, ../../sass/client/details.scss */
+.dets1 li {
+  list-style: none;
+  padding: 4px;
 }

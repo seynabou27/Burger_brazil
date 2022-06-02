@@ -1,34 +1,26 @@
-// panier = document.getElementsByClassName("panier");
-// taleau = document.getElementById('tableau');
-
-// /* panier.addEventListener('click' , ()=>{
-//     for (let index = 0; index < array.length; index++) {
-//         const element = array[index];
-// }) */
-
-// compteur  = 0;
-
-// for (let index = 0; index < panier.length; index++) {
-//     panier[index].addEventListener('click',()=>{
-//         compteur ++
-//         tableau.innerHTML = compteur
-
-//     })
-    
-// }
-// Check active classes
-
-  
-  
-  // Active tag
-  $('.button').click(function(){
-    $('.button').removeClass('active');
-    $(this).addClass('active');
-  })
-
-
-
+ 
+setTimeout(() => {
+  document.getElementById('message').style.display='none'
+}, 3000);
 
     
-        
+ /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}       
     

@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block client %}{% endblock  %}
+{% block panier %}{% endblock  %}
+
+
+{% block body %}
+
+<body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+
+        <div class="titre">
+            <div class="row" style="width: 100%;">
+                <div class="col-6 titre1 ">
+                    <h4><b>Commandes</b></h4>
+
+
+                </div>
+                <div class="col-6 titre2">
+                    {# <svg class="icone1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <g id="Groupe_151237" data-name="Groupe 151237" transform="translate(-1741 -267)">
+                          <g id="reorder_black_24dp" transform="translate(1741 267)">
+                            <path id="Tracé_3507" data-name="Tracé 3507" d="M0,0H24V24H0Z" fill="none"/>
+                            <path id="Tracé_3508" data-name="Tracé 3508" d="M3,15H21V13H3Zm0,4H21V17H3Zm0-8H21V9H3ZM3,5V7H21V5Z" fill="#505050"/>
+                          </g>
+                        </g>
+                      </svg>
+
+                      <svg class="icone2" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                        <g id="Groupe_151236" data-name="Groupe 151236" transform="translate(-523 -730)">
+                          <rect id="Rectangle_824" data-name="Rectangle 824" width="6" height="6" transform="translate(523 730)" fill="#fff"/>
+                          <rect id="Rectangle_827" data-name="Rectangle 827" width="6" height="6" transform="translate(523 738)" fill="#fff"/>
+                          <rect id="Rectangle_825" data-name="Rectangle 825" width="6" height="6" transform="translate(531 730)" fill="#fff"/>
+                          <rect id="Rectangle_826" data-name="Rectangle 826" width="6" height="6" transform="translate(531 738)" fill="#fff"/>
+                        </g>
+                      </svg> #}
+                    {# <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
+                        NOUVELLE COMMANDE                      
+                    </button> #}
+
+
+                </div>
+            </div>
+
+        </div>
+
+    <div class="container contenu">
+        <div class="menu1">
+            <div class="partie1">
+                <ul>
+                    <li><a href="{{path('client_gestionnaire')}}">Tout</a></li>
+                    <li><a href="{{path('etat_cours')}}">En cours</a></li>
+                    <li><a href="{{path('etat_valider')}}">Validées</a></li>
+                    <li><a href="{{path('etat_payer')}}">Payées</a></li>
+                    <li><a href="{{path('etat_annuler')}}">Annulées</a></li>
+    
+                </ul>
+
+            </div>
+            <div class="partie2">
+                <div class="row">
+                    <div class="col-6">
+                        <span class="span">
+                            {# <p>4annulées</p> #}
+                        </span>
+
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="partie3">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="text-align: center ;">Client</th>
+                        <th scope="col" style="text-align: center ;">Numeros Commandes</th>
+                        <th scope="col" style="text-align: center ;">Téléphone</th>
+                        <th scope="col" style="text-align: center ;">Produits</th>
+                        <th scope="col" style="text-align: center ;">Etat</th>
+                        <th scope="col" style="text-align: center ;">Prix</th>
+                        <th scope="col" style="text-align: center ;">Date</th>
+                        <th scope="col" style="text-align: center ;">Paiement</th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for item in commandes %}
+
+                      <tr>
+                            <td style="text-align: center ; padding: 20px;">
+                            {{item.user.nom}}  {{item.user.prenom}}
+                            </td>
+                            <td style="text-align: center ; padding: 20px;">{{item.numerocommande}}</td>
+                            <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>
+                            <td style="text-align: center ;">
+                            {% for row in item.burger %}
+                                {{row.nom}} <br>
+                            {% endfor %}
+                            {% for row in item.menus %}
+                                {{row.nom}} <br>
+                            {% endfor %}
+                            </td>
+                            <td style="text-align: center ; padding: 20px;">
+                            {% if item.etatcommande == 'En cours' %}
+                                <span class="text-primary">
+                                {{item.etatcommande}}
+                                </span>
+
+                            {% endif %}
+                            
+                            {# {{item.etatcommande}} #}
+                            </td>
+                            <td>
+                            {% for row in item.burger %}
+                                {{row.prix}} <br>
+                            {% endfor %}
+                            {% for row in item.menus %}
+                                {{row.prix}} <br>
+                            {% endfor %}
+                            </td>
+                            <td style="text-align: center ;padding: 20px;">{{item.datecommande}}</td>
+                            <td style="text-align: center ;padding: 20px;"></td>
+                        
+                        </tr>
+                     
+                      
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+            </div>
+
+        </div>
+
+        {# <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
+          {{ knp_pagination_render(commandes)}}
+        </div> #}
+
+    </div>
+   
+
+
+
+</body>
+
+{% endblock body %}

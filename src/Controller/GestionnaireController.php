@@ -38,6 +38,111 @@ class GestionnaireController extends AbstractController
         ]);
     }
 
+    #[Route('/gestionnaire', name: 'archive_commande')]
+    public function archiveCommande(): Response
+    {
+        return $this->render('gestionnaire/liste_archive_commande.html.twig', [
+            'controller_name' => 'GestionnaireController',
+        ]);
+    }
+    #[Route('/gestionnaire', name: 'archive_produit')]
+    public function archiveProduit(): Response
+    {
+        return $this->render('gestionnaire/liste_archive_produit.html.twig', [
+            'controller_name' => 'GestionnaireController',
+        ]);
+    }
+
+    #[Route('/gestionnaire/valider/{id}', name: 'valider_commande')]
+    #[Route('/gestionnaire/annuler/{id}', name: 'annuler_commande')]
+    public function validerCommande(Request $request,CommandeRepository $commandeRepository,
+                                    EntityManagerInterface $entityManager): Response
+    {
+        $session = $request ->getSession();
+
+        $action = $request->attributes->get('_route');
+
+        $id = $request->attributes->get('id');
+
+        $commande = $commandeRepository->find($id);
+
+        if ($action == "valider_commande") {
+            $commande->setEtatCommande('Validée');
+        }else if ($action == "annuler_commande") {
+
+            $commande->setEtatCommande('Annulée');
+          //  dd($commande);
+        }       
+
+        $entityManager->persist($commande);
+        $entityManager->flush(); 
+
+        $session->set('commande' ,$commande);
+        
+        $session->set('success' ,"Votre commande a été ajoute avec succès!!");
+
+
+        return $this->redirectToRoute("client_gestionnaire");
+
+       
+    }
+
+    //les etats
+
+    #[Route('/Liste_encours', name: 'etat_cours')]
+    public function etatsEncours(CommandeRepository $commandeRepository): Response
+    {
+
+         
+        $commandes = $commandeRepository -> findBy(['etat_commande'=>'En cours']);
+
+        return $this->render('gestionnaire/liste_encours.html.twig', [
+            'commandes' => $commandes
+        ]);
+    }
+
+    #[Route('/Liste_valider', name: 'etat_valider')]
+    public function etatsValider(CommandeRepository $commandeRepository): Response
+    {
+
+         
+        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Validée']);
+
+        return $this->render('gestionnaire/liste_valider.html.twig', [
+            'commandes' => $commandes
+        ]);
+    }
+
+    #[Route('/Liste_annuler', name: 'etat_annuler')]
+    public function etatsAnuler(CommandeRepository $commandeRepository): Response
+    {
+
+         
+        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Annulée']);
+
+        return $this->render('gestionnaire/liste_annuler.html.twig', [
+            'commandes' => $commandes
+        ]);
+    }
+
+    #[Route('/Liste_payer', name: 'etat_payer')]
+    public function etatsPayer(CommandeRepository $commandeRepository): Response
+    {
+
+         
+        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Annulée']);
+
+        return $this->render('gestionnaire/liste_payer.html.twig', [
+            'commandes' => $commandes
+        ]);
+    }
+
+    
+  
+    
+
+
+
     #[Route('/Liste_burgers', name: 'liste_burgers')]
     public function showBurgers(BurgerRepository $repoburger): Response
     {
@@ -78,7 +183,6 @@ class GestionnaireController extends AbstractController
     }
 
 
-    #[Route('/liste_commandes_client', name: 'filtre_produit')]
     #[Route('/liste_commandes_client', name: 'client_gestionnaire')]
     public function showCommandeClient(Request $request,CommandeRepository $repoCommande , 
                                         UserRepository $repoUser, 
@@ -92,66 +196,26 @@ class GestionnaireController extends AbstractController
      
         $commandes = $paginator->paginate(
             
-            $commandeClient = $repoCommande->findAll(),
+            $commandeClient = $repoCommande->findBy([],['id' => 'DESC']),
             // $commandeClient = $repoCommande->findBy(['user' => $idUser]),
             $request->query->getInt('page',1),
             3
 
         );
+        $burgers = $repoBurger -> findBy(['etat'=>'En cours']);
 
-        if($request->isXmlHttpRequest()) {
-            $id =(int) $request->query->get('id');
-
-            $burgers = $repoBurger -> find($id );
-            $complement = $repoComplet-> find($id );
-            $menus = $repoMenu -> find($id );
-            $commandes = array_merge($burgers , $complement , $menus);
-                     
-            
-            $produit = $repoCommande->findBy([
-                'commandes'=>$commandes,
-                'burgers'=>$burgers
-
-                ]);
-                      
-            $session->set("commandeClient", $commandeClient);
-            $session->set("classeSelected", $produit);
-        }
-        // dd($commandes);
 
                 
         return $this->render('gestionnaire/liste_commandes_client.html.twig', [
             'commandes' => $commandes,
-            // 'produit'=> $produit,
+            
 
 
         ]);
     }
+    
 
-//     #[Route('/AC/inscription/classe', name: 'iscription_filtre_classe')]
-//     public function showInscriptionByClasse(
-//                          InscriptionRepository $repoIns,
-//                          ClasseRepository $repoClasse,
-//                          SessionInterface $session,
-//                          Request $request ): Response
-//     {
- 
-//        if($request->isXmlHttpRequest()) {
-//            $id =(int) $request->query->get('id');
-         
-//            $classe = $repoClasse->find($id );
-//            $anneeEncours = $session->get("anneeEncours");
-//            $inscrits = $repoIns->findBy([
-//                'classe'=>$classe,
-//                'anneeScolaire'=>$anneeEncours
-//            ]);
-          
-//            $session->set("inscrits", $inscrits);
-//            $session->set("classeSelected", $classe);
-//        }
- 
-//        return new JsonResponse($this->generateUrl('inscription_show'));
-//    }
+
 
 
     #[Route('/ajout_produit', name: 'ajout_produit')]

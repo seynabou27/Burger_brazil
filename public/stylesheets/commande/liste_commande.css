@@ -80,18 +80,25 @@
   padding-left: 16px;
 }
 
-/* line 76, ../../sass/commande/liste_commande.scss */
-.table {
-  background-color: white;
-  border-bottom: 2px solid #EAEAEA;
+/* line 83, ../../sass/commande/liste_commande.scss */
+li.nav-item.dropdown.three {
+  list-style: none;
 }
 
-/* line 81, ../../sass/commande/liste_commande.scss */
+/* line 87, ../../sass/commande/liste_commande.scss */
+.dropdown, .dropup {
+  position: relative;
+  list-style: none;
+  margin-top: -9px;
+  /* margin-right: -4px; */
+}
+
+/* line 93, ../../sass/commande/liste_commande.scss */
 .titre {
   margin: 2px;
 }
 
-/* line 84, ../../sass/commande/liste_commande.scss */
+/* line 96, ../../sass/commande/liste_commande.scss */
 .titre1 {
   text-align: center;
   font: normal normal 300 32px/44px Avenir;
@@ -104,7 +111,7 @@
   margin-left: -36px;
 }
 
-/* line 98, ../../sass/commande/liste_commande.scss */
+/* line 110, ../../sass/commande/liste_commande.scss */
 .titre2 {
   text-align: center;
   font: normal normal 300 32px/44px Avenir;
@@ -116,12 +123,12 @@
   margin-block-start: 45px;
 }
 
-/* line 111, ../../sass/commande/liste_commande.scss */
+/* line 123, ../../sass/commande/liste_commande.scss */
 .partie2 .row {
   width: 100%;
 }
 
-/* line 115, ../../sass/commande/liste_commande.scss */
+/* line 127, ../../sass/commande/liste_commande.scss */
 .titre2 button {
   background-color: #197DFF;
   color: white;
@@ -131,19 +138,19 @@
   font-size: 14px;
 }
 
-/* line 127, ../../sass/commande/liste_commande.scss */
+/* line 139, ../../sass/commande/liste_commande.scss */
 .table-hover tbody tr:hover {
   outline: none;
   background-color: transparent;
   border: 2px  solid #FF9D19;
 }
 
-/* line 133, ../../sass/commande/liste_commande.scss */
+/* line 145, ../../sass/commande/liste_commande.scss */
 .table-hover .hover {
   background-color: #197DFF;
 }
 
-/* line 144, ../../sass/commande/liste_commande.scss */
+/* line 156, ../../sass/commande/liste_commande.scss */
 .pagination .page-item.active .page-link {
   z-index: 1;
   color: #FF9D19;
@@ -151,25 +158,64 @@
   border-color: #FF9D19;
 }
 
-/* line 151, ../../sass/commande/liste_commande.scss */
+/* line 163, ../../sass/commande/liste_commande.scss */
 .pagination .page-item .page-link {
   color: #FF9D19;
   background-color: #ffffff;
 }
 
-/* line 157, ../../sass/commande/liste_commande.scss */
+/* line 169, ../../sass/commande/liste_commande.scss */
 .pagination .page-item.disabled {
   display: none;
 }
 
-/* line 161, ../../sass/commande/liste_commande.scss */
+/* line 173, ../../sass/commande/liste_commande.scss */
 .select1 {
   margin-left: 189px;
   margin-top: 21px;
 }
 
-/* line 165, ../../sass/commande/liste_commande.scss */
+/* line 177, ../../sass/commande/liste_commande.scss */
 .select1 select {
   outline: none;
   padding: 7px;
+}
+
+/* line 184, ../../sass/commande/liste_commande.scss */
+.dropleft .dropdown-toggle.affiche::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* line 195, ../../sass/commande/liste_commande.scss */
+.dropleft .affiche::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+}
+
+/* line 205, ../../sass/commande/liste_commande.scss */
+.payer {
+  border: 2px solid #197DFF;
+  border-radius: 4px;
+  margin-left: 24px;
+  background-color: #197DFF;
+  color: white;
+  padding: 9px;
+}
+
+/* line 214, ../../sass/commande/liste_commande.scss */
+.payer a::before {
+  list-style: none;
+  color: white;
 }

@@ -73,10 +73,22 @@
     
 }
 
-.table{
-    background-color: white;
-    border-bottom: 2px solid #EAEAEA;
+// .table{
+//     background-color: white;
+//     border-bottom: 2px solid #EAEAEA;
 
+// }
+
+
+li.nav-item.dropdown.three {
+    list-style: none;
+}
+
+.dropdown, .dropup {
+    position: relative;
+    list-style: none;
+    margin-top: -9px;
+    /* margin-right: -4px; */
 }
 .titre{
     margin: 2px;
@@ -168,8 +180,41 @@
 }
 
 
+//menu
+.dropleft .dropdown-toggle.affiche::before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: none;
+    border-right: none;
+    border-bottom: none; 
+}
+.dropleft .affiche::before{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
 
+}
 
+.payer {
+    border: 2px solid #197DFF;
+    border-radius: 4px;
+    margin-left: 24px;
+    background-color: #197DFF;
+    color: white;
+    padding: 9px;
+    
+}
+.payer a::before{
+    list-style: none;
+    color: white;
+}
 
 
 

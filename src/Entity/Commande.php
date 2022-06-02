@@ -39,6 +39,9 @@ class Commande
     #[ORM\OneToOne(targetEntity: Paiement::class, cascade: ['persist', 'remove'])]
     private $paiements;
 
+    #[ORM\Column(type: 'integer')]
+    private $montant;
+
     // #[ORM\ManyToMany(targetEntity: Burger::class, inversedBy: 'commandes')]
     // private $burger;
 
@@ -229,6 +232,18 @@ class Commande
     public function setPaiements(?Paiement $paiements): self
     {
         $this->paiements = $paiements;
+
+        return $this;
+    }
+
+    public function getMontant(): ?int
+    {
+        return $this->montant;
+    }
+
+    public function setMontant(int $montant): self
+    {
+        $this->montant = $montant;
 
         return $this;
     }

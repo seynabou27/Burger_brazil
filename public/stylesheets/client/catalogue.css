@@ -219,14 +219,40 @@
   padding: 34px;
 }
 
+/* line 267, ../../sass/client/catalogue.scss */
+.alert {
+  outline: none;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+  height: 62px;
+  font-size: 25px;
+}
+
+/* line 277, ../../sass/client/catalogue.scss */
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  height: 50px;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  height: 62px;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 279, ../../sass/client/catalogue.scss */
+  /* line 305, ../../sass/client/catalogue.scss */
   #fluid img {
     width: 400px;
     margin-top: 24px;
   }
 
-  /* line 284, ../../sass/client/catalogue.scss */
+  /* line 310, ../../sass/client/catalogue.scss */
   .annoce {
     z-index: 2;
     position: absolute;
@@ -243,21 +269,21 @@
     margin-top: -162px;
   }
 
-  /* line 300, ../../sass/client/catalogue.scss */
+  /* line 326, ../../sass/client/catalogue.scss */
   .gauche img {
     top: 581px;
     margin-left: 64px;
     opacity: 1;
   }
 
-  /* line 306, ../../sass/client/catalogue.scss */
+  /* line 332, ../../sass/client/catalogue.scss */
   .milieu img {
     margin-left: 69px;
     opacity: 1;
     margin-top: 27px;
   }
 
-  /* line 315, ../../sass/client/catalogue.scss */
+  /* line 341, ../../sass/client/catalogue.scss */
   .droite {
     width: 322px;
     height: 456px;
@@ -266,7 +292,7 @@
     margin-top: -76px;
   }
 
-  /* line 323, ../../sass/client/catalogue.scss */
+  /* line 349, ../../sass/client/catalogue.scss */
   .ensemble2 h5 {
     margin-top: 66px;
     font: normal normal 300 30px/40px Avenir;
@@ -277,7 +303,7 @@
     text-align: center;
   }
 
-  /* line 333, ../../sass/client/catalogue.scss */
+  /* line 359, ../../sass/client/catalogue.scss */
   .ensemble2 p {
     margin-top: 12px;
     height: 50px;
@@ -288,19 +314,19 @@
     opacity: 0.65;
   }
 
-  /* line 343, ../../sass/client/catalogue.scss */
+  /* line 369, ../../sass/client/catalogue.scss */
   .filters_menu {
     margin-left: 91px;
     margin-top: 22px;
   }
 
-  /* line 347, ../../sass/client/catalogue.scss */
+  /* line 373, ../../sass/client/catalogue.scss */
   .row .cards {
     margin-right: 48px;
     margin-left: 43px;
   }
 
-  /* line 351, ../../sass/client/catalogue.scss */
+  /* line 377, ../../sass/client/catalogue.scss */
   #commander {
     margin-top: 52px;
     align-items: center;

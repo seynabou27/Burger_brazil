@@ -59,46 +59,68 @@
     
                             </div>
     
-                            <div class="part2 mx-auto mt-4" style="height:337px ;border-radius: 4px;">
+                            <div class="part2 mx-auto mt-4" style="height:392px ;border-radius: 4px;">
                            
-                                <div class="parti">
-                                <table class="table table-hover">
+                                <div class="parti" style="padding: 19px;">
+                                    <table class="table table-hover" >
+                                        <thead>
+                                          <tr>
+                                            <th scope="col"><b>Burgers les plus vendus du jour</b></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th scope="col"><a href="#"><i class="fa-solid fa-plus"></i> Voir Détail</a></a></th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for burgers in burgers %}
+    
+                                            <tr>
+                                                <td scope="row" style="color: #323232;"><img src="/images/fast.jpg" alt="" style="width: 50px;height: 50px;border-radius: 50%;">  {{burgers.nom}} </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td style="color:#aca1a1 ;">2 Ventes</td>
+                    
+                                            </tr> 
+                                                                            
+                                            {% endfor %}
+                                          
+                                        </tbody>
+                                      </table>
+                                </div>
+                            
+    
+                            </div>
+                        <div class="part2 mx-auto mt-4" style="height:479px ;border-radius: 4px;">
+                            <div class="parti" style="padding: 19px;">
+                                <table class="table table-hover" >
                                     <thead>
-                                    <tr>
-                                        <td>Burgers les plus vendus du jour</td>
-                                        <td></td>
-                                        <td><i class="fas fas-add"></i>Voir plus</td>
+                                      <tr>
+                                        <th scope="col"><b>Menus les plus vendus du jour</b></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th scope="col"><a href="#"><i class="fa-solid fa-plus"></i> Voir Détail</a></a></th>
                                         
-                                    </tr>
+                                      </tr>
                                     </thead>
                                     <tbody>
-                                        {% for burgers in burgers %}
+                                        {% for menus in menus %}
     
+
                                         <tr>
-                                            <td>{{burgers.nom}}</td>
-                                            
+                                            <td scope="row" style="color: #323232;"><img src="/images/fast.jpg" alt="" style="width: 50px;height: 50px;border-radius: 50%;">  {{menus.nom}} </td>
+                                            <td></td>
                                             <td></td>
                                             <td style="color:#aca1a1 ;">2 Ventes</td>
                 
                                         </tr> 
                                                                         
                                         {% endfor %}
+                                      
                                     </tbody>
-                                    <tfoot>
-                                        <td></td>
-                                        
-                
-                                    </tfoot>
-                
-                                </table>
-    
-                            </div>
-                            
-    
-                        </div>
-                        <div class="part2 mx-auto mt-4" style="height:267px ;border-radius: 4px;">
-                            <div class="parti">
-                                <table class="table table-hover">
+                                  </table>
+                                
+                                {# <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <td>Commandes validées du jour</td>
@@ -127,7 +149,7 @@
                                     </tfoot>
                 
                 
-                                </table>
+                                </table> #}
     
                             </div>
                             
@@ -177,7 +199,7 @@
     
                     </div>
     
-                <div class="part2 mx-auto mt-4 compteur">
+                {# <div class="part2 mx-auto mt-4 compteur">
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="/images/burger2.png" alt="Card image cap">
                         <div class="card-body">
@@ -199,7 +221,7 @@
                       </div> #}
                     
                     
-            </div>
+            </div> 
             
         </div>
     </body>

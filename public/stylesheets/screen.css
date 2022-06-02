@@ -88,11 +88,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #ffffff !important;
 }
 
-/* line 22, ../sass/menu/menu.scss */
-.nav-item:hover {
-  border-bottom: 3px solid #FF9D19;
-}
-
 /* line 28, ../sass/menu/menu.scss */
 .custom-toggler.navbar-toggler {
   border-color: #f7204e;
@@ -308,18 +303,25 @@ a:hover.inscription {
   padding-left: 16px;
 }
 
-/* line 76, ../sass/commande/liste_commande.scss */
-.table {
-  background-color: white;
-  border-bottom: 2px solid #EAEAEA;
+/* line 83, ../sass/commande/liste_commande.scss */
+li.nav-item.dropdown.three {
+  list-style: none;
 }
 
-/* line 81, ../sass/commande/liste_commande.scss */
+/* line 87, ../sass/commande/liste_commande.scss */
+.dropdown, .dropup {
+  position: relative;
+  list-style: none;
+  margin-top: -9px;
+  /* margin-right: -4px; */
+}
+
+/* line 93, ../sass/commande/liste_commande.scss */
 .titre {
   margin: 2px;
 }
 
-/* line 84, ../sass/commande/liste_commande.scss */
+/* line 96, ../sass/commande/liste_commande.scss */
 .titre1 {
   text-align: center;
   font: normal normal 300 32px/44px Avenir;
@@ -332,7 +334,7 @@ a:hover.inscription {
   margin-left: -36px;
 }
 
-/* line 98, ../sass/commande/liste_commande.scss */
+/* line 110, ../sass/commande/liste_commande.scss */
 .titre2 {
   text-align: center;
   font: normal normal 300 32px/44px Avenir;
@@ -344,12 +346,12 @@ a:hover.inscription {
   margin-block-start: 45px;
 }
 
-/* line 111, ../sass/commande/liste_commande.scss */
+/* line 123, ../sass/commande/liste_commande.scss */
 .partie2 .row {
   width: 100%;
 }
 
-/* line 115, ../sass/commande/liste_commande.scss */
+/* line 127, ../sass/commande/liste_commande.scss */
 .titre2 button {
   background-color: #197DFF;
   color: white;
@@ -359,19 +361,19 @@ a:hover.inscription {
   font-size: 14px;
 }
 
-/* line 127, ../sass/commande/liste_commande.scss */
+/* line 139, ../sass/commande/liste_commande.scss */
 .table-hover tbody tr:hover {
   outline: none;
   background-color: transparent;
   border: 2px  solid #FF9D19;
 }
 
-/* line 133, ../sass/commande/liste_commande.scss */
+/* line 145, ../sass/commande/liste_commande.scss */
 .table-hover .hover {
   background-color: #197DFF;
 }
 
-/* line 144, ../sass/commande/liste_commande.scss */
+/* line 156, ../sass/commande/liste_commande.scss */
 .pagination .page-item.active .page-link {
   z-index: 1;
   color: #FF9D19;
@@ -379,27 +381,66 @@ a:hover.inscription {
   border-color: #FF9D19;
 }
 
-/* line 151, ../sass/commande/liste_commande.scss */
+/* line 163, ../sass/commande/liste_commande.scss */
 .pagination .page-item .page-link {
   color: #FF9D19;
   background-color: #ffffff;
 }
 
-/* line 157, ../sass/commande/liste_commande.scss */
+/* line 169, ../sass/commande/liste_commande.scss */
 .pagination .page-item.disabled {
   display: none;
 }
 
-/* line 161, ../sass/commande/liste_commande.scss */
+/* line 173, ../sass/commande/liste_commande.scss */
 .select1 {
   margin-left: 189px;
   margin-top: 21px;
 }
 
-/* line 165, ../sass/commande/liste_commande.scss */
+/* line 177, ../sass/commande/liste_commande.scss */
 .select1 select {
   outline: none;
   padding: 7px;
+}
+
+/* line 184, ../sass/commande/liste_commande.scss */
+.dropleft .dropdown-toggle.affiche::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* line 195, ../sass/commande/liste_commande.scss */
+.dropleft .affiche::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+}
+
+/* line 205, ../sass/commande/liste_commande.scss */
+.payer {
+  border: 2px solid #197DFF;
+  border-radius: 4px;
+  margin-left: 24px;
+  background-color: #197DFF;
+  color: white;
+  padding: 9px;
+}
+
+/* line 214, ../sass/commande/liste_commande.scss */
+.payer a::before {
+  list-style: none;
+  color: white;
 }
 
 /* line 1, ../sass/commande/produit.scss */
@@ -995,14 +1036,40 @@ a:hover.inscription {
   padding: 34px;
 }
 
+/* line 267, ../sass/client/catalogue.scss */
+.alert {
+  outline: none;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+  height: 62px;
+  font-size: 25px;
+}
+
+/* line 277, ../sass/client/catalogue.scss */
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  height: 50px;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  height: 62px;
+}
+
 @media only screen and (max-width: 760px) {
-  /* line 279, ../sass/client/catalogue.scss */
+  /* line 305, ../sass/client/catalogue.scss */
   #fluid img {
     width: 400px;
     margin-top: 24px;
   }
 
-  /* line 284, ../sass/client/catalogue.scss */
+  /* line 310, ../sass/client/catalogue.scss */
   .annoce {
     z-index: 2;
     position: absolute;
@@ -1019,21 +1086,21 @@ a:hover.inscription {
     margin-top: -162px;
   }
 
-  /* line 300, ../sass/client/catalogue.scss */
+  /* line 326, ../sass/client/catalogue.scss */
   .gauche img {
     top: 581px;
     margin-left: 64px;
     opacity: 1;
   }
 
-  /* line 306, ../sass/client/catalogue.scss */
+  /* line 332, ../sass/client/catalogue.scss */
   .milieu img {
     margin-left: 69px;
     opacity: 1;
     margin-top: 27px;
   }
 
-  /* line 315, ../sass/client/catalogue.scss */
+  /* line 341, ../sass/client/catalogue.scss */
   .droite {
     width: 322px;
     height: 456px;
@@ -1042,7 +1109,7 @@ a:hover.inscription {
     margin-top: -76px;
   }
 
-  /* line 323, ../sass/client/catalogue.scss */
+  /* line 349, ../sass/client/catalogue.scss */
   .ensemble2 h5 {
     margin-top: 66px;
     font: normal normal 300 30px/40px Avenir;
@@ -1053,7 +1120,7 @@ a:hover.inscription {
     text-align: center;
   }
 
-  /* line 333, ../sass/client/catalogue.scss */
+  /* line 359, ../sass/client/catalogue.scss */
   .ensemble2 p {
     margin-top: 12px;
     height: 50px;
@@ -1064,19 +1131,19 @@ a:hover.inscription {
     opacity: 0.65;
   }
 
-  /* line 343, ../sass/client/catalogue.scss */
+  /* line 369, ../sass/client/catalogue.scss */
   .filters_menu {
     margin-left: 91px;
     margin-top: 22px;
   }
 
-  /* line 347, ../sass/client/catalogue.scss */
+  /* line 373, ../sass/client/catalogue.scss */
   .row .cards {
     margin-right: 48px;
     margin-left: 43px;
   }
 
-  /* line 351, ../sass/client/catalogue.scss */
+  /* line 377, ../sass/client/catalogue.scss */
   #commander {
     margin-top: 52px;
     align-items: center;
@@ -1168,8 +1235,14 @@ width: 808px; */
 }
 
 /* line 88, ../sass/client/details.scss */
-.dets span {
-  color: #aba6a6;
+.dets1 {
+  color: noir;
+}
+
+/* line 91, ../sass/client/details.scss */
+.dets1 li {
+  list-style: none;
+  padding: 4px;
 }
 
 /* line 1, ../sass/security/login.scss */

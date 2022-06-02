@@ -38,8 +38,8 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
            
-            $this->addFlash('success', 'Article Created! Knowledge is power!');
-
+            // $idUser = array_values((array)$this->getUser())[0];
+            $user = $this->getUser();
 
             return $this->redirectToRoute('app_login');
         }

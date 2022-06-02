@@ -18,14 +18,17 @@
     {% endblock %} #}
 {% block body %}
 
-
+    {% if success is defined and success !='' %}
+        <div id="message" class="    alert-success" role="alert">
+            {{success}}
+        </div>
+        {% endif %}
+        <span class="d-none">{{removeSucess}}</span>
 
     
     <body>
 
-        {# <div class="alert alert-success" role="alert">
-            <p class="alert-content"><strong>Bravo ! </strong>Votre compte a bien été créé.</p>
-        </div> #}
+      
         <div class="container-fluid" id="fluid">
             <h4 class="annoce">
                 Bienvenue au Temple du Burger !!

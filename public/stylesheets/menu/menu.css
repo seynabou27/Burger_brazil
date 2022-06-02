@@ -18,11 +18,6 @@
   color: #ffffff !important;
 }
 
-/* line 22, ../../sass/menu/menu.scss */
-.nav-item:hover {
-  border-bottom: 3px solid #FF9D19;
-}
-
 /* line 28, ../../sass/menu/menu.scss */
 .custom-toggler.navbar-toggler {
   border-color: #f7204e;

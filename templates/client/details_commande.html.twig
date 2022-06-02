@@ -11,28 +11,39 @@
 {% block login %}{% endblock %}
 
 
-
 <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
-    <div>
-        <a href="#">RETOUR VERS LISTE COMMANDES</a>
-        <h5>
-            Détails 
+    <div class="titres">
+        <a href="{{ path('mes_commandes') }}"> <i class="fa-solid fa-arrow-left"></i>  RETOUR VERS MES COMMANDES</a>
+        <h5 class="titres1" style="font-size:23px ;">
+            Détails de la commande
         </h5>
     </div>
+    
+
     <div class="contenue">
+        {% for row in paiements %}
+           
+       
+
         <div class="Debuts">
             <div class="row mt-4">
+
                 <div class="col-4">
+
                     <span>
-                        ÉTAT DE LA COMMANDE
+                        ÉTAT DE LA COMMANDE                                                                                 <br><br>
+                       
                     </span>
+                    <span class="text-success">
+                        {{row.etatcommande}}
+                      </span>
                 
-    
                 </div>
                <div class="col-4">
                    <span>
-                    RECETTE
-                    </span>
+                    RECETTE                                                                                             <br><br>
+                    </span> 
+                    {{row.montant}}
     
                 </div>
 
@@ -60,23 +71,33 @@
             <h6>INFOS PRODUIT</h6>
             <div class="row mt-4">
                 <div class="col-4">
-                   <img src="images/burger2" alt="jfugzurg">
-                
-    
+                   
+                    <img src="/images/burger2.png" alt="jfugzurg" style="width: 100%;">
+        
+                                            
                 </div>
-               <div class="col-4">
-                  <li> Nom : </li>
-                  <li> Type : </li> 
-                  <li> Prix : </li> 
-    
+               <div class="col-4 dets1" style="list-style: none; padding: 6px;">
+                   
+                <li><span>Numéro commande: {{row.numerocommande}}</span></li>
+                {% for hhh in row.burger %}
+                    <li> <span>
+                        Nom    : {{hhh.nom}}
+                {% endfor %}
+                        {% for hhh in row.menus %}
+                        Nom    : {{hhh.nom}}
+                    </span></li>
+                    {% endfor %}
+                  {# <li> <span>Type   :</span></li>  #}
+                  <li> <span>Date   : {{row.datecommande}}</span></li> 
+
                 </div>
-                <div class="col-4">
+                {# <div class="col-4">
                     <span>
-                        Nombre commandé:   2                  
+                        {# Nombre commandé:   2                   
                     </span>
                 
     
-                </div>
+                </div> #}
 
             </div>
             
@@ -86,29 +107,22 @@
 
 
         <div class="Fin">
+
+
            <h6>INFOS CLIENT</h6>
 
+           <li> <span>Téléphone  : {{row.telephonecommande}}</span></li> 
+           
+
         </div>
-            
+        {% endfor %}
+        <form action="{{path('details_commande')}}" method="post">
+            <button type="submit" name="valider" value="ok" class="btn btn-primary" style="margin-left: 24px;">Valider</button>
+        </form>
 
+  
+       
     </div>
-
-
-    {# <form method="post" action="/cart/products/GI180HB19Q162NAFAMZ-12776737/quantity/" data-var="" class="-df -i-ctr -pr -mla" data-add-cart="items" data-sku="GI180HB19Q162NAFAMZ" data-svar="GI180HB19Q162NAFAMZ-12776737" data-id="GI180HB19Q162NAFAMZ" data-name="2 1's" data-price="0.18" data-brand="Gillette" data-category="Health &amp; Beauty/Personal Care/Shave &amp; Hair Removal/Men's" data-dimension23="" data-dimension26="1" data-dimension27="1" data-dimension28="1" data-dimension37="0" data-dimension43="CP_UN120|FDYJE|INV_CLEAR|JMALL" data-dimension44="0" data-simplesku="GI180HB19Q162NAFAMZ-12776737" data-variant="" data-track-onsubmit="addToCart">
-        <button type="button" class="btn _prim _qty -paxs" aria-label="diminuer la quantité panier" data-submit="" name="action" value="de">
-            <svg viewBox="0 0 24 24" class="ic" width="24" height="24">
-                <use xlink:href="https://www.jumia.sn/assets_he/images/i-icons.edbc85eb.svg#remove">
-
-                </use>
-            </svg>
-        </button>
-        <span class="-w-32 -mas -m -fs14 -tac -lh-1">6</span>
-        <button type="button" class="btn _prim _qty -paxs" aria-label="augmenter la quantité panier" data-submit="" name="action" value="in">
-            <svg viewBox="0 0 24 24" class="ic" width="24" height="24"><use xlink:href="https://www.jumia.sn/assets_he/images/i-icons.edbc85eb.svg#add"></use>
-            </svg>
-        </button>
-        <input name="csrfToken" value="b2a7d93b0a92a218ee89299c11b70d35" type="hidden">
-    </form> #}
 
     
 
