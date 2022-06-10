@@ -211,14 +211,20 @@ class ClientController extends AbstractController
         ]);
     }
 
-    #[Route('/Liste_valider', name: 'etat_valider')]
-    public function etatsValider(CommandeRepository $commandeRepository): Response
+    #[Route('/Liste_valide', name: 'etat_valide')]
+    public function etatsValider(CommandeRepository $commandeRepository, PaginatorInterface $paginator,Request $request): Response
     {
+        $commandes = $paginator->paginate(
 
+            $valider=$commandeRepository -> findBy(['etat_commande'=>'Validée']),
+            $request->query->getInt('page', 1),
+            3
+
+        );
          
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Validée']);
+       
 
-        return $this->render('client/liste_valider.html.twig', [
+        return $this->render('client/liste_valide.html.twig', [
             'commandes' => $commandes
         ]);
     }
@@ -234,14 +240,14 @@ class ClientController extends AbstractController
             'commandes' => $commandes
         ]);
     }
-    #[Route('/Liste_Annuler', name: 'etat_annuler')]
+    #[Route('/Liste_Annule', name: 'etat_annule')]
     public function etatsAnnuler(CommandeRepository $commandeRepository): Response
     {
 
          
         $commandes = $commandeRepository -> findBy(['etat_commande'=>'Annulée']);
 
-        return $this->render('client/liste_annuler.html.twig', [
+        return $this->render('client/liste_annule.html.twig', [
             'commandes' => $commandes
         ]);
     }

@@ -7,6 +7,7 @@
 {% block body %}
 {% block gest %}{% endblock  %}
 
+   
 
 <body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
     <form action="{{path('imam')}}" method="post">
@@ -60,6 +61,7 @@
                 <table class="table table-hover table-responsive-xl">
                     <thead>
                       <tr>
+                        <th scope="col" style="text-align: center ;">Choisir</th>
                         <th scope="col" style="text-align: center ;">Numéro Commande</th>
                         <th scope="col" style="text-align: center ;">Produits</th>
                         <th scope="col" style="text-align: center ;">Téléphone</th>
@@ -73,7 +75,7 @@
                       {% for item in commandes %}
 
                       <tr>
-                        {# <th style="text-align: center ; padding: 20px;">
+                        <th style="text-align: center ; padding: 20px;">
                            {% if item.etatcommande !='Validée' %}
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
@@ -84,7 +86,7 @@
                                 </div>
                                
                            {% endif %}
-                        </th> #}
+                        </th>
 
                         <th style="text-align: center ; padding: 20px;">{{item.numerocommande}}</th>
                         <td style="text-align: center ; padding: 20px;">
@@ -97,10 +99,11 @@
                         </td>
                         <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>
                         <td style="color:#197DFF ; text-align: center ; padding: 20px;">
-                            {% if item.etatcommande == 'En cours' %}
-                            <span class="text-primary">
+                            {% if item.etatcommande == 'Validée' %}
+                            <span class="text-success">
                               {{item.etatcommande}}
                             </span>
+
                           {% endif %}
                         </td>
                         <td style="text-align: center ; padding: 20px;">
@@ -117,10 +120,10 @@
                     
                   </table>
                   {# <a href="{{path('details_commande')}}" class="payer" role="button">Payer</a> #}
-                  {# <button class="btn btn-primary" style="margin-left: 24px;">Payer</button> #}
-                  {# <div class="pagination justify-content-end" style="margin-right: 59px; margin-top:-34px;">
+                  <button class="btn btn-primary" style="margin-left: 24px;">Payer</button>
+                  <div class="pagination justify-content-end" style="margin-right: 59px; margin-top:-34px;">
                       {{ knp_pagination_render(commandes)}}
-                  </div> #}
+                  </div>
 
                 </div>
                 

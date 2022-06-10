@@ -31,7 +31,7 @@
                 <div class="col-4">
 
                     <span>
-                        ÉTAT DE LA COMMANDE                                                                                 <br><br>
+                       <b>ÉTAT DE LA COMMANDE </b>                                                                                 <br><br>
                        
                     </span>
                     <span class="text-success">
@@ -39,56 +39,41 @@
                       </span>
                 
                 </div>
-               <div class="col-4">
+               <div class="col-5">
                    <span>
-                    RECETTE                                                                                             <br><br>
+                   <b>RECETTE</b>                                                                                           <br><br>
                     </span> 
-                    {{row.montant}}
-    
-                </div>
-
-            </div>
-            <div class="row mt-4">
-                <div class="col-4">
-                    <span>
-                        
-                    </span>
-                
-    
-                </div>
-               <div class="col-4">
-                   <span>
-
-                    </span>
+                    {{row.montant}} Fcfa
     
                 </div>
 
             </div>
             
+            
         </div>
         <!--Milieux-->
         <div class="Milieux">
-            <h6>INFOS PRODUIT</h6>
+            <h6><b>INFOS PRODUIT</b></h6>
             <div class="row mt-4">
                 <div class="col-4">
                    
-                    <img src="/images/burger2.png" alt="jfugzurg" style="width: 100%;">
+                    <img src="/images/commande.jpg" alt="jfugzurg" style="width: 100%;">
         
                                             
                 </div>
-               <div class="col-4 dets1" style="list-style: none; padding: 6px;">
+               <div class="col-4 dets1" style="list-style: none; padding: 10px;">
                    
-                <li><span>Numéro commande: {{row.numerocommande}}</span></li>
+                <li><span> <b>Numéro commande:</b> {{row.numerocommande}}</span></li>
                 {% for hhh in row.burger %}
                     <li> <span>
-                        Nom    : {{hhh.nom}}
+                       <b> Nom :</b> {{hhh.nom}}
                 {% endfor %}
                         {% for hhh in row.menus %}
-                        Nom    : {{hhh.nom}}
+                       / {{hhh.nom}}
                     </span></li>
                     {% endfor %}
                   {# <li> <span>Type   :</span></li>  #}
-                  <li> <span>Date   : {{row.datecommande}}</span></li> 
+                  <li> <span><b>Date:</b> {{row.datecommande}}</span></li> 
 
                 </div>
                 {# <div class="col-4">
@@ -106,18 +91,18 @@
         <!--Milieux-->
 
 
-        <div class="Fin">
+        <div class="Fin" style="list-style:none ;">
 
 
            <h6>INFOS CLIENT</h6>
 
-           <li> <span>Téléphone  : {{row.telephonecommande}}</span></li> 
+           <li> <span><b>Téléphone: </b> {{row.telephonecommande}}</span></li> 
            
 
         </div>
         {% endfor %}
         <form action="{{path('details_commande')}}" method="post">
-            <button type="submit" name="valider" value="ok" class="btn btn-primary" style="margin-left: 24px;">Valider</button>
+            <button type="submit" name="valider" value="ok" class="btn btn-primary" style="margin-left: 24px; margin-top: 53px;">Valider</button>
         </form>
 
   
