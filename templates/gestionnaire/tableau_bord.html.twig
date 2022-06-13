@@ -164,37 +164,33 @@
                 <div class="col-md-6 left">
                     <div class="part2 mx-auto">
                         <div class="parti">
-                            <table class="table table-hover">
+                            <table class="table table-hover" >
                                 <thead>
-                                <tr>
-                                    <td>Commandes en cours du jour</td>
-                                    <td></td>
-                                    <td><i class="fas fas-add"></i>Voir plus</td>
+                                  <tr>
+                                    <th scope="col"><b>Complements les plus vendus du jour</b></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th scope="col"><a href="#"><i class="fa-solid fa-plus"></i> Voir Détail</a></a></th>
                                     
-                                </tr>
+                                  </tr>
                                 </thead>
                                 <tbody>
-                                    {% for menus in menus %}
-    
+                                    {% for complement in complement %}
+
+
                                     <tr>
-                                        <td>{{menus.nom}}</td>
-                                        
+                                        <td scope="row" style="color: #323232;"><img src="/images/fast.jpg" alt="" style="width: 50px;height: 50px;border-radius: 50%;">  {{complement.nom}} </td>
+                                        <td></td>
                                         <td></td>
                                         <td style="color:#aca1a1 ;">2 Ventes</td>
             
                                     </tr> 
                                                                     
                                     {% endfor %}
+                                  
                                 </tbody>
-                                <tfoot>
-                                    <td></td>
-                                    
-            
-                                </tfoot>
-            
-            
-                            </table>
-    
+                              </table>
+                          
                         </div>
     
                     </div>

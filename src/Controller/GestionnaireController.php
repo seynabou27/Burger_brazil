@@ -415,6 +415,8 @@ class GestionnaireController extends AbstractController
             'catalogues'=>$catalogue,
             'burgers'=>$burgers,
             'menus'=>$menus,
+            'complement'=>$complement,
+
 
         ]);
     }
