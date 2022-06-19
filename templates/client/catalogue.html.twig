@@ -71,10 +71,10 @@
             </div>
             <!--menu card-->
 
-            <div class="container filtres">
+            <div class="container filtres" js-filter>
                 <!--filtering-->
 
-                <ul class=" .food_section filters_menu">
+                <ul class=" .food_section filters_menu js-filter-form">
                     <li class="active" data-filter="*">Tout</li>
                     <li data-filter=".Menus" class="">Menus</li>
                     <li data-filter=".burger" class="">Burger</li>
@@ -84,7 +84,7 @@
                     <div class="container contenu2 mx-auto mt-4">
                         
 
-                        <div class="row cards" style=" margin-right: 48px; margin-left: 63px;" >
+                        <div class="row cards js-filter-content" style=" margin-right: 48px; margin-left: 63px;" >
                             {% for catalogues in catalogues %}
 
                                 {# {% if type is defined and type == "menu" %}

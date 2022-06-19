@@ -45,9 +45,28 @@ class GestionnaireController extends AbstractController
             'controller_name' => 'GestionnaireController',
         ]);
     }
-    #[Route('/gestionnaire', name: 'archive_produit')]
-    public function archiveProduit(): Response
+
+    //Archiver les produits
+    #[Route('/gestionnaire/archive/{id}', name: 'archive_produit')]
+    public function archiveProduit(Burger $burger,Request $request,
+                                    EntityManagerInterface $entityManager): Response
     {
+        
+            if ($burger) {
+                
+                
+                
+                $entityManager->persist($burger);
+                $entityManager->flush();           
+
+
+                $this->addFlash('success', "Archive effectué avec succès!");
+            }else {
+                $this->addFlash('success', "Deja archivé !");
+            }
+        //    return $this->redirectToRoute('tickets');
+
+
         return $this->render('gestionnaire/liste_archive_produit.html.twig', [
             'controller_name' => 'GestionnaireController',
         ]);

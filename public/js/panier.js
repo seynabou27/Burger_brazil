@@ -1,13 +1,20 @@
-const paniers = document.getElementById("panier");
+export default class Filter{
 
+   /**
+    * 
+    * @param {HTMLElement|null } element 
+    */
 
-/* paniers.addEventListener('click',()=>{
-       
-/*     addFlash('success', 'Article Created! Knowledge is power!');
- */
-    //   alert('Le produit a etait ajouter')
-    
-   
+   constructor(element) {
+      if (element ===null){
+         return
 
+      }
+      console.log('je me construis')
 
+      
+   }
+}
+
+ 
   
