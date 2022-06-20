@@ -266,7 +266,7 @@ class ClientController extends AbstractController
             'commandes' => $commandes
         ]);
     }
-    #[Route('/Liste_Annule', name: 'etat_annule')]
+    #[Route('/Liste_Annules', name: 'etat_annules')]
     public function etatsAnnuler(CommandeRepository $commandeRepository): Response
     {
 
