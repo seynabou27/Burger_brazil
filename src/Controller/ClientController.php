@@ -33,6 +33,21 @@ class ClientController extends AbstractController
         ]);
     }
 
+    #[Route('/catalogue/tout/{type}', name: 'catalogue_tout')]
+    public function catalogueTout($type, Request $request, Session $session): Response
+    {
+        $session->set('typeFood1', $request->get('type'));
+        return new JsonResponse($this->generateUrl('catalogue'));
+    }
+
+
+    #[Route('/catalogue/burger/{type}', name: 'catalogue_burger')]
+    public function catalogueBurger($type, Request $request, Session $session): Response
+    {
+        $session->set('typeFood2', $request->get('type'));
+        return new JsonResponse($this->generateUrl('catalogue'));
+    }
+
     #[Route('/catalogue/menus/{type}', name: 'catalogue_menus')]
     public function catalogueMenus($type, Request $request, Session $session): Response
     {
@@ -71,6 +86,35 @@ class ClientController extends AbstractController
             return $this->render('client/catalogue.html.twig', [
                 'role' => $role,
                 'typeSelected' => $typeFood,
+                'catalogues' => $catalogue,
+                'success' => $session->get('success'),
+                'removeSucess' => $session->remove('success'),
+            ]);
+        }
+
+        
+        if ($session->has('typeFood2')) {
+            $typeFood1 = $session->get('typeFood2');
+            if ($typeFood1 == 'burger') {
+                $catalogue = $burgers;
+            }
+            $session->remove('typeFood2');
+            return $this->render('client/catalogue.html.twig', [
+                'role' => $role,
+                'typeSelected' => $typeFood1,
+                'catalogues' => $catalogue,
+                'success' => $session->get('success'),
+                'removeSucess' => $session->remove('success'),
+            ]);
+        }
+
+        if ($session->has('typeFood1')) {
+            $typeFood1 = $session->get('typeFood1');
+            
+            $session->remove('typeFood1');
+            return $this->render('client/catalogue.html.twig', [
+                'role' => $role,
+                'typeSelected' => $typeFood1,
                 'catalogues' => $catalogue,
                 'success' => $session->get('success'),
                 'removeSucess' => $session->remove('success'),

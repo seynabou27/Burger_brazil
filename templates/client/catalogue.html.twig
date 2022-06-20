@@ -75,9 +75,26 @@
                 <!--filtering-->
 
                 <ul class=" .food_section filters_menu js-filter-form">
-                    <li class="{% if typeSelected is not defined %}active{% endif %}" data-filter="*">Tout</li>
-                    <li data-filter="{{path('catalogue_menus',{type:'menu'})}}" id="filterMenu" class="{% if typeSelected is defined %}active{% endif %}">Menus</li>
-                    <li data-filter="" id="filterBurger" class="">Burger</li>
+                    <li data-filter="{{path('catalogue_tout',{type:'tout'})}}" id="filterTout" class="
+                    {% if typeSelected is not defined %}
+                        active
+
+                    {% endif %}">
+                    Tout</li>
+                    <li data-filter="{{path('catalogue_menus',{type:'menu'})}}" id="filterMenu" class="
+                    {% if typeSelected is defined %}
+                        active
+
+                    {% endif %}">
+                    Menus</li>
+                    <li data-filter="{{path('catalogue_burger',{type:'burger'})}}" id="filterBurger" class="
+                    {% if typeSelected is defined %}
+                        active
+                        
+                    {% endif %}">
+                    Burger</li>
+
+                    {# <li data-filter="" id="filterBurger" class="">Burger</li> #}
                 </ul>
  
                 <div class="grid" style="display:flex;">
@@ -179,6 +196,9 @@
 
 <script>
     const filterMenu = document.getElementById("filterMenu");
+    const filterTout = document.getElementById("filterTout");
+    const filterBurger = document.getElementById("filterBurger");
+
     filterMenu.addEventListener("click" ,()=>{
         console.log(true);
         const path = filterMenu.getAttribute('data-filter');
@@ -195,6 +215,42 @@
                 err => console.log(err)
             )
     })
+    
+    filterTout.addEventListener("click" ,()=>{
+        console.log(true);
+        const path = filterTout.getAttribute('data-filter');
+        console.log(path);
+        fetch( path,{
+                method: 'GET',
+                headers: {
+                    'Content-type': 'Application/json'
+                }
+
+            }).then(response => response.json()).then(promesse => {
+                window.location.href = promesse;
+            }).catch(
+                err => console.log(err)
+            )
+    })
+
+    filterBurger.addEventListener("click" ,()=>{
+        console.log(true);
+        const path = filterBurger.getAttribute('data-filter');
+        console.log(path);
+        fetch( path,{
+                method: 'GET',
+                headers: {
+                    'Content-type': 'Application/json'
+                }
+
+            }).then(response => response.json()).then(promesse => {
+                window.location.href = promesse;
+            }).catch(
+                err => console.log(err)
+            )
+    })
+
+    
   
 </script>
 {% endblock %}
