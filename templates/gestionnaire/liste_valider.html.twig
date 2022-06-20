@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-6">
                         <span class="span">
-                            {# <p>4annulées</p> #}
+                            <p>Liste des commandes validées</p>
                         </span>
 
                     </div>
@@ -79,7 +79,7 @@
                         <th scope="col" style="text-align: center ;">Téléphone</th>
                         <th scope="col" style="text-align: center ;">Produits</th>
                         <th scope="col" style="text-align: center ;">Etat</th>
-                        <th scope="col" style="text-align: center ;">Prix</th>
+                        <th scope="col" style="text-align: center ;">Montant</th>
                         <th scope="col" style="text-align: center ;">Date</th>
                         <th scope="col" style="text-align: center ;">Paiement</th>
 
@@ -113,15 +113,13 @@
                             {# {{item.etatcommande}} #}
                             </td>
                             <td>
-                            {% for row in item.burger %}
-                                {{row.prix}} <br>
-                            {% endfor %}
-                            {% for row in item.menus %}
-                                {{row.prix}} <br>
-                            {% endfor %}
+                                {{item.montant}} Fcfa
                             </td>
                             <td style="text-align: center ;padding: 20px;">{{item.datecommande}}</td>
-                            <td style="text-align: center ;padding: 20px;"></td>
+                            <td style="text-align: center ;padding: 20px;">
+                                <img style="width:18px; background-color:white" src="/images/croix.jpg" alt="">
+
+                            </td>
                         </tr>
                      
                       
@@ -133,9 +131,9 @@
 
         </div>
 
-        {# <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
+        <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
           {{ knp_pagination_render(commandes)}}
-        </div> #}
+        </div>
 
     </div>
    

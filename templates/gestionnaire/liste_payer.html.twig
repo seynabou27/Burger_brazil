@@ -52,7 +52,7 @@
                     <li><a href="{{path('client_gestionnaire')}}">Tout</a></li>
                     <li><a href="{{path('etat_cours')}}">En cours</a></li>
                     <li><a href="{{path('etat_valider')}}">Validées</a></li>
-                    <li><a href="{{path('etat_payer')}}" class='active' >Payées</a></li>
+                    <li><a href="{{path('etat_payer')}}">Payées</a></li>
                     <li><a href="{{path('etat_annuler')}}">Annulées</a></li>
     
                 </ul>
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-6">
                         <span class="span">
-                            {# <p>4annulées</p> #}
+                            <p>Les commandes en cours</p>
                         </span>
 
                     </div>
@@ -79,15 +79,14 @@
                         <th scope="col" style="text-align: center ;">Téléphone</th>
                         <th scope="col" style="text-align: center ;">Produits</th>
                         <th scope="col" style="text-align: center ;">Etat</th>
-                        <th scope="col" style="text-align: center ;">Prix</th>
+                        <th scope="col" style="text-align: center ;">Montant</th>
                         <th scope="col" style="text-align: center ;">Date</th>
-                        <th scope="col" style="text-align: center ;">Paiement</th>
 
 
                       </tr>
                     </thead>
                     <tbody>
-                      {# {% for item in commandes %}
+                      {% for item in commandes %}
 
                       <tr>
                             <td style="text-align: center ; padding: 20px;">
@@ -106,26 +105,22 @@
                             <td style="text-align: center ; padding: 20px;">
                             {% if item.etatcommande == 'payer' %}
                                 <span class="text-success">
-                                    {{item.etatcommande}}
+                                {{item.etatcommande}}
                                 </span>
+
                             {% endif %}
                             
-                            {# {{item.etatcommande}}
+                            {# {{item.etatcommande}} #}
                             </td>
                             <td>
-                            {% for row in item.burger %}
-                                {{row.prix}} <br>
-                            {% endfor %}
-                            {% for row in item.menus %}
-                                {{row.prix}} <br>
-                            {% endfor %}
+                                {{item.montant}} Fcfa
                             </td>
                             <td style="text-align: center ;padding: 20px;">{{item.datecommande}}</td>
-                            <td style="text-align: center ;padding: 20px;"></td>
+                        
                         </tr>
                      
                       
-                      {% endfor %} #}
+                      {% endfor %}
                     </tbody>
                   </table>
 
@@ -133,9 +128,9 @@
 
         </div>
 
-        {# <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
+        <div class="pagination justify-content-end" style="margin-right: 59px;">
           {{ knp_pagination_render(commandes)}}
-        </div> #}
+        </div>
 
     </div>
    

@@ -167,11 +167,16 @@ class GestionnaireController extends AbstractController
     }
 
     #[Route('/Liste_valider', name: 'etat_valider')]
-    public function etatsValider(CommandeRepository $commandeRepository): Response
+    public function etatsValider(CommandeRepository $commandeRepository,PaginatorInterface $paginator, Request $request): Response
     {
+        $commandes = $paginator->paginate(
 
+            $commandes = $commandeRepository -> findBy(['etat_commande'=>'Validée']),
+            $request->query->getInt('page', 1),
+            2
+
+        );
          
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Validée']);
 
         return $this->render('gestionnaire/liste_valider.html.twig', [
             'commandes' => $commandes
@@ -191,12 +196,17 @@ class GestionnaireController extends AbstractController
     }
 
     #[Route('/Liste_payer', name: 'etat_payer')]
-    public function etatsPayer(CommandeRepository $commandeRepository): Response
+    public function etatsPayer(CommandeRepository $commandeRepository,PaginatorInterface $paginator, Request $request): Response
     {
+        $commandes = $paginator->paginate(
+
+            $commandes = $commandeRepository -> findBy(['etat_commande'=>'payer']),
+            $request->query->getInt('page', 1),
+            2
+
+        );
 
          
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Annulée']);
-
         return $this->render('gestionnaire/liste_payer.html.twig', [
             'commandes' => $commandes
         ]);
