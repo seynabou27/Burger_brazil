@@ -49,7 +49,7 @@
             
                 <div class="">
                     <span class="span">
-                        <p>2 Produits</p>
+                        <p>Liste des complements</p>
                     </span>
                 </div>
                 
@@ -74,7 +74,7 @@
                 {% for complement in complement %}
                 {% for image in complement.images %}
 
-                <div class=" col col-md-4">
+                <div class=" col col-md-4 mt-4">
                     <div class="card" style="width: 300px;  display:flex ;">
                         <img src="{{'/images/' ~ image.nom}}" class="card-img-top" alt="...">
                         <div class="card-body">

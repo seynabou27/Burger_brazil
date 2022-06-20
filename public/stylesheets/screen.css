@@ -789,17 +789,15 @@ li.nav-item.dropdown.three {
 /* line 20, ../sass/commande/tableau_bord.scss */
 .part1 {
   background-color: #EDEDED;
-  height: 341px;
 }
 
 /* line 27, ../sass/commande/tableau_bord.scss */
 .part2 {
   background-color: white;
-  height: 375px;
 }
 
 @media screen and (max-width: 760px) {
-  /* line 32, ../sass/commande/tableau_bord.scss */
+  /* line 31, ../sass/commande/tableau_bord.scss */
   .title h5 {
     font: normal normal 300 32px/44px Avenir;
     letter-spacing: 0px;
@@ -811,7 +809,7 @@ li.nav-item.dropdown.three {
     margin-left: 64px;
   }
 
-  /* line 43, ../sass/commande/tableau_bord.scss */
+  /* line 42, ../sass/commande/tableau_bord.scss */
   .left {
     margin-top: 17px;
   }

@@ -38,28 +38,66 @@ class GestionnaireController extends AbstractController
         ]);
     }
 
-    #[Route('/gestionnaire/liste_archiveMenu', name: 'archive_menu')]
+    
     #[Route('/gestionnaire/liste_archiveBurger', name: 'archive_burger')]
-    #[Route('/gestionnaire/liste_archiveComplement', name: 'archive_complement')]
-    public function archiveCommande(BurgerRepository $burger ,MenusRepository $menu,ComplementRepository $complement ,PaginatorInterface $paginator, Request $request): Response
+    public function archiveBurger(BurgerRepository $burger ,MenusRepository $menu,ComplementRepository $complement ,PaginatorInterface $paginator, Request $request): Response
 
     {
-        // $burger = $paginator->paginate(
-        //     $burger->findBy(['etat' => 'archiver']),
-        //     $request->query->getInt('page',1),
-        //     2
-        //     );
+        $burger = $paginator->paginate(
+            $burger->findBy(['etat' => 'archiver']),
+            $request->query->getInt('page',1),
+            2
+            );
 
-        $burger->findBy(['etat' => 'archiver']);
-        $menu->findBy(['etat' => 'archiver']);
-        $complement->findBy(['etat' => 'archiver']);
+        
+
+
+
+        return $this->render('gestionnaire/archive_burger.html.twig', [
+            'burger'=>$burger,
+        ]);
+    }
+
+    //archive menu
+    #[Route('/gestionnaire/liste_archiveMenu', name: 'archive_menu')]
+    public function archiveMenu(BurgerRepository $burger ,MenusRepository $menu,ComplementRepository $complement ,PaginatorInterface $paginator, Request $request): Response
+
+    {
+        $menu = $paginator->paginate(
+            $menu->findBy(['etat' => 'archiver']),
+            $request->query->getInt('page',1),
+            2
+            );
+
 
 
 
         return $this->render('gestionnaire/liste_archive_produit.html.twig', [
-            'burger'=>$burger,
+            'menu'=>$menu,
         ]);
     }
+
+    //archive complement
+    #[Route('/gestionnaire/liste_archiveComplement', name: 'archive_complement')]
+    public function archiveComplement(BurgerRepository $burger ,MenusRepository $menu,ComplementRepository $complement ,PaginatorInterface $paginator, Request $request): Response
+
+    {
+        $complement = $paginator->paginate(
+            $complement->findBy(['etat' => 'archiver']),
+            $request->query->getInt('page',1),
+            2
+            );
+
+        
+
+
+
+        return $this->render('gestionnaire/archive_complement.html.twig', [
+            'complement'=>$complement,
+        ]);
+    }
+
+
 
 
     #[Route('/gestionnaire/archiveBurger/{id}', name: 'archiver_burger')]
@@ -517,7 +555,7 @@ class GestionnaireController extends AbstractController
          $produit =   array_merge($burger,$menus , $complement);
         //  dd($produit);
             
-        // $ingredients = $paginator->paginate(
+        // $produit = $paginator->paginate(
         //     $repository->findBy(['user' => $this->getUser()]),
         //     $request->query->getInt('page', 1),
         //     10
