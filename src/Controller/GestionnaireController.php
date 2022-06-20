@@ -47,26 +47,47 @@ class GestionnaireController extends AbstractController
     }
 
     //Archiver les produits
-    #[Route('/gestionnaire/archive/{id}', name: 'archive_produit')]
-    public function archiveProduit(Burger $burger,Request $request,
-                                    EntityManagerInterface $entityManager): Response
+    //     #[Route('/archiver/{id}', name: 'archiver_burger')]
+    //     public function archive(Burger $burger, EntityManagerInterface $manager):Response{
+    //         $burger ->setEtat('archiver');
+    //         $manager->flush();
+    //         return $this->redirectToRoute("liste_archiver");  
+    // }
+
+    // #[Route('/dess/{id}', name: 'desarchiver_burger')]
+    // public function desarchive(Burger $burger, EntityManagerInterface $manager):Response{
+    //     $burger ->setEtat('en cours');
+    //     $manager->flush();
+    //     return $this->redirectToRoute("list_burger");  
+
+    // }  
+
+
+    // #[Route('/listarchiver', name: 'liste_archiver')]
+    // public function archiver(BurgerRepository $repo , PaginatorInterface $paginatorInterface , Request $request): Response
+    // {
+    //     $burgers = $paginatorInterface->paginate(
+    //         $repo->findBy(['etat' => 'archiver']),
+    //         $request->query->getInt('page',1),
+    //         2
+    //     );
+    //     return $this->render('burger/archiver.html.twig',[
+    //       "burgers"=> $burgers
+    //     ]);
+    // }
+
+    #[Route('/gestionnaire/archive/{id}', name: 'archiver_burger')]
+    public function archiveProduit(BurgerRepository $burger,Request $request,
+                                    EntityManagerInterface $manager,): Response
     {
         
-            if ($burger) {
-                
-                
-                
-                $entityManager->persist($burger);
-                $entityManager->flush();           
+        $burger ->setEtat('archiver');
+        $manager->flush();
 
-
-                $this->addFlash('success', "Archive effectué avec succès!");
-            }else {
-                $this->addFlash('success', "Deja archivé !");
-            }
-        //    return $this->redirectToRoute('tickets');
-
-
+        $this->addFlash('success', "Archive effectué avec succès!");
+           
+        // $this->addFlash('success', "Deja archivé !");
+            
         return $this->render('gestionnaire/liste_archive_produit.html.twig', [
             'controller_name' => 'GestionnaireController',
         ]);
