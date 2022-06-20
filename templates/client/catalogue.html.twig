@@ -85,13 +85,16 @@
                     {% if typeSelected is defined %}
                         active
 
-                    {% endif %}">
+                    {% endif %} {% if typeSelected is  defined %}
+                    active
+
+                {% endif %}">
                     Menus</li>
                     <li data-filter="{{path('catalogue_burger',{type:'burger'})}}" id="filterBurger" class="
-                    {% if typeSelected is defined %}
-                        active
-                        
-                    {% endif %}">
+                {% if typeSelected is  defined %}
+                    active
+
+                {% endif %}" >
                     Burger</li>
 
                     {# <li data-filter="" id="filterBurger" class="">Burger</li> #}
