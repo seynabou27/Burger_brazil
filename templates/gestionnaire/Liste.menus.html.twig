@@ -42,8 +42,7 @@
                     <li><a href="{{path('liste_menus')}}">Menus</a></li>
                     <li><a href="{{path('liste_burgers')}}">Burgers</a></li>
                     <li><a href="{{path('liste_complement')}}">Complements</a></li>
-                    <li><a href="{{path('archive_commande')}}">Archive</a></li>
-    
+     
                 </ul>
 
             </div>
@@ -83,7 +82,7 @@
                             <h5 class="card-title">{{menus.nom}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Menu .  {{menus.prix}} Fcfa</h6>
                             {# <a href="{{path('archiver_burger',{'id':burger.id})}}" class="btn" style="color: #ffbe33; background-color: white;">Archiver</a> #}
-                            <a class="panier" href="{{path('archiver_burger',{'id':menus.id})}}" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
+                            <a class="panier" href="{{path('archiver_menu',{'id':menus.id})}}" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
 
                             <a href="{{path('editer_menu',{'id':menus.id})}}" class="btn details " style="margin-left: 73px;"><i class="fa-solid fa-pen-to-square"></i></i> Modifier</a>         
 

@@ -79,7 +79,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{burger.nom}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Menu .  {{burger.prix}} Fcfa</h6>
-                                    <a class="panier" href="#" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
+                                    <a class="panier" href="{{path('archiver_burger',{'id':burger.id})}}" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
 
                                     <a href="{{path('editer_produit',{'id':burger.id})}}" class="btn details " style="margin-left: 73px;"><i class="fa-solid fa-pen-to-square"></i></i> Modifier</a>         
 

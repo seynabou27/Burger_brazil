@@ -20,6 +20,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ClientController extends AbstractController
 {
@@ -30,6 +32,14 @@ class ClientController extends AbstractController
             'controller_name' => 'ClientController',
         ]);
     }
+
+    #[Route('/catalogue/menus/{type}', name: 'catalogue_menus')]
+    public function catalogueMenus($type, Request $request, Session $session): Response
+    {
+        $session->set('typeFood', $request->get('type'));
+        return new JsonResponse($this->generateUrl('catalogue'));
+    }
+    
 
     #[Route('/', name: 'catalogue')]
     public function catalogue(
@@ -52,16 +62,29 @@ class ClientController extends AbstractController
         $catalogue = array_merge($menus, $burgers);
 
         $session = $request->getSession();
+        if ($session->has('typeFood')) {
+            $typeFood = $session->get('typeFood');
+            if ($typeFood == 'menu') {
+                $catalogue = $menus;
+            }
+            $session->remove('typeFood');
+            return $this->render('client/catalogue.html.twig', [
+                'role' => $role,
+                'typeSelected' => $typeFood,
+                'catalogues' => $catalogue,
+                'success' => $session->get('success'),
+                'removeSucess' => $session->remove('success'),
+            ]);
+        }
 
+        
+        
 
         return $this->render('client/catalogue.html.twig', [
             'role' => $role,
             'catalogues' => $catalogue,
             'success' => $session->get('success'),
             'removeSucess' => $session->remove('success'),
-
-
-
         ]);
     }
     //Detail des commandes
@@ -71,7 +94,7 @@ class ClientController extends AbstractController
         BurgerRepository $repoBurger,
         ComplementRepository $repoComplet,
         MenusRepository $repoMenu
-        ): Response {
+    ): Response {
 
         $burgers = $repoBurger->findBy(['etat' => 'non_archiver']);
         $complement = $repoComplet->findBy(['etat' => 'non_archiver']);
@@ -102,7 +125,7 @@ class ClientController extends AbstractController
         EntityManagerInterface $manager,
         MenusRepository $repoMenu,
         CommandeRepository $commandeRepo
-        ): Response {
+    ): Response {
 
         $session = $request->getSession();
         //dd($session->get("paiements"));
@@ -110,8 +133,11 @@ class ClientController extends AbstractController
         $method = $request->getMethod();
         if ($method == 'POST') {
             foreach ($payer as $value) {
-                $paiements[] = $commandeRepo->find($value);
+                $oneCommande = $commandeRepo->find($value);
+                $oneCommande->setEtatCommande('payer');
+                $paiements[] = $oneCommande;
             }
+           
             foreach ($paiements as $val) {
                 $commandeValider[] = [
                     'paiement' => $paiementrepo->find($val->getPaiements()),
@@ -119,6 +145,7 @@ class ClientController extends AbstractController
 
                 ];
             }
+          //  dd($commandeValider);
             // dd($val1);
             foreach ($commandeValider as $val1) {
                 $val1['paiement']->setMontant($val1['montant']);
@@ -127,7 +154,6 @@ class ClientController extends AbstractController
             }
             return $this->redirectToRoute('mes_commandes');
         }
-        
     }
 
     #[Route('/mes_commandes', name: 'mes_commandes')]
@@ -176,7 +202,7 @@ class ClientController extends AbstractController
             }
             // dd($paiements);
 
-           
+
             // dd($paiements);
 
             $session = $request->getSession();
@@ -212,17 +238,17 @@ class ClientController extends AbstractController
     }
 
     #[Route('/Liste_valide', name: 'etat_valide')]
-    public function etatsValider(CommandeRepository $commandeRepository, PaginatorInterface $paginator,Request $request): Response
+    public function etatsValider(CommandeRepository $commandeRepository, PaginatorInterface $paginator, Request $request): Response
     {
         $commandes = $paginator->paginate(
 
-            $valider=$commandeRepository -> findBy(['etat_commande'=>'Validée']),
+            $valider = $commandeRepository->findBy(['etat_commande' => 'Validée']),
             $request->query->getInt('page', 1),
             3
 
         );
-         
-       
+
+
 
         return $this->render('client/liste_valide.html.twig', [
             'commandes' => $commandes
@@ -233,8 +259,8 @@ class ClientController extends AbstractController
     public function etatsEncours(CommandeRepository $commandeRepository): Response
     {
 
-         
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'En cours']);
+
+        $commandes = $commandeRepository->findBy(['etat_commande' => 'En cours']);
 
         return $this->render('client/liste_encours.html.twig', [
             'commandes' => $commandes
@@ -244,8 +270,8 @@ class ClientController extends AbstractController
     public function etatsAnnuler(CommandeRepository $commandeRepository): Response
     {
 
-         
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Annulée']);
+
+        $commandes = $commandeRepository->findBy(['etat_commande' => 'Annulée']);
 
         return $this->render('client/liste_annule.html.twig', [
             'commandes' => $commandes
@@ -256,12 +282,11 @@ class ClientController extends AbstractController
     public function etatspayer(CommandeRepository $commandeRepository): Response
     {
 
-         
-        $commandes = $commandeRepository -> findBy(['etat_commande'=>'Payer']);
+
+        $commandes = $commandeRepository->findBy(['etat_commande' => 'Payer']);
 
         return $this->render('client/liste_payer.html.twig', [
             'commandes' => $commandes
         ]);
     }
-
 }

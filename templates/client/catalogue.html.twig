@@ -75,9 +75,9 @@
                 <!--filtering-->
 
                 <ul class=" .food_section filters_menu js-filter-form">
-                    <li class="active" data-filter="*">Tout</li>
-                    <li data-filter=".Menus" class="">Menus</li>
-                    <li data-filter=".burger" class="">Burger</li>
+                    <li class="{% if typeSelected is not defined %}active{% endif %}" data-filter="*">Tout</li>
+                    <li data-filter="{{path('catalogue_menus',{type:'menu'})}}" id="filterMenu" class="{% if typeSelected is defined %}active{% endif %}">Menus</li>
+                    <li data-filter="" id="filterBurger" class="">Burger</li>
                 </ul>
  
                 <div class="grid" style="display:flex;">
@@ -177,7 +177,27 @@
     </body>
 
 
+<script>
+    const filterMenu = document.getElementById("filterMenu");
+    filterMenu.addEventListener("click" ,()=>{
+        console.log(true);
+        const path = filterMenu.getAttribute('data-filter');
+        console.log(path);
+        fetch( path,{
+                method: 'GET',
+                headers: {
+                    'Content-type': 'Application/json'
+                }
 
+            }).then(response => response.json()).then(promesse => {
+                window.location.href = promesse;
+            }).catch(
+                err => console.log(err)
+            )
+    })
+  
+</script>
 {% endblock %}
+
 
 

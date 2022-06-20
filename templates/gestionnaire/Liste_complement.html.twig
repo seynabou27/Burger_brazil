@@ -80,7 +80,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{complement.nom}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Menu .  {{complement.prix}} Fcfa</h6>
-                            <a class="panier" href="#" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
+                            <a class="panier" href="{{path('archiver_complement',{'id':complement.id})}}" style="color: #FF9D19 ;"><i class="fa-solid fa-box-archive"></i>Archiver</a>
 
                             <a href="{{path('editer_complement',{'id':complement.id})}}" class="btn details " style="margin-left: 73px;"><i class="fa-solid fa-pen-to-square"></i></i> Modifier</a>         
 

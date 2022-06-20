@@ -70,26 +70,50 @@ class GestionnaireController extends AbstractController
     // }  
 
 
-    #[Route('/gestionnaire/archive/{id}', name: 'archiver_burger')]
-    public function archiveProduit(BurgerRepository $burger,Request $request,
+    #[Route('/gestionnaire/archiveBurger/{id}', name: 'archiver_burger')]
+    #[Route('/gestionnaire/archiveMenu/{id}', name: 'archiver_menu')]
+    #[Route('/gestionnaire/archiveComplement/{id}', name: 'archiver_complement')]
+    public function archiveProduit(BurgerRepository $burgerRepository, MenusRepository $menusRepository,
+                                    ComplementRepository $complementRepository,
+                                    Request $request,
                                     EntityManagerInterface $manager,): Response
     {
         $session = $request ->getSession();
 
+        $id = $request->attributes->get('id');
         $action = $request->attributes->get('_route');
-
+       // dd($action);
+        if ($action == 'archiver_burger') {
+            $burger = $burgerRepository->find($id);
             $burger->setEtat('Archiver');
-            dd($burger);
+            $manager->persist($burger);
+            $manager->flush();
+            return $this->redirectToRoute("liste_burgers");  
+        }else if ($action == 'archiver_menu') {
+            $menu = $menusRepository->find($id);
+        //    dd($menu);
+            $menu->setEtat('Archiver');
+            $manager->persist($menu);
+            $manager->flush();
+            return $this->redirectToRoute("liste_menus");  
+        }else{
+            $complement = $complementRepository->find($id);
+            $complement->setEtat('Archiver');
+            $manager->persist($complement);
+            $manager->flush();
+            return $this->redirectToRoute("liste_complement");  
+        }
+       
        
 
-        $manager->flush();
+       
     
 
         // $this->addFlash('success', "Archive effectué avec succès!");
            
         // $this->addFlash('success', "Deja archivé !");
             
-        return $this->redirectToRoute("liste_archive_produit");  
+        return $this->redirectToRoute("produit");  
 
     }
 
@@ -189,7 +213,7 @@ class GestionnaireController extends AbstractController
     {
 
          //liste burger
-         $burger = $repoburger -> findAll();
+         $burger = $repoburger -> findBy(['etat' => 'non_archiver']);
 
         return $this->render('gestionnaire/Liste_burgers.html.twig', [
             'burger' => $burger
@@ -203,7 +227,7 @@ class GestionnaireController extends AbstractController
        
 
         //liste menu
-        $menus = $repoMenu -> findAll();
+        $menus = $repoMenu ->  findBy(['etat' => 'non_archiver']);
         return $this->render('gestionnaire/Liste.menus.html.twig', [
             
             'menus'=> $menus
@@ -217,7 +241,7 @@ class GestionnaireController extends AbstractController
         
         
         //liste complement
-        $complement = $repoComplet ->findAll();
+        $complement = $repoComplet -> findBy(['etat' => 'non_archiver']);
         return $this->render('gestionnaire/Liste_complement.html.twig', [
             'complement'=> $complement
         ]);
@@ -479,13 +503,13 @@ class GestionnaireController extends AbstractController
 
         
         //liste burger
-        $burger = $repoburger -> findAll();
+        $burger = $repoburger ->  findBy(['etat' => 'non_archiver']);
 
         //liste menu
-        $menus = $repoMenu -> findAll();
+        $menus = $repoMenu ->  findBy(['etat' => 'non_archiver']);
         
         //liste complement
-        $complement = $repoComplet ->findAll();
+        $complement = $repoComplet -> findBy(['etat' => 'non_archiver']);
 
         //pagination des produits
          $produit =   array_merge($burger,$menus , $complement);
