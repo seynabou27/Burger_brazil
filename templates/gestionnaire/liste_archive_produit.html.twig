@@ -1,11 +1,19 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes commandes{% endblock %}
+{% block title %}Archives{% endblock %}
 
+{# {% block client %}{% endblock  %}
+{% block panier %}{% endblock  %}
+
+ #}
+ {% block client %}{% endblock  %}
+ {% block panier %}{% endblock  %}
+
+
+ {# {% block gest %}{{ parent() }}{% endblock  %} #}
 
 {% block body %}
-{% block gest %}{% endblock  %}
 
     {# {% if success is defined and success !='' %}
     <div id="message" class="    alert-success" role="alert">
@@ -40,7 +48,12 @@
         <div class="menu1">
             <div class="partie1">
                 <ul>
-                    <li><a href="{{path('etat_encours')}}">Tout</a></li>
+                    <li><a href="{{path('archive_menu')}}">Menus</a></li>
+                    <li><a href="{{path('archive_burger')}}">Burgers</a></li>
+                    <li><a href="{{path('archive_complement')}}">Complments</a></li>
+
+                    
+
                    
     
                 </ul>
@@ -68,9 +81,10 @@
                         <th scope="col" style="text-align: center ;">Numéro Commande</th>
                         <th scope="col" style="text-align: center ;">Produits</th>
                         <th scope="col" style="text-align: center ;">Téléphone</th>
-                        <th scope="col" style="text-align: center ;">Etat</th>
                         <th scope="col" style="text-align: center ;">Montant</th>
                         <th scope="col" style="text-align: center ;">Date</th>
+                        <th scope="col" style="text-align: center ;">Etat</th>
+
 
                       </tr>
                     </thead>
@@ -89,6 +103,12 @@
                             {% endfor %}
                         </td>
                         <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>
+                        <td style="text-align: center ; padding: 20px;">
+                            {{item.montant}} Fcfa
+                        </td>
+                        
+                        <td>{{item.datecommande}}</td>
+
                         <td style="color:#197DFF ; text-align: center ; padding: 20px;">
                             {% if item.etatcommande == 'En cours' %}
                             <span class="text-primary">
@@ -105,12 +125,7 @@
 
                           {% endif %}
                         </td>
-                        <td style="text-align: center ; padding: 20px;">
-                            {{item.montant}} Fcfa
-                        </td>
-                        
-                        <td>{{item.datecommande}}</td>
-
+                       
 
                       </tr>
                     </tbody>

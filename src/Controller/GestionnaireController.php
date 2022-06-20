@@ -38,36 +38,28 @@ class GestionnaireController extends AbstractController
         ]);
     }
 
-
-    #[Route('/gestionnaire/liste_archive', name: 'archive_commande')]
-    public function archiveCommande(BurgerRepository $burger ,PaginatorInterface $paginator, Request $request): Response
+    #[Route('/gestionnaire/liste_archiveMenu', name: 'archive_menu')]
+    #[Route('/gestionnaire/liste_archiveBurger', name: 'archive_burger')]
+    #[Route('/gestionnaire/liste_archiveComplement', name: 'archive_complement')]
+    public function archiveCommande(BurgerRepository $burger ,MenusRepository $menu,ComplementRepository $complement ,PaginatorInterface $paginator, Request $request): Response
 
     {
-        $burger = $paginator->paginate(
-            $burger->findBy(['etat' => 'archiver']),
-            $request->query->getInt('page',1),
-            2
-            );
+        // $burger = $paginator->paginate(
+        //     $burger->findBy(['etat' => 'archiver']),
+        //     $request->query->getInt('page',1),
+        //     2
+        //     );
+
+        $burger->findBy(['etat' => 'archiver']);
+        $menu->findBy(['etat' => 'archiver']);
+        $complement->findBy(['etat' => 'archiver']);
+
+
+
         return $this->render('gestionnaire/liste_archive_produit.html.twig', [
             'burger'=>$burger,
         ]);
     }
-
-    //Archiver les produits
-    //     #[Route('/archiver/{id}', name: 'archiver_burger')]
-    //     public function archive(Burger $burger, EntityManagerInterface $manager):Response{
-    //         $burger ->setEtat('archiver');
-    //         $manager->flush();
-    //         return $this->redirectToRoute("liste_archiver");  
-    // }
-
-    // #[Route('/dess/{id}', name: 'desarchiver_burger')]
-    // public function desarchive(Burger $burger, EntityManagerInterface $manager):Response{
-    //     $burger ->setEtat('en cours');
-    //     $manager->flush();
-    //     return $this->redirectToRoute("list_burger");  
-
-    // }  
 
 
     #[Route('/gestionnaire/archiveBurger/{id}', name: 'archiver_burger')]

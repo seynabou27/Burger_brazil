@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Liste{% endblock %}
 
 {% block client %}{% endblock  %}
 {% block panier %}{% endblock  %}
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-6">
                         <span class="span">
-                            <p>Les commandes en cours</p>
+                            <p>Les commandes payées</p>
                         </span>
 
                     </div>
@@ -128,9 +128,9 @@
 
         </div>
 
-        <div class="pagination justify-content-end" style="margin-right: 59px;">
-          {{ knp_pagination_render(commandes)}}
-        </div>
+        <div class="pagination justify-content-end" style="margin-right: 59px; color:chartreuse;">
+            {{ knp_pagination_render(commandes)}}
+          </div>
 
     </div>
    
