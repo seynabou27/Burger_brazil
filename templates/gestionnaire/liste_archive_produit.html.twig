@@ -1,0 +1,145 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+
+{% block body %}
+{% block gest %}{% endblock  %}
+
+    {# {% if success is defined and success !='' %}
+    <div id="message" class="    alert-success" role="alert">
+        {{success}}
+    </div>
+    {% endif %}
+    <span class="d-none">{{removeSucess}}</span> #}
+
+
+<body style="background-color: #F7F7F7; justify-content:center;align-items:center;">
+    <form action="{{path('imam')}}" method="post">
+
+        <div class="titre">
+            <div class="row" style="width:100%;">
+                <div class="col-6 titre1 ">
+                    <h4><b>Les Archives</b></h4>
+
+
+                </div>
+                {# <div class="col-6 titre2">
+                    <button type="button" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off"><i class="fa-solid fa-plus"></i>
+                        NOUVELLE COMMANDE                      
+                    </button>
+
+
+                </div> #}
+            </div>
+
+        </div>
+
+    <div class="container contenu">
+        <div class="menu1">
+            <div class="partie1">
+                <ul>
+                    <li><a href="{{path('etat_encours')}}">Tout</a></li>
+                   
+    
+                </ul>
+
+            </div>
+            <div class="partie2">
+                <div class="row">
+                    <div class="col-6">
+                            <span class="span">
+                                <p>Archives des burgers</p>
+                            </span>
+
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+
+                </div>                
+
+            </div>
+                <div class="partie3">
+                <table class="table table-hover table-responsive-xl">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="text-align: center ;">Numéro Commande</th>
+                        <th scope="col" style="text-align: center ;">Produits</th>
+                        <th scope="col" style="text-align: center ;">Téléphone</th>
+                        <th scope="col" style="text-align: center ;">Etat</th>
+                        <th scope="col" style="text-align: center ;">Montant</th>
+                        <th scope="col" style="text-align: center ;">Date</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for item in burger %}
+
+                      <tr>
+                        
+                        <th style="text-align: center ; padding: 20px;">{{item.numerocommande}}</th>
+                        <td style="text-align: center ; padding: 20px;">
+                            {% for row in item.burger %}
+                                {{row.nom}}
+                            {% endfor %}
+                            {% for row in item.menus %}
+                            {{row.nom}}
+                            {% endfor %}
+                        </td>
+                        <td style="text-align: center ; padding: 20px;">{{item.telephonecommande}}</td>
+                        <td style="color:#197DFF ; text-align: center ; padding: 20px;">
+                            {% if item.etatcommande == 'En cours' %}
+                            <span class="text-primary">
+                              {{item.etatcommande}}
+                            </span>
+                            {% elseif item.etatcommande == 'Validée' %}
+                              <span class="text-success">
+                                {{item.etatcommande}}
+                              </span>
+                              {% elseif item.etatcommande == 'Annulée'%}
+                                <span class="text-danger">
+                                  {{item.etatcommande}}
+                                </span>
+
+                          {% endif %}
+                        </td>
+                        <td style="text-align: center ; padding: 20px;">
+                            {{item.montant}} Fcfa
+                        </td>
+                        
+                        <td>{{item.datecommande}}</td>
+
+
+                      </tr>
+                    </tbody>
+                    {% endfor %}
+
+                    
+                  </table>
+                  {# <a href="{{path('details_commande')}}" class="payer" role="button">Payer</a> #}
+                  {# <button class="btn btn-primary" style="margin-left: 24px;">Payer</button> #}
+                  {# <div class="pagination justify-content-end" style="margin-right: 59px; margin-top:-34px;">
+                      {{ knp_pagination_render(commandes)}}
+                  </div> #}
+
+                </div>
+                
+                    
+        
+                
+
+        </div>
+        
+       
+
+    </div>
+    </form>
+
+
+
+
+</body>
+
+{% endblock body %}

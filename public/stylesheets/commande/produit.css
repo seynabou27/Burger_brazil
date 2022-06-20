@@ -29,7 +29,7 @@
 /* line 32, ../../sass/commande/produit.scss */
 .menu_produit li {
   float: left;
-  width: 8%;
+  width: 11%;
   /*100% divisé par le nombre d'éléments de menu*/
   text-align: center;
   /*Centre le texte dans les éléments de menu*/

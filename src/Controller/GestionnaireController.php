@@ -38,11 +38,18 @@ class GestionnaireController extends AbstractController
         ]);
     }
 
-    #[Route('/gestionnaire', name: 'archive_commande')]
-    public function archiveCommande(): Response
+
+    #[Route('/gestionnaire/liste_archive', name: 'archive_commande')]
+    public function archiveCommande(BurgerRepository $burger ,PaginatorInterface $paginator, Request $request): Response
+
     {
-        return $this->render('gestionnaire/liste_archive_commande.html.twig', [
-            'controller_name' => 'GestionnaireController',
+        $burger = $paginator->paginate(
+            $burger->findBy(['etat' => 'archiver']),
+            $request->query->getInt('page',1),
+            2
+            );
+        return $this->render('gestionnaire/liste_archive_produit.html.twig', [
+            'burger'=>$burger,
         ]);
     }
 
@@ -63,35 +70,29 @@ class GestionnaireController extends AbstractController
     // }  
 
 
-    // #[Route('/listarchiver', name: 'liste_archiver')]
-    // public function archiver(BurgerRepository $repo , PaginatorInterface $paginatorInterface , Request $request): Response
-    // {
-    //     $burgers = $paginatorInterface->paginate(
-    //         $repo->findBy(['etat' => 'archiver']),
-    //         $request->query->getInt('page',1),
-    //         2
-    //     );
-    //     return $this->render('burger/archiver.html.twig',[
-    //       "burgers"=> $burgers
-    //     ]);
-    // }
-
     #[Route('/gestionnaire/archive/{id}', name: 'archiver_burger')]
     public function archiveProduit(BurgerRepository $burger,Request $request,
                                     EntityManagerInterface $manager,): Response
     {
-        
-        $burger ->setEtat('archiver');
-        $manager->flush();
+        $session = $request ->getSession();
 
-        $this->addFlash('success', "Archive effectué avec succès!");
+        $action = $request->attributes->get('_route');
+
+            $burger->setEtat('Archiver');
+            dd($burger);
+       
+
+        $manager->flush();
+    
+
+        // $this->addFlash('success', "Archive effectué avec succès!");
            
         // $this->addFlash('success', "Deja archivé !");
             
-        return $this->render('gestionnaire/liste_archive_produit.html.twig', [
-            'controller_name' => 'GestionnaireController',
-        ]);
+        return $this->redirectToRoute("liste_archive_produit");  
+
     }
+
 
     #[Route('/gestionnaire/valider/{id}', name: 'valider_commande')]
     #[Route('/gestionnaire/annuler/{id}', name: 'annuler_commande')]
@@ -243,7 +244,6 @@ class GestionnaireController extends AbstractController
 
         );
         $burgers = $repoBurger -> findBy(['etat'=>'En cours']);
-
 
                 
         return $this->render('gestionnaire/liste_commandes_client.html.twig', [
